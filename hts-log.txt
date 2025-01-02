@@ -1,0 +1,34 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 01 Jan 2025 20:06:13 at https://gharpayy.com +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://gharpayy.com -O1 "C:\My Web Sites\gharpayy" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+20:06:26	Error: 	"Not Found" (404) at link https://gharpayy.com/img/logo/gharpayy_logo2.wpng (from https://gharpayy.com/)
+20:06:55	Error: 	"Bad Request" (400) at link https://www.googletagmanager.com/gtm.js?id= (from https://gharpayy.com/about.html)
+20:06:55	Error: 	"Not Found" (404) at link https://gharpayy.com/gurugram/img/logo/gharpayy_logo2.wpng (from https://gharpayy.com/gurugram/index.html)
+20:07:09	Error: 	"Not Found" (404) at link https://gharpayy.com/gurugram/img/silder_images/gurugram_gharpayy/19.jpeg (from https://gharpayy.com/gurugram/index.html)
+20:07:10	Error: 	"Not Found" (404) at link https://gharpayy.com/Version/ (from https://gharpayy.com/js/greensock.js)
+20:07:10	Error: 	"Not Found" (404) at link https://gharpayy.com/5T/dJ/ (from https://gharpayy.com/js/layerslider.kreaturamedia.jquery.js)
+20:07:10	Error: 	"Not Found" (404) at link https://gharpayy.com/nZ/ (from https://gharpayy.com/js/layerslider.kreaturamedia.jquery.js)
+20:07:10	Warning: 	Retry after error -5 (Unable to get server's address: No such host is known. ) at link f.p2.5b/js/p3.ak.js (from https://gharpayy.com/js/layerslider.kreaturamedia.jquery.js)
+20:07:10	Error: 	"Not Found" (404) at link https://gharpayy.com/4B/ (from https://gharpayy.com/js/layerslider.kreaturamedia.jquery.js)
+20:07:10	Error: 	"Not Found" (404) at link https://gharpayy.com/8Q:// (from https://gharpayy.com/js/layerslider.kreaturamedia.jquery.js)
+20:07:10	Error: 	"Not Found" (404) at link https://gharpayy.com/2L/ (from https://gharpayy.com/js/layerslider.kreaturamedia.jquery.js)
+20:07:10	Error: 	"Not Found" (404) at link https://gharpayy.com/pY pZ hv q0 @ 8Q://5T.iO.5B/ (from https://gharpayy.com/js/layerslider.kreaturamedia.jquery.js)
+20:07:10	Error: 	"Not Found" (404) at link https://gharpayy.com/1I/5T.1I.js (from https://gharpayy.com/js/layerslider.kreaturamedia.jquery.js)
+20:07:10	Error: 	"Not Found" (404) at link https://gharpayy.com/popper.js (from https://gharpayy.com/js/bootstrap.min.js)
+20:07:11	Error: 	"Not Found" (404) at link https://gharpayy.com/gurugram/Version/ (from https://gharpayy.com/gurugram/js/greensock.js)
+20:07:11	Error: 	"Not Found" (404) at link https://gharpayy.com/gurugram/nZ/ (from https://gharpayy.com/gurugram/js/layerslider.kreaturamedia.jquery.js)
+20:07:11	Error: 	"Not Found" (404) at link https://gharpayy.com/gurugram/4B/ (from https://gharpayy.com/gurugram/js/layerslider.kreaturamedia.jquery.js)
+20:07:11	Error: 	"Not Found" (404) at link https://gharpayy.com/gurugram/8Q:// (from https://gharpayy.com/gurugram/js/layerslider.kreaturamedia.jquery.js)
+20:07:11	Error: 	"Not Found" (404) at link https://gharpayy.com/gurugram/pY pZ hv q0 @ 8Q://5T.iO.5B/ (from https://gharpayy.com/gurugram/js/layerslider.kreaturamedia.jquery.js)
+20:07:11	Error: 	"Not Found" (404) at link https://gharpayy.com/gurugram/1I/5T.1I.js (from https://gharpayy.com/gurugram/js/layerslider.kreaturamedia.jquery.js)
+20:07:11	Error: 	"Not Found" (404) at link https://gharpayy.com/gurugram/popper.js (from https://gharpayy.com/gurugram/js/bootstrap.min.js)
+20:07:11	Warning: 	Retry after error -5 (Unable to get server's address: unknown error) at link f.p2.5b/js/p3.ak.js (from https://gharpayy.com/js/layerslider.kreaturamedia.jquery.js)
+20:07:11	Error: 	"Unable to get server's address: unknown error" (-5) after 2 retries at link f.p2.5b/js/p3.ak.js (from https://gharpayy.com/js/layerslider.kreaturamedia.jquery.js)
+
+HTTrack Website Copier/3.49-2 mirror complete in 58 seconds : 243 links scanned, 219 files written (32259236 bytes overall) [27299310 bytes received at 470677 bytes/sec], 8401829 bytes transferred using HTTP compression in 123 files, ratio 38%, 34.2 requests per connection
+(21 errors, 2 warnings, 0 messages)
