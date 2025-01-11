@@ -84,74 +84,80 @@
         }
 
 
-        .carousel-main {
-            padding: 20px;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .carousel {
+        .photo-track-container {
             position: relative;
-            width: 70%;
-            max-width: 800px;
+           
+            display: flex;
+            align-items: center;
+            width: 100%;
             overflow: hidden;
-            margin-bottom: 5px;
-            max-height: 80vh;
+           
         }
 
-        @media (max-width: 700px) {
-            .carousel{
-                width: 100%;
-               
-            }
-            
-        }
-
-        .carousel-container {
+       
+        .photo-track {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            overflow-x: scroll;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            scroll-behavior: smooth;
+           
         }
 
-        @media (min-width: 991px){
-            .carousel-container img{
-                padding: 20px 80px  !important; 
-                height: 450px;
-               
-            }
+       
+        .photo-track::-webkit-scrollbar {
+            display: none;
         }
 
-        .carousel-container img {
-            box-sizing: border-box;
-            padding: 20px 30px;
-            height: 90%;
+       
+        .photo-track img {
+            flex-shrink: 0;
+            width: 300px;
+            margin-right: 10px;
+            border-radius: 8px;
         }
 
-        .carousel-controls {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .carousel-btn {
-            background-color: #0943a0;
+        
+        .scroll-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
             color: white;
-            font-size: 16px;
-            padding: 10px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 50%;
+            padding: 10px 15px;
             cursor: pointer;
+            z-index: 10;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
         }
 
-        .carousel-btn:focus {
-            outline: none;
+        .scroll-button.left {
+            left: 10px;
         }
 
-        .carousel-btn:hover {
-            background-color: #0056b3;
+        .scroll-button.right {
+            right: 10px;
+        }
+
+        .scroll-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+           
+        }
+
+     
+        @media (max-width: 991px) {
+            .scroll-button {
+                display: none;
+                
+            }
+        }
+
+        @media (min-width: 991px) {
+            .photo-track img{
+                width: 450px;
+            }
         }
     </style>
 </head>
@@ -1267,22 +1273,22 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
         <!-- Video Section End -->
 
-        <div class="carousel-main">
-            <div class="carousel">
-                <div class="carousel-container">
-                    <img src="img/Review3.png" alt="img/Review 4">
-                    <img src="img/Review1.png" alt="img/Review 1">
-                    <img src="img/Review2.png" alt="img/Review 2">
-                    <img src="img/Review3.png" alt="img/Review 3">
-                    
-                    <img src="img/Review1.png" alt="img/Review 1"> 
-                </div>
+        <div class="photo-track-container">
+            <button class="scroll-button left" onclick="scrollTrack('left')">&lt;</button>
+            <div class="photo-track">
+                <img src="img/Review1.png" alt="Image 1">
+                <img src="img/Review1.png" alt="Image 1">
+                <img src="img/Review1.png" alt="Image 1">
+                <img src="img/Review2.png" alt="Image 1">
+                <img src="img/Review2.png" alt="Image 1">
+                <img src="img/Review2.png" alt="Image 1">
+                <img src="img/Review3.png" alt="Image 1">
+                <img src="img/Review3.png" alt="Image 1">
+                <img src="img/Review3.png" alt="Image 1">
             </div>
-            <div class="carousel-controls">
-                <button class="carousel-btn" id="prev-btn">❮</button>
-                <button class="carousel-btn" id="next-btn">❯</button>
-            </div>
+            <button class="scroll-button right" onclick="scrollTrack('right')">&gt;</button>
         </div>
+
 
 
 
