@@ -164,6 +164,22 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
 	.freedom-find{
 		text-align: center;
 	}
+	.freedom-find h2{
+
+	}
+	.second-div{
+		display: none;
+	}
+
+	.top-section{
+		padding-top: 100px;
+		background-color: transparent;
+		background: url(../img/image.png);
+		background-size: cover;
+		height: 60vh;
+
+	}
+	
 }
 
 @media (min-width: 1000px){
