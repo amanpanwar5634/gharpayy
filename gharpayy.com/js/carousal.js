@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 scrollTrack2();
+                observer.unobserve(section);
             }
         });
     }, { threshold: 0.5 }); 

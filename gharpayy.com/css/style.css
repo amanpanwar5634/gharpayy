@@ -132,27 +132,6 @@ h6,
 	}
 }
 
-.second-div {
-	position: relative;
-	background-color: var(--primary-theme-color);
-	object-fit: cover;
-	height: max-content;
-	width: 100%;
-	padding: 30px;
-	padding-top: 0;
-	z-index: 99;
-	align-self: center;
-	text-align: center;
-}
-
-.second-div img {
-	position: relative;
-	max-height: 75%;
-	max-width: 500px;
-	object-fit: cover;
-
-}
-
 .special {
 	position: relative;
 }
