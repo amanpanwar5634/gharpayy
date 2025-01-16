@@ -5,12 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Details</title>
+    <link rel="shortcut icon" href="img/logo/gharpayy_logo2.html" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/color.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: var(--theme-body-font);
+        }
+
+        h2 {
+            font-family: var(--theme-highlight-font);
+            color: var(--secondery-theme-color);
         }
 
         section {
@@ -22,14 +31,13 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
-            height: 100vh;
             margin: 0;
             padding: 20px;
         }
 
         .top-image img {
             width: 100%;
-            height: 100%;
+            height: 412px;
             object-fit: cover;
             border-radius: 10px;
         }
@@ -38,12 +46,11 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
-            height: 100%;
         }
 
         .grid-container img {
             width: 100%;
-            height: 100%;
+            height: 200px;
             object-fit: cover;
             border-radius: 10px;
         }
@@ -53,12 +60,13 @@
                 grid-template-columns: 1fr;
                 grid-template-rows: auto auto;
                 gap: 20px;
-                height: auto;
             }
 
-            .top-image img,
-            .grid-container img {
+            .top-image img{
                 height: auto;
+            }
+            .grid-container img {
+                height: 12rem;
             }
         }
 
@@ -84,7 +92,7 @@
 
         .room_details img {
             margin: 1.2rem auto;
-            height: 12rem;
+            height: 15rem;
             width: 100%;
             object-fit: cover;
             border-radius: 1.2rem;
@@ -101,14 +109,16 @@
             font-size: 18px;
             font-weight: 500;
         }
-        .text-size-small{
+
+        .text-size-small {
             font-size: 14px;
             font-weight: 500;
         }
-        .text-size-tiny{
+
+        .text-size-tiny {
             font-size: 12px;
             color: slategray;
-            
+
         }
     </style>
 </head>
@@ -117,20 +127,15 @@
     <div class="image-section">
         <!-- Top Image -->
         <div class="top-image">
-            <img src="https://cdn.prod.website-files.com/6593ed11d5ad65d107dfe790/674d48345ee921924ad2aaa4_67265e138dd089e6dd715dce_66f0fdbea24ca810ec73e6a7_66a38b88df4ee89b19ad7574_66a0c281ca5e088c0dc4d395_DSC04699-HDR.avif"
-                alt="Top Image">
+            <img src="img/property1_img1.jpg" alt="">
         </div>
 
         <!-- Grid of 4 Images -->
         <div class="grid-container">
-            <img src="https://cdn.prod.website-files.com/6593ed11d5ad65d107dfe790/674d48345ee921924ad2aaa4_67265e138dd089e6dd715dce_66f0fdbea24ca810ec73e6a7_66a38b88df4ee89b19ad7574_66a0c281ca5e088c0dc4d395_DSC04699-HDR.avif"
-                alt="Image 1">
-            <img src="https://cdn.prod.website-files.com/6593ed11d5ad65d107dfe790/674d48345ee921924ad2aaa4_67265e138dd089e6dd715dce_66f0fdbea24ca810ec73e6a7_66a38b88df4ee89b19ad7574_66a0c281ca5e088c0dc4d395_DSC04699-HDR.avif"
-                alt="Image 2">
-            <img src="https://cdn.prod.website-files.com/6593ed11d5ad65d107dfe790/674d48345ee921924ad2aaa4_67265e138dd089e6dd715dce_66f0fdbea24ca810ec73e6a7_66a38b88df4ee89b19ad7574_66a0c281ca5e088c0dc4d395_DSC04699-HDR.avif"
-                alt="Image 3">
-            <img src="https://cdn.prod.website-files.com/6593ed11d5ad65d107dfe790/674d48345ee921924ad2aaa4_67265e138dd089e6dd715dce_66f0fdbea24ca810ec73e6a7_66a38b88df4ee89b19ad7574_66a0c281ca5e088c0dc4d395_DSC04699-HDR.avif"
-                alt="Image 4">
+            <img src="img/property1_img2.jpg" alt="">
+            <img src="img/property1_img3.jpg" alt="">
+            <img src="img/property1_img4.jpg" alt="">
+            <img src="img/property1_img5.jpg" alt="">
         </div>
     </div>
     <section>
@@ -277,9 +282,7 @@
         <div class="room_details">
             <div>
 
-                <img alt="" loading="lazy"
-                    src="https://cdn.prod.website-files.com/6593ed11d5ad65d107dfe790/672e2424c69295e3484ddb23_66f0fdbea24ca810ec73e692_66a38b87df4ee89b19ad754f_66a0c2d1732689a1654528ca_DSC04740-HDR.avif"
-                    class="property_room_feature-image">
+                <img src="img/property1_img6.jpg" loading="lazy" alt="">
 
             </div>
             <div class="property_room_details_main">
@@ -391,137 +394,128 @@
         <h2>Utilities and Add Ons</h2>
         <div class="property_room_details_utilities_list">
             <div class="list-item">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                        class="bi bi-plug" viewBox="0 0 16 16">
-                        <path
-                            d="M6 0a.5.5 0 0 1 .5.5V3h3V.5a.5.5 0 0 1 1 0V3h1a.5.5 0 0 1 .5.5v3A3.5 3.5 0 0 1 8.5 10c-.002.434-.01.845-.04 1.22-.041.514-.126 1.003-.317 1.424a2.08 2.08 0 0 1-.97 1.028C6.725 13.9 6.169 14 5.5 14c-.998 0-1.61.33-1.974.718A1.92 1.92 0 0 0 3 16H2c0-.616.232-1.367.797-1.968C3.374 13.42 4.261 13 5.5 13c.581 0 .962-.088 1.218-.219.241-.123.4-.3.514-.55.121-.266.193-.621.23-1.09.027-.34.035-.718.037-1.141A3.5 3.5 0 0 1 4 6.5v-3a.5.5 0 0 1 .5-.5h1V.5A.5.5 0 0 1 6 0M5 4v2.5A2.5 2.5 0 0 0 7.5 9h1A2.5 2.5 0 0 0 11 6.5V4z">
-                        </path>
-                    </svg>
-                <span >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-plug" viewBox="0 0 16 16">
+                    <path
+                        d="M6 0a.5.5 0 0 1 .5.5V3h3V.5a.5.5 0 0 1 1 0V3h1a.5.5 0 0 1 .5.5v3A3.5 3.5 0 0 1 8.5 10c-.002.434-.01.845-.04 1.22-.041.514-.126 1.003-.317 1.424a2.08 2.08 0 0 1-.97 1.028C6.725 13.9 6.169 14 5.5 14c-.998 0-1.61.33-1.974.718A1.92 1.92 0 0 0 3 16H2c0-.616.232-1.367.797-1.968C3.374 13.42 4.261 13 5.5 13c.581 0 .962-.088 1.218-.219.241-.123.4-.3.514-.55.121-.266.193-.621.23-1.09.027-.34.035-.718.037-1.141A3.5 3.5 0 0 1 4 6.5v-3a.5.5 0 0 1 .5-.5h1V.5A.5.5 0 0 1 6 0M5 4v2.5A2.5 2.5 0 0 0 7.5 9h1A2.5 2.5 0 0 0 11 6.5V4z">
+                    </path>
+                </svg>
+                <span>
                     <span class="text-size-small">Electricity</span><br>
                     <span class="text-size-tiny" style="margin-left: 24px;">+&nbsp;₹1250 /mo</span>
                 </span>
             </div>
             <div class="list-item">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M12 2C12 2 5 9 5 13C5 17.42 8.58 21 12 21C15.42 21 19 17.42 19 13C19 9 12 2 12 2Z">
-                        </path>
-                    </svg>
-                <span >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2C12 2 5 9 5 13C5 17.42 8.58 21 12 21C15.42 21 19 17.42 19 13C19 9 12 2 12 2Z">
+                    </path>
+                </svg>
+                <span>
                     <span class="text-size-small">Water</span><br>
                     <span class="text-size-tiny" style="margin-left: 24px;">+&nbsp;₹250 /mo</span>
                 </span>
             </div>
 
             <div class="list-item">
-                <svg width="100%" height="100%" viewBox="0 0 32 32" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M14.0368 23.6453C14.0368 22.5613 14.916 21.6821 16 21.6821C17.0841 21.6821 17.9633 22.5613 17.9633 23.6453C17.9633 24.7293 17.0841 25.6072 16 25.6072C14.916 25.6072 14.0368 24.7293 14.0368 23.6453ZM19.9251 23.6453C19.9251 21.4773 18.1681 19.7202 16 19.7202C13.832 19.7202 12.075 21.4773 12.075 23.6453C12.075 25.8133 13.832 27.5704 16 27.5704C18.1681 27.5704 19.9251 25.8133 19.9251 23.6453Z"
-                            fill="currentColor"></path>
-                        <path
-                            d="M23.8926 19.6783C22.4399 16.7922 19.4514 14.814 16.0001 14.814C12.5487 14.814 9.56017 16.7936 8.10754 19.6783L9.59294 21.1637C10.5882 18.5971 13.0811 16.7758 16.0001 16.7758C18.919 16.7758 21.4119 18.5971 22.4072 21.1637L23.8926 19.6783Z"
-                            fill="currentColor"></path>
-                        <path
-                            d="M27.4775 16.0927C25.0201 12.3656 20.7974 9.90674 15.9999 9.90674C11.2024 9.90674 6.97967 12.3669 4.52222 16.0927L5.94481 17.5139C8.01316 14.1295 11.743 11.87 15.9999 11.87C20.2581 11.87 23.9879 14.1295 26.0563 17.5153L27.4775 16.0927Z"
-                            fill="currentColor"></path>
-                        <path
-                            d="M31 12.5703C27.6046 7.97897 22.1491 5 16 5C9.85091 5 4.39538 7.97897 1 12.5703L2.40621 13.9738C5.43024 9.73059 10.3916 6.96323 16 6.96323C21.6084 6.96323 26.5711 9.73059 29.5952 13.9752L31 12.5703Z"
-                            fill="currentColor"></path>
-                    </svg>
-                <span >
+                <svg width="100%" height="100%" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M14.0368 23.6453C14.0368 22.5613 14.916 21.6821 16 21.6821C17.0841 21.6821 17.9633 22.5613 17.9633 23.6453C17.9633 24.7293 17.0841 25.6072 16 25.6072C14.916 25.6072 14.0368 24.7293 14.0368 23.6453ZM19.9251 23.6453C19.9251 21.4773 18.1681 19.7202 16 19.7202C13.832 19.7202 12.075 21.4773 12.075 23.6453C12.075 25.8133 13.832 27.5704 16 27.5704C18.1681 27.5704 19.9251 25.8133 19.9251 23.6453Z"
+                        fill="currentColor"></path>
+                    <path
+                        d="M23.8926 19.6783C22.4399 16.7922 19.4514 14.814 16.0001 14.814C12.5487 14.814 9.56017 16.7936 8.10754 19.6783L9.59294 21.1637C10.5882 18.5971 13.0811 16.7758 16.0001 16.7758C18.919 16.7758 21.4119 18.5971 22.4072 21.1637L23.8926 19.6783Z"
+                        fill="currentColor"></path>
+                    <path
+                        d="M27.4775 16.0927C25.0201 12.3656 20.7974 9.90674 15.9999 9.90674C11.2024 9.90674 6.97967 12.3669 4.52222 16.0927L5.94481 17.5139C8.01316 14.1295 11.743 11.87 15.9999 11.87C20.2581 11.87 23.9879 14.1295 26.0563 17.5153L27.4775 16.0927Z"
+                        fill="currentColor"></path>
+                    <path
+                        d="M31 12.5703C27.6046 7.97897 22.1491 5 16 5C9.85091 5 4.39538 7.97897 1 12.5703L2.40621 13.9738C5.43024 9.73059 10.3916 6.96323 16 6.96323C21.6084 6.96323 26.5711 9.73059 29.5952 13.9752L31 12.5703Z"
+                        fill="currentColor"></path>
+                </svg>
+                <span>
                     <span class="text-size-small">Wi-Fi</span><br>
                     <span class="text-size-tiny" style="margin-left: 24px;">+&nbsp;₹450 /mo</span>
                 </span>
             </div>
             <div id="w-node-baa9aac8-5faf-f9ad-f672-90c3764c388b-07dfe7ed" class="list-item">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                        class="iconify iconify--carbon" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"
-                        viewBox="0 0 32 32">
-                        <path fill="currentColor" d="M26 20h-6v-2h6zm4 8h-6v-2h6zm-2-4h-6v-2h6z"></path>
-                        <path fill="currentColor"
-                            d="M17.003 20a4.895 4.895 0 0 0-2.404-4.173L22 3l-1.73-1l-7.577 13.126a5.699 5.699 0 0 0-5.243 1.503C3.706 20.24 3.996 28.682 4.01 29.04a1 1 0 0 0 1 .96h14.991a1 1 0 0 0 .6-1.8c-3.54-2.656-3.598-8.146-3.598-8.2m-5.073-3.003A3.11 3.11 0 0 1 15.004 20c0 .038.002.208.017.469l-5.9-2.624a3.8 3.8 0 0 1 2.809-.848M15.45 28A5.2 5.2 0 0 1 14 25h-2a6.5 6.5 0 0 0 .968 3h-2.223A16.617 16.617 0 0 1 10 24H8a17.342 17.342 0 0 0 .665 4H6c.031-1.836.29-5.892 1.803-8.553l7.533 3.35A13.025 13.025 0 0 0 17.596 28Z">
-                        </path>
-                    </svg>
-                <span >
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                    role="img" class="iconify iconify--carbon" width="100%" height="100%"
+                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
+                    <path fill="currentColor" d="M26 20h-6v-2h6zm4 8h-6v-2h6zm-2-4h-6v-2h6z"></path>
+                    <path fill="currentColor"
+                        d="M17.003 20a4.895 4.895 0 0 0-2.404-4.173L22 3l-1.73-1l-7.577 13.126a5.699 5.699 0 0 0-5.243 1.503C3.706 20.24 3.996 28.682 4.01 29.04a1 1 0 0 0 1 .96h14.991a1 1 0 0 0 .6-1.8c-3.54-2.656-3.598-8.146-3.598-8.2m-5.073-3.003A3.11 3.11 0 0 1 15.004 20c0 .038.002.208.017.469l-5.9-2.624a3.8 3.8 0 0 1 2.809-.848M15.45 28A5.2 5.2 0 0 1 14 25h-2a6.5 6.5 0 0 0 .968 3h-2.223A16.617 16.617 0 0 1 10 24H8a17.342 17.342 0 0 0 .665 4H6c.031-1.836.29-5.892 1.803-8.553l7.533 3.35A13.025 13.025 0 0 0 17.596 28Z">
+                    </path>
+                </svg>
+                <span>
                     <span class="text-size-small">Maid</span><br>
                     <span class="text-size-tiny" style="margin-left: 24px;">+&nbsp;₹1250 /mo</span>
                 </span>
             </div>
             <div class="list-item">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                        class="iconify iconify--tabler" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"
-                        viewBox="0 0 24 24">
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M12 3c1.918 0 3.52 1.35 3.91 3.151A4 4 0 0 1 18 13.874V21H6v-7.126a4 4 0 1 1 2.092-7.723A4 4 0 0 1 12 3M6.161 17.009L18 17">
-                        </path>
-                    </svg>
-                <span >
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                    role="img" class="iconify iconify--tabler" width="100%" height="100%"
+                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 3c1.918 0 3.52 1.35 3.91 3.151A4 4 0 0 1 18 13.874V21H6v-7.126a4 4 0 1 1 2.092-7.723A4 4 0 0 1 12 3M6.161 17.009L18 17">
+                    </path>
+                </svg>
+                <span>
                     <span class="text-size-small">Cook</span><br>
                     <span class="text-size-tiny" style="margin-left: 24px;">+&nbsp;₹2000 /mo</span>
                 </span>
             </div>
             <div class="list-item">
-                <svg width="100%" height="100%" viewBox="0 0 32 32" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M25 23H29V26C29 26.552 28.552 27 28 27H26C25.448 27 25 26.552 25 26V23Z"
-                            stroke="currentColor" stroke-width="2"></path>
-                        <path d="M3 23H7V26C7 26.552 6.552 27 6 27H4C3.448 27 3 26.552 3 26V23Z" stroke="currentColor"
-                            stroke-width="2"></path>
-                        <path
-                            d="M7 13H25C27.209 13 29 14.791 29 17V22C29 22.552 28.552 23 28 23H4C3.448 23 3 22.552 3 22V17C3 14.791 4.791 13 7 13Z"
-                            stroke="currentColor" stroke-width="2"></path>
-                        <path
-                            d="M25 17C25.552 17 26 17.448 26 18C26 18.552 25.552 19 25 19C24.448 19 24 18.552 24 18C24 17.448 24.448 17 25 17Z"
-                            fill="currentColor"></path>
-                        <path
-                            d="M7 17C7.552 17 8 17.448 8 18C8 18.552 7.552 19 7 19C6.448 19 6 18.552 6 18C6 17.448 6.448 17 7 17Z"
-                            fill="currentColor"></path>
-                        <path
-                            d="M8.693 5H23.307C23.724 5 24.097 5.259 24.243 5.649L27 13H5L7.757 5.649C7.903 5.259 8.276 5 8.693 5Z"
-                            stroke="currentColor" stroke-width="2"></path>
-                        <path d="M2 10H5V12H2V10Z" fill="currentColor"></path>
-                        <path d="M27 10H30V12H27V10Z" fill="currentColor"></path>
-                        <path d="M10 18H22" stroke="currentColor" stroke-width="2"></path>
-                    </svg>
-                    <span class="text-size-small">Car Parking</span><br>
-                    <span class="text-size-tiny" style="margin-left: 24px;">+&nbsp;₹</span>
-                    <span class="text-size-tiny">750/mo</span>
+                <svg width="100%" height="100%" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 23H29V26C29 26.552 28.552 27 28 27H26C25.448 27 25 26.552 25 26V23Z"
+                        stroke="currentColor" stroke-width="2"></path>
+                    <path d="M3 23H7V26C7 26.552 6.552 27 6 27H4C3.448 27 3 26.552 3 26V23Z" stroke="currentColor"
+                        stroke-width="2"></path>
+                    <path
+                        d="M7 13H25C27.209 13 29 14.791 29 17V22C29 22.552 28.552 23 28 23H4C3.448 23 3 22.552 3 22V17C3 14.791 4.791 13 7 13Z"
+                        stroke="currentColor" stroke-width="2"></path>
+                    <path
+                        d="M25 17C25.552 17 26 17.448 26 18C26 18.552 25.552 19 25 19C24.448 19 24 18.552 24 18C24 17.448 24.448 17 25 17Z"
+                        fill="currentColor"></path>
+                    <path
+                        d="M7 17C7.552 17 8 17.448 8 18C8 18.552 7.552 19 7 19C6.448 19 6 18.552 6 18C6 17.448 6.448 17 7 17Z"
+                        fill="currentColor"></path>
+                    <path
+                        d="M8.693 5H23.307C23.724 5 24.097 5.259 24.243 5.649L27 13H5L7.757 5.649C7.903 5.259 8.276 5 8.693 5Z"
+                        stroke="currentColor" stroke-width="2"></path>
+                    <path d="M2 10H5V12H2V10Z" fill="currentColor"></path>
+                    <path d="M27 10H30V12H27V10Z" fill="currentColor"></path>
+                    <path d="M10 18H22" stroke="currentColor" stroke-width="2"></path>
+                </svg>
+                <span class="text-size-small">Car Parking</span><br>
+                <span class="text-size-tiny" style="margin-left: 24px;">+&nbsp;₹</span>
+                <span class="text-size-tiny">750/mo</span>
             </div>
             <div class="list-item">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                        class="bi bi-key" viewBox="0 0 16 16">
-                        <path
-                            d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8m4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5">
-                        </path>
-                        <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0"></path>
-                    </svg>
-                    <span class="text-size-small">Key</span><br>
-                    <span class="text-size-tiny" style="margin-left: 24px;">+&nbsp;₹</span>
-                        <span class="text-size-tiny">500/key</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+                    <path
+                        d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8m4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5">
+                    </path>
+                    <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0"></path>
+                </svg>
+                <span class="text-size-small">Key</span><br>
+                <span class="text-size-tiny" style="margin-left: 24px;">+&nbsp;₹</span>
+                <span class="text-size-tiny">500/key</span>
             </div>
-            <div
-                class="list-item">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <rect x="6" y="7" width="12" height="14" rx="2" ry="2"></rect>
-                        <path d="M9 7V4a3 3 0 0 1 6 0v3"></path>
-                        <line x1="9" y1="21" x2="9" y2="23"></line>
-                        <line x1="15" y1="21" x2="15" y2="23"></line>
-                        <line x1="8" y1="10" x2="16" y2="10"></line>
-                    </svg>
-                    <span class="text-size-small">Move-in</span><br>
-                    <span class="text-size-tiny" style="margin-left: 24px;">+&nbsp;₹</span>
-                    <span class="text-size-tiny">2000*</span>
-    
+            <div class="list-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="6" y="7" width="12" height="14" rx="2" ry="2"></rect>
+                    <path d="M9 7V4a3 3 0 0 1 6 0v3"></path>
+                    <line x1="9" y1="21" x2="9" y2="23"></line>
+                    <line x1="15" y1="21" x2="15" y2="23"></line>
+                    <line x1="8" y1="10" x2="16" y2="10"></line>
+                </svg>
+                <span class="text-size-small">Move-in</span><br>
+                <span class="text-size-tiny" style="margin-left: 24px;">+&nbsp;₹</span>
+                <span class="text-size-tiny">2000*</span>
+
             </div>
-            
+
         </div>
     </section>
 </body>
