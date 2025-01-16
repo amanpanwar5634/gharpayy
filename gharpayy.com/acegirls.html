@@ -70,12 +70,10 @@
                 height: 10rem;
             }
 
-            .list-item span{
-            font-size: 12px;
+            .list-item span {
+                font-size: 12px;
+            }
         }
-        }
-
-        /* Existing styles remain as is */
 
         .popup {
             display: none;
@@ -88,6 +86,15 @@
             justify-content: center;
             align-items: center;
             z-index: 1000;
+            flex-direction: column;
+        }
+
+        .popup-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
         }
 
         .popup-image {
@@ -97,6 +104,28 @@
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             animation: zoomIn 0.3s ease-in-out;
+        }
+
+        .nav-arrow {
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            margin: 0 10px;
+            padding: 10px 15px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            border-radius: 5px;
+        }
+
+        .nav-arrow:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .button-container{
+            position: absolute;
+            bottom: -20%; 
         }
 
         @keyframes zoomIn {
@@ -119,7 +148,7 @@
             margin-bottom: 1rem;
         }
 
-       
+
         .property_amenities_list img {
             height: 24px;
             width: 24px;
@@ -170,22 +199,32 @@
     <div class="image-section">
         <!-- Top Image -->
         <div class="top-image">
-            <img src="img/ace-img-1.png" alt="Property Image" onclick="openPopup(this)">
+            <img src="img/ace-img-1.png" alt="Property Image" onclick="openPopup(0)">
         </div>
 
         <!-- Grid of 4 Images -->
         <div class="grid-container">
-            <img src="img/ace-img-2.png" alt="Property Image" onclick="openPopup(this)">
-            <img src="img/ace-img-3.png" alt="Property Image" onclick="openPopup(this)">
-            <img src="img/ace-img-4.png" alt="Property Image" onclick="openPopup(this)">
-            <img src="img/ace-img-5.png" alt="Property Image" onclick="openPopup(this)">
+            <img src="img/ace-img-2.png" alt="Property Image" onclick="openPopup(1)">
+            <img src="img/ace-img-3.png" alt="Property Image" onclick="openPopup(2)">
+            <img src="img/ace-img-4.png" alt="Property Image" onclick="openPopup(3)">
+            <img src="img/ace-img-5.png" alt="Property Image" onclick="openPopup(4)">
         </div>
     </div>
 
     <!-- Fullscreen Popup -->
-    <div id="popup" class="popup" onclick="closePopup()">
-        <img id="popupImage" class="popup-image" src="" alt="Fullscreen Property Image">
+    <div id="popup" class="popup" onclick="closePopup(event)">
+        <div class="popup-content">
+            
+            <img id="popupImage" class="popup-image" src="" alt="Fullscreen Property Image">
+            
+            <div class="button-container">
+                <button class="nav-arrow left-arrow" onclick="navigateImage(-1)">&lt;</button>
+                <button class="nav-arrow right-arrow" onclick="navigateImage(1)">&gt;</button>
+            </div>
+        </div>
     </div>
+
+
 
     <section>
         <h2>About this property</h2>
@@ -568,16 +607,48 @@
         </div>
     </section>
     <script>
-        function openPopup(image) {
-            const popup = document.getElementById('popup');
-            const popupImage = document.getElementById('popupImage');
-            popupImage.src = image.src; // Set the clicked image source
-            popup.style.display = 'flex'; // Display the popup
+        const images = [
+            "img/ace-img-1.png",
+            "img/ace-img-2.png",
+            "img/ace-img-3.png",
+            "img/ace-img-4.png",
+            "img/ace-img-5.png",
+        ];
+        let currentIndex = 0;
+
+        function openPopup(index) {
+            currentIndex = index;
+            const popup = document.getElementById("popup");
+            const popupImage = document.getElementById("popupImage");
+            
+
+            // Set the image source
+            popupImage.src = images[currentIndex];
+           
+
+            popup.style.display = "flex"; // Show popup
         }
 
-        function closePopup() {
-            const popup = document.getElementById('popup');
-            popup.style.display = 'none'; // Hide the popup
+        function navigateImage(direction) {
+            currentIndex = (currentIndex + direction + images.length) % images.length; // Loop images
+            updatePopup();
+        }
+
+        function updatePopup() {
+            const popupImage = document.getElementById("popupImage");
+            
+
+            // Update image
+            popupImage.src = images[currentIndex];
+
+        }
+
+        function closePopup(event) {
+            
+            if (event.target.id === "popup") {
+                const popup = document.getElementById("popup");
+                popup.style.display = "none";
+            }
         }
 
     </script>
