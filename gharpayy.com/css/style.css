@@ -187,7 +187,7 @@ h6,
 	.top-section {
 		padding-top: 50px;
 		background-color: transparent;
-		background: url(../img/image.png);
+		background: url(../img/top-image.png);
 		background-size: cover;
 		height: 65vh;
 
@@ -270,9 +270,9 @@ h6,
     z-index: 2; 
     background: white;
     border-radius: 12px;
-    padding: 2rem;
-    width: 400px; 
-    margin-left: 3rem; 
+    padding: 4rem;
+    width: 35%; 
+    margin-left: 6rem; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -301,6 +301,7 @@ h6,
     .new-section .content-container {
         width: 90%;
         margin: 0 auto;
+		padding: 2rem;
     }
 	
 }
