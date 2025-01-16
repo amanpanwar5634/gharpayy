@@ -620,25 +620,18 @@
             currentIndex = index;
             const popup = document.getElementById("popup");
             const popupImage = document.getElementById("popupImage");
-            
-
-            // Set the image source
+        
             popupImage.src = images[currentIndex];
-           
-
-            popup.style.display = "flex"; // Show popup
+            popup.style.display = "flex"; 
         }
 
         function navigateImage(direction) {
-            currentIndex = (currentIndex + direction + images.length) % images.length; // Loop images
+            currentIndex = (currentIndex + direction + images.length) % images.length; 
             updatePopup();
         }
 
         function updatePopup() {
             const popupImage = document.getElementById("popupImage");
-            
-
-            // Update image
             popupImage.src = images[currentIndex];
 
         }
