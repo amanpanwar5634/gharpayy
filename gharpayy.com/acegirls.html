@@ -14,6 +14,7 @@
         body {
             margin: 0;
             padding: 0;
+            padding-bottom: 20px;
             font-family: var(--theme-body-font);
         }
 
@@ -40,6 +41,7 @@
             height: 412px;
             object-fit: cover;
             border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
         }
 
         .grid-container {
@@ -53,6 +55,7 @@
             height: 200px;
             object-fit: cover;
             border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
         }
 
         .more-images {
@@ -67,7 +70,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: blur(8px);
+            filter: brightness(60%);
             transform: scale(1.1);
         }
 
@@ -79,12 +82,12 @@
             color: white;
             font-size: 24px;
             font-weight: bold;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 10px 20px;
             border-radius: 20px;
             text-align: center;
             pointer-events: none;
-            
+
         }
 
         .more-images:hover .overlay {
@@ -95,19 +98,19 @@
             .image-section {
                 grid-template-columns: 1fr;
                 grid-template-rows: auto auto;
-                gap: 20px;
+                gap: 12px;
             }
 
             .top-image img {
-                height: auto;
+                height: 15rem;
             }
 
             .grid-container img {
-                height: 10rem;
+                height: 7rem;
             }
 
             .more-images {
-                height: 10rem;
+                height: 7rem;
             }
 
             .list-item span {
@@ -118,9 +121,10 @@
                 position: absolute;
                 bottom: -30% !important;
             }
-            .popup-image{ 
-                max-width: 95%   !important;  
-                max-height: 90vh  !important;
+
+            .popup-image {
+                max-width: 95% !important;
+                max-height: 90vh !important;
             }
         }
 
@@ -241,6 +245,67 @@
             color: slategray;
 
         }
+
+        .sticky-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            text-align: center;
+            padding: 10px 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            gap: 12px;
+            box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            min-width: 60%;
+            padding: 8px 24px;
+            border-radius: 50px;
+            background-color: #25d366;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease;
+        }
+
+        .whatsapp-btn .whatsapp-icon {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg');
+            background-size: cover;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .floating-btn {
+            width: 40px;
+            height: 40px;
+            background-color: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+        }
+
+        .floating-btn .whatsapp-icon {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg');
+            background-size: cover;
+            width: 20px;
+            height: 20px;
+        }
+
     </style>
 </head>
 
@@ -256,7 +321,7 @@
             <img src="img/ace-img-2.png" alt="Property Image" onclick="openPopup(1)">
             <img src="img/ace-img-3.png" alt="Property Image" onclick="openPopup(2)">
             <img src="img/ace-img-4.png" alt="Property Image" onclick="openPopup(3)">
-            
+
             <div class="more-images" onclick="showAllImages()">
                 <img src="img/ace-img-5.png" alt="More Images">
                 <div class="overlay">
@@ -633,6 +698,25 @@
 
         </div>
     </section>
+
+    <div class="sticky-footer">
+        <a target="_blank" class="whatsapp-btn">
+            WhatsApp Now
+        </a>
+    </div>
+
+    <div class="sticky-footer">
+        <a href="https://api.whatsapp.com/send?phone=+917988114576&amp;text=Heyy!%20GHARPAYY,%20I%20am%20looking%20for%20a%20GOOD-ACCOMODATION%20in%20the%20AREA%20NEARBY-"
+            target="_blank" class="whatsapp-btn">
+            <i class="whatsapp-icon"></i> Chat with us
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=+917988114576&amp;text=Heyy!%20GHARPAYY,%20I%20am%20looking%20for%20a%20GOOD-ACCOMODATION%20in%20the%20AREA%20NEARBY-"
+            target="_blank" class="floating-btn">
+            <i class="whatsapp-icon"></i>
+        </a>
+    </div>
+
+
     <script>
         const images = [
             "img/ace-img-1.png",
@@ -650,17 +734,17 @@
             "img/ace-img-3.png",
         ];
 
-        const visibleImagesCount = 4; 
+        const visibleImagesCount = 4;
         let currentIndex = 0;
 
         document.addEventListener("DOMContentLoaded", () => {
-       
+
             const extraImagesCount = images.length - visibleImagesCount;
             const overlayText = document.querySelector(".more-images .overlay span");
             if (extraImagesCount > 0) {
                 overlayText.textContent = `+${extraImagesCount}`;
             } else {
-                document.querySelector(".more-images").style.display = "none"; 
+                document.querySelector(".more-images").style.display = "none";
             }
         });
 
