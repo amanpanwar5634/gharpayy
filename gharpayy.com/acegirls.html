@@ -25,7 +25,7 @@
 
         section {
             padding: 20px;
-            margin-bottom: 20px;
+            /* margin-bottom: 20px; */
         }
 
         .image-section {
@@ -242,7 +242,7 @@
 
         .text-size-tiny {
             font-size: 12px;
-            color: slategray;
+            color: var(--body-text-color);
 
         }
 
@@ -260,7 +260,7 @@
             align-items: center;
             flex-direction: row;
             gap: 12px;
-            box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.1);
         }
 
         .whatsapp-btn {
@@ -300,12 +300,112 @@
         }
 
         .floating-btn .whatsapp-icon {
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg');
+            background-image: url('./img/live-chat.png');
             background-size: cover;
             width: 20px;
             height: 20px;
         }
 
+        .travel-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: solid 1px #cdcaca;
+            border-radius: 1.2rem;
+            margin-top: 15px;
+            padding: 20px 10px;
+        }
+
+        .time-info {
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .time-info svg {
+            fill: var(--body-text-color);
+            height: 20px;
+            width: 20px;
+        }
+
+        .time-info span {
+            font-size: 20px;
+            color: black;
+        }
+
+        .subway-line {
+            text-align: center;
+        }
+
+        .subway-line .line {
+            background-color: #8A4AF3;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+
+        .time-info p {
+            color: var(--body-text-color);
+            margin-bottom: 0 !important;
+            margin-top: auto;
+            font-size: 12px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        .tab {
+            background: none;
+            border: none;
+            font-size: 16px;
+            color: #888;
+            padding: 16px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            cursor: pointer;
+            outline: none;
+            width: auto;
+        }
+
+        .tab.active {
+            font-weight: bold;
+            color: var(--secondery-theme-color);
+            background-color: var(--primary-theme-color);
+            /* border-bottom: 2px solid #555; */
+            outline: 5px auto -webkit-focus-ring-color;
+        }
+
+        .tab-content {
+            background-color: var(--primary-theme-color);
+            padding: 15px;
+            border-bottom-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        .tab-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tab-content li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        /* .tab-content li span {
+            margin-right: 10px;
+            font-size: 18px;
+           
+        } */
     </style>
 </head>
 
@@ -346,13 +446,76 @@
 
 
 
-    <section>
+    <!-- <section>
         <h2>About this property</h2>
         <p>Discover an unparalleled lifestyle at this bespoke 2BHK apartment located at BTM Lake, where luxury meets
             custom craftsmanship. This exquisite residence features premium, custom-made furniture that exudes elegance
             and sophistication, ensuring every corner of your home is a statement of style. The designer bathrooms in
             each bedroom are a sanctuary of indulgence, equipped with top-of-the-line fixtures and finishes that elevate
             your daily routine to a spa-like experience.</p>
+    </section> -->
+
+    <section>
+        <h4>ACE Girls, Koramangala</h4>
+        <h2>Standard Room</h2>
+        <div class="travel-info">
+            <div class="subway-line">
+                <!-- <span class="line"></span> -->
+                <p>Railway Station</p>
+            </div>
+            <div class="time-info">
+                <p><span>8</span> <br> mins</p>
+                <svg viewBox="0 0 14 14">
+                    <path
+                        d="M10.396 6.37a1 1 0 0 0-1.305-.545 1.31 1.31 0 0 1-.545.168c-.192.015-.385-.011-.565-.078a1.69 1.69 0 0 1-.615-1.07 1 1 0 0 0-.615-.775c-1.77-.73-3-.25-3.74.285a4.44 4.44 0 0 0-1.4 1.84 1 1 0 0 0 .54 1.305.94.94 0 0 0 .38.08 1 1 0 0 0 .925-.62c.154-.393.409-.738.74-1a1.19 1.19 0 0 1 .675-.26c.021-.003.042-.001.061.007s.036.021.049.038a.13.13 0 0 1 0 .12L3.276 10.66a1 1 0 0 0 1.885.68l.555-1.545a.13.13 0 0 1 .046-.06c.021-.015.046-.023.072-.023s.051.008.072.023a.13.13 0 0 1 .046.06l.58 1.555a1 1 0 0 0 .94.65c.12 0 .238-.022.35-.065a1 1 0 0 0 .585-1.285l-.97-2.585c-.007-.022-.009-.046-.005-.068s.015-.044.03-.062.035-.031.057-.037.046-.006.068.002a2.87 2.87 0 0 0 .76.1 3.93 3.93 0 0 0 1.5-.325 1 1 0 0 0 .55-1.305zM7.221 3.5a1.75 1.75 0 1 0 0-3.5 1.75 1.75 0 1 0 0 3.5z">
+                    </path>
+                </svg>
+                <div style="background-color: var(--body-text-color); width: 1px; height: 40px;"></div>
+                <p><span>7</span> <br> mins</p>
+                <svg viewBox="-0.5 -0.5 24 24">
+                    <path
+                        d="M22.751216666666668 9.432683333333333c-0.013320833333333334 -0.06214791666666667 -0.03301458333333333 -0.12266666666666667 -0.05865 -0.18078958333333336L20.474935416666668 4.077085416666667C19.963664583333333 2.881372916666667 18.719891666666665 2.1083333333333334 17.304672916666668 2.1083333333333334H5.695374999999999c-1.4140208333333335 0 -2.6589916666666666 0.7730395833333333 -3.1696875 1.9687520833333334L0.30570833333333336 9.25189375c-0.05045625 0.11672500000000001 -0.07623541666666667 0.24265 -0.07570833333333334 0.36977291666666673v10.33088125c0 0.2490229166666667 0.09894791666666666 0.4879354166666667 0.2750895833333334 0.6640770833333333s0.41500625 0.27504166666666663 0.6640770833333333 0.27504166666666663h1.8783333333333334c0.24907083333333335 0 0.4879354166666667 -0.09894791666666666 0.6640770833333333 -0.27504166666666663s0.27504166666666663 -0.41505416666666667 0.27504166666666663 -0.6640770833333333v-0.9391666666666667H19.013333333333335v0.9391666666666667c0 0.2490229166666667 0.09899583333333334 0.4879354166666667 0.27504166666666663 0.6640770833333333 0.17618958333333334 0.17609375 0.41505416666666667 0.27504166666666663 0.664125 0.27504166666666663h1.8783812500000001c0.24907083333333335 0 0.4879354166666667 -0.09894791666666666 0.6640770833333333 -0.27504166666666663s0.27504166666666663 -0.41505416666666667 0.27504166666666663 -0.6640770833333333V9.621666666666666c0.00014375 -0.06348958333333334 -0.00618125 -0.1267875 -0.018783333333333332 -0.18898333333333334ZM4.925833333333333 15.256714583333334c-0.37149791666666665 0 -0.7346583333333333 -0.11020833333333334 -1.0434812500000001 -0.3165854166666667 -0.3088708333333333 -0.20637708333333335 -0.5497 -0.49977083333333333 -0.69186875 -0.8429500000000001 -0.14216875 -0.34322708333333335 -0.1794 -0.72090625 -0.10690208333333333 -1.0853125000000001 0.07249791666666666 -0.3643104166666667 0.2513708333333333 -0.6990083333333335 0.5140979166666667 -0.9616395833333333 0.2626791666666667 -0.26277500000000004 0.5973770833333333 -0.4416 0.9617354166666666 -0.5140979166666667s0.7420375 -0.03526666666666667 1.0852645833333334 0.10685416666666667c0.34317916666666665 0.14221666666666669 0.6365729166666667 0.38290208333333337 0.8429500000000001 0.6918208333333333 0.20637708333333335 0.3088708333333333 0.31653749999999997 0.6720791666666667 0.31653749999999997 1.0435291666666666 0 0.49823750000000006 -0.19784791666666668 0.9759666666666666 -0.5500833333333333 1.3282020833333334 -0.35233125 0.3522354166666667 -0.8300604166666666 0.5501791666666668 -1.32825 0.5501791666666668Zm13.148333333333335 0c-0.37149791666666665 0 -0.7346104166666666 -0.11020833333333334 -1.0434812500000001 -0.3165854166666667 -0.3089666666666667 -0.20637708333333335 -0.5497 -0.49977083333333333 -0.6918208333333333 -0.8429500000000001 -0.14216875 -0.34322708333333335 -0.1794 -0.72090625 -0.10695 -1.0853125000000001 0.07249791666666666 -0.3643104166666667 0.25141875 -0.6990083333333335 0.5140979166666667 -0.9616395833333333 0.2626791666666667 -0.26277500000000004 0.597425 -0.4416 0.9617354166666666 -0.5140979166666667 0.36440625 -0.07249791666666666 0.7420375 -0.03526666666666667 1.0852645833333334 0.10685416666666667 0.34317916666666665 0.14221666666666669 0.6365729166666667 0.38290208333333337 0.8429500000000001 0.6918208333333333 0.20637708333333335 0.3088708333333333 0.31653749999999997 0.6720791666666667 0.31653749999999997 1.0435291666666666 0 0.49823750000000006 -0.19784791666666668 0.9759666666666666 -0.5500833333333333 1.3282020833333334 -0.35233125 0.3522354166666667 -0.8300604166666666 0.5501791666666668 -1.32825 0.5501791666666668ZM2.5932020833333334 8.682500000000001l1.6570541666666667 -3.865197916666667C4.462670833333333 4.320645833333333 5.043229166666667 3.986666666666667 5.695374999999999 3.986666666666667h11.609297916666668c0.6515229166666666 0 1.2326083333333333 0.33397916666666666 1.44511875 0.8306354166666667l1.6570541666666667 3.865197916666667H2.5932020833333334Z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('personal')">personal</button>
+            <button class="tab" onclick="showTab('common')">common area</button>
+            <button class="tab" onclick="showTab('facilit')">facilities</button>
+        </div>
+        <div class="tab-content" id="personal">
+            <ul>
+                <li> floor 2</li>
+                <li> 5.7m²</li>
+                <li> max 1 occupant</li>
+                <li> single bed</li>
+                <li> shared bathroom</li>
+                <li> external window</li>
+                <li> desk</li>
+                <li> wardrobe</li>
+                <li> ac</li>
+            </ul>
+        </div>
+        <div class="tab-content" style="display: none;" id="common">
+            <ul>
+                <li>TV</li>
+                <li>fridge</li>
+                <li>kitchen</li>
+                <li>water heater</li>
+                <li>microwave</li>
+                <li>washing machine</li>
+            </ul>
+        </div>
+        <div class="tab-content" style="display: none;" id="facilit">
+            <ul>
+                <li>wifi</li>
+                <li>kitchen</li>
+                <li>dining area</li>
+                <li>laundry</li>
+            </ul>
+        </div>
     </section>
 
     <section>
@@ -777,6 +940,22 @@
         function showAllImages() {
             openPopup(visibleImagesCount);
         }
+
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll(".tab-content");
+            tabs.forEach(tab => (tab.style.display = "none"));
+
+            const activeTab = document.getElementById(tabId);
+            if (activeTab) activeTab.style.display = "block";
+
+            const buttons = document.querySelectorAll(".tab");
+            buttons.forEach(button => button.classList.remove("active"));
+
+            event.target.classList.add("active");
+        }
+
+
+
 
     </script>
 </body>
