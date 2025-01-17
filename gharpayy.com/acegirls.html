@@ -55,6 +55,42 @@
             border-radius: 10px;
         }
 
+        .more-images {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .more-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(8px);
+            transform: scale(1.1);
+        }
+
+        .more-images .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-align: center;
+            pointer-events: none;
+            
+        }
+
+        .more-images:hover .overlay {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
         @media (max-width: 768px) {
             .image-section {
                 grid-template-columns: 1fr;
@@ -70,12 +106,21 @@
                 height: 10rem;
             }
 
+            .more-images {
+                height: 10rem;
+            }
+
             .list-item span {
                 font-size: 12px;
             }
-            .button-container{
+
+            .button-container {
                 position: absolute;
-                bottom: -20%   !important;
+                bottom: -30% !important;
+            }
+            .popup-image{ 
+                max-width: 95%   !important;  
+                max-height: 90vh  !important;
             }
         }
 
@@ -127,9 +172,9 @@
             background-color: rgba(255, 255, 255, 1);
         }
 
-        .button-container{
+        .button-container {
             position: absolute;
-            bottom: -5%; 
+            bottom: -5%;
         }
 
         @keyframes zoomIn {
@@ -211,16 +256,22 @@
             <img src="img/ace-img-2.png" alt="Property Image" onclick="openPopup(1)">
             <img src="img/ace-img-3.png" alt="Property Image" onclick="openPopup(2)">
             <img src="img/ace-img-4.png" alt="Property Image" onclick="openPopup(3)">
-            <img src="img/ace-img-5.png" alt="Property Image" onclick="openPopup(4)">
+            
+            <div class="more-images" onclick="showAllImages()">
+                <img src="img/ace-img-5.png" alt="More Images">
+                <div class="overlay">
+                    <span></span> <!-- The number of additional images will be injected here -->
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Fullscreen Popup -->
     <div id="popup" class="popup" onclick="closePopup(event)">
         <div class="popup-content">
-            
+
             <img id="popupImage" class="popup-image" src="" alt="Fullscreen Property Image">
-            
+
             <div class="button-container">
                 <button class="nav-arrow left-arrow" onclick="navigateImage(-1)">&lt;</button>
                 <button class="nav-arrow right-arrow" onclick="navigateImage(1)">&gt;</button>
@@ -242,16 +293,13 @@
     <section>
         <h2>Amenities</h2>
         <div role="list" class="property_amenities_list">
-            <div role="listitem" class="list-item"><img alt="" loading="lazy"
-                    src="img/amenities-icons/sofa.svg">
+            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/sofa.svg">
                 <span>Fully Furnished</span>
             </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy"
-                    src="img/amenities-icons/wifi.svg">
+            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/wifi.svg">
                 <span>Wifi</span>
             </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy"
-                    src="img/amenities-icons/spray.svg">
+            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/spray.svg">
                 <span>Housekeeping</span>
             </div>
             <div role="listitem" class="list-item"><img alt="" loading="lazy"
@@ -262,10 +310,9 @@
                     src="img/amenities-icons/flexible-contracts.svg">
                 <span>Flexible Contracts</span>
             </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy"
-                src="img/amenities-icons/food1.png">
-            <span>Food Included</span>
-        </div>
+            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/food1.png">
+                <span>Food Included</span>
+            </div>
         </div>
     </section>
 
@@ -593,35 +640,58 @@
             "img/ace-img-3.png",
             "img/ace-img-4.png",
             "img/ace-img-5.png",
+            "img/ace-img-1.png",
+            "img/ace-img-2.png",
+            "img/ace-img-3.png",
+            "img/ace-img-4.png",
+            "img/ace-img-5.png",
+            "img/ace-img-1.png",
+            "img/ace-img-2.png",
+            "img/ace-img-3.png",
         ];
+
+        const visibleImagesCount = 4; 
         let currentIndex = 0;
+
+        document.addEventListener("DOMContentLoaded", () => {
+       
+            const extraImagesCount = images.length - visibleImagesCount;
+            const overlayText = document.querySelector(".more-images .overlay span");
+            if (extraImagesCount > 0) {
+                overlayText.textContent = `+${extraImagesCount}`;
+            } else {
+                document.querySelector(".more-images").style.display = "none"; 
+            }
+        });
 
         function openPopup(index) {
             currentIndex = index;
             const popup = document.getElementById("popup");
             const popupImage = document.getElementById("popupImage");
-        
+
             popupImage.src = images[currentIndex];
-            popup.style.display = "flex"; 
+            popup.style.display = "flex";
         }
 
         function navigateImage(direction) {
-            currentIndex = (currentIndex + direction + images.length) % images.length; 
+            currentIndex = (currentIndex + direction + images.length) % images.length;
             updatePopup();
         }
 
         function updatePopup() {
             const popupImage = document.getElementById("popupImage");
             popupImage.src = images[currentIndex];
-
         }
 
         function closePopup(event) {
-            
             if (event.target.id === "popup") {
                 const popup = document.getElementById("popup");
                 popup.style.display = "none";
             }
+        }
+
+        function showAllImages() {
+            openPopup(visibleImagesCount);
         }
 
     </script>
