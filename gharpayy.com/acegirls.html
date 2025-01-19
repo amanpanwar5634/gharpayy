@@ -263,6 +263,10 @@
             box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.1);
         }
 
+        .sticky-footer:hover a {
+            text-decoration: none;
+        }
+
         .whatsapp-btn {
             display: flex;
             align-items: center;
@@ -336,7 +340,7 @@
             color: black;
         }
 
-        .subway-line {
+        /* .subway-line {
             text-align: center;
         }
 
@@ -346,7 +350,7 @@
             padding: 5px 10px;
             border-radius: 15px;
             font-size: 12px;
-        }
+        } */
 
         .time-info p {
             color: var(--body-text-color);
@@ -387,6 +391,7 @@
             padding: 15px;
             border-bottom-right-radius: 15px;
             border-bottom-left-radius: 15px;
+            outline: 5px auto -webkit-focus-ring-color;
         }
 
         .tab-content ul {
@@ -406,6 +411,57 @@
             font-size: 18px;
            
         } */
+
+        .browse-tier {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .browse-tier p {
+            font-size: 17px;
+            color: var(--secondery-theme-color);
+            margin-bottom: 10px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .tier-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tier-button {
+            padding: 10px 12px;
+            border: none;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .tier-button.luxe {
+            background-color: #4f4f4f;
+        }
+
+        .tier-button.classics {
+            background-color: #50c0cf;
+        }
+
+        .tier-button.basics {
+            background-color: #f98979;
+        }
+
+        .tier-button:hover {
+            transform: scale(1.05);
+        }
+
+        .tier-button:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 
@@ -425,7 +481,7 @@
             <div class="more-images" onclick="showAllImages()">
                 <img src="img/ace-img-5.png" alt="More Images">
                 <div class="overlay">
-                    <span></span> <!-- The number of additional images will be injected here -->
+                    <span></span>
                 </div>
             </div>
         </div>
@@ -458,6 +514,20 @@
     <section>
         <h4>ACE Girls, Koramangala</h4>
         <h2>Standard Room</h2>
+
+        <div class="browse-tier">
+            <p>browse by tier</p>
+            <div class="tier-buttons">
+                <button class="tier-button luxe">gharpayy luxe</button>
+                <button class="tier-button classics">gharpayy classics</button>
+                <button class="tier-button basics">gharpayy basics</button>
+            </div>
+        </div>
+
+        <div class="col-sm-12 mb-5">
+            <h2 class="title text-center">Listings</h2>
+        </div>
+
         <div class="travel-info">
             <div class="subway-line">
                 <!-- <span class="line"></span> -->
