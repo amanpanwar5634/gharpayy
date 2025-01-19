@@ -397,6 +397,36 @@ h6,
 	height: 1px;
 	width: 60px;
 }
+
+.listing-wrapper {
+	position: relative;
+	background-color: #e1f6f2;
+	display: flex;
+	align-items: center;
+	padding: 20px 0 40px 30px;
+	overflow: hidden;
+}
+
+.listing {
+	display: flex;
+	overflow-x: scroll;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+	scroll-behavior: smooth;
+}
+
+.listing::-webkit-scrollbar {
+	display: none;
+}
+
+.listing img {
+	flex-shrink: 0;
+	width: 280px;
+	height: 200px;
+	margin-right: 20px;
+	border-radius: 8px;
+	object-fit: cover;
+}
 /*===== btn Color CSS =====*/
 .btn-primary-bg,
 .btn-lg-primary {
