@@ -427,6 +427,21 @@ h6,
 	border-radius: 8px;
 	object-fit: cover;
 }
+
+.sticky-banner {
+    position: sticky;
+    top: 0; 
+    z-index: 1000; 
+    background-color: var(--secondery-theme-color);
+    padding: 1rem;
+	padding-top: 2rem;
+	color: var(--white-color);
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
 /*===== btn Color CSS =====*/
 .btn-primary-bg,
 .btn-lg-primary {
@@ -1020,7 +1035,7 @@ footer .social-media li:hover a,
 	padding-left: 15px;
 	padding-right: 15px;
 	background-color: #fff;
-	overflow: hidden !important;
+	
 	position: relative
 }
 
