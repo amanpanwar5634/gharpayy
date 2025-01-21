@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/color.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -511,43 +513,42 @@
             margin-bottom: 20px;
         }
 
-        /* Grid Container */
         .grid-container-2 {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 15px;
         }
 
         .grid-box {
-            border: 1px solid #ddd;
+            border: 2px solid var(--secondery-theme-color);
             border-radius: 8px;
+            border-top-left-radius: 45px;
             padding: 20px;
-            text-align: center;
-            background-color: var(--primary-theme-color);
+            padding-right: 5px;
+            text-align: left;
+            background-color: #e1f6f2;
         }
 
-        /* Full-Width Box */
         .grid-box.full-width {
             grid-column: span 2;
-            /* Takes up full width */
         }
 
-        /* Icon + Title Styling */
         .icon-title {
             margin-bottom: 15px;
             text-align: center;
         }
 
         .icon-title img {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
+            width: 70px;
+            height: 70px;
+            margin-bottom: 2rem;
         }
 
         .icon-title h3 {
-            font-size: 1.5rem;
-            margin: 10px 0;
+            font-size: 16px;
+            margin: 0;
             font-weight: bold;
+            text-align: left;
             color: var(--secondery-theme-color);
         }
 
@@ -559,36 +560,52 @@
         }
 
         .grid-box ul li {
-            margin-bottom: 10px;
+            font-weight: 500;
+            margin-bottom: 5px !important;
             font-size: 1rem;
+            position: relative;
+            padding-left: 12px;
+            margin-left: 10px;
         }
 
-        .list{
+        .grid-box ul li::before {
+            content: "";
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            top: 5px;
+            left: -15px;
+            background-image: url(img/amenities-icons/pointing-right1.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .list {
             display: flex;
             flex-direction: column;
         }
-        .listitem-2{
+
+        .listitem-2 {
             width: 100%;
             display: flex;
             flex-direction: row;
             gap: 20px;
             margin-bottom: 1rem;
-            
         }
 
-        .listitem-2 p{
+        .listitem-2 p {
             display: inline;
-            font-size: 18px;  
+            font-size: 20px;
             margin-top: 5px;
-            margin-bottom: 0; 
+            margin-bottom: 0;
+            font-weight: 500;
+            letter-spacing: 1.5px;
         }
 
-        .listitem-2 img{
+        .listitem-2 img {
             height: 45px;
             width: 45px;
         }
-
-
     </style>
 </head>
 
@@ -729,7 +746,8 @@
                     src="img/icons_1/housekeeping_7187560.png">
                 <p>Housekeeping</p>
             </div>
-            <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy" src="img/icons_1/microwave_1330660.png">
+            <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy"
+                    src="img/icons_1/microwave_1330660.png">
                 <p>Microwave</p>
             </div>
             <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy" src="img/icons_1/freezer_3004029.png">
@@ -741,7 +759,8 @@
             <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy" src="img/icons_1/lockers_928349.png">
                 <p>Wooden Wardrobe </p>
             </div>
-            <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy" src="img/icons_1/single-bed_1190621.png">
+            <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy"
+                    src="img/icons_1/single-bed_1190621.png">
                 <p>Wooden Cot and mattress </p>
             </div>
             <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy" src="img/icons_1/pillow_7929399.png">
@@ -758,7 +777,8 @@
             <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy" src="img/icons_1/idea_1350710.png">
                 <p>Electricity bill </p>
             </div>
-            <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy" src="img/icons_1/plumbering_389378.png">
+            <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy"
+                    src="img/icons_1/plumbering_389378.png">
                 <p>Water Bill </p>
             </div>
             <!-- <div role="listitem" class="listitem-2"><img alt="" loading="lazy" src="img/amenities-icons/food1.png">
@@ -925,13 +945,15 @@
         </div>
     </section>
 
+    <!-- variation 1 -->
+
     <section class="amenities">
         <h2>Amenities</h2>
         <div class="grid-container-2">
             <!-- Box 1 -->
             <div class="grid-box">
                 <div class="icon-title">
-                    <img src="img/icons_1/freezer_3004029.png" alt="Kitchen Essentials Icon" />
+                    <img src="img/amenities-icons/appliance_1198306.png" alt="Kitchen Essentials Icon" />
                     <h3>Kitchen Essentials</h3>
                 </div>
                 <ul>
@@ -943,7 +965,7 @@
             <!-- Box 2 -->
             <div class="grid-box">
                 <div class="icon-title">
-                    <img src="img/icons_1/cloud_7876220.png" alt="Utilities Icon" />
+                    <img src="img/amenities-icons/electric-gear_3520842.png" alt="Utilities Icon" />
                     <h3>Utilities</h3>
                 </div>
                 <ul>
@@ -956,7 +978,7 @@
             <!-- Box 3 -->
             <div class="grid-box full-width">
                 <div class="icon-title" style="width: 100%;">
-                    <img src="img/icons_1/pillow_7929399.png" alt="Comfort Icon" />
+                    <img src="img/amenities-icons/meditation_6911426.png" alt="Comfort Icon" />
                     <h3>Comfort</h3>
                 </div>
                 <ul>
@@ -968,6 +990,19 @@
             </div>
 
             <!-- Box 4 -->
+            
+
+            <div class="grid-box">
+                <div class="icon-title">
+                    <img src="img/amenities-icons/mop_7842219.png" alt="Security Icon" />
+                    <h3>Facilities</h3>
+                </div>
+                <ul>
+                    <li>Housekeeping</li>
+                    <li>Autometic Washing Machine</li>
+                </ul>
+            </div>
+
             <div class="grid-box">
                 <div class="icon-title">
                     <img src="img/icons_1/cctv_1367174.png" alt="Security Icon" />
@@ -978,10 +1013,59 @@
                     <li>RFID Glass Doors</li>
                 </ul>
             </div>
+        </div>
+    </section>
 
-            <div class="grid-box">
+    <!-- variation 2 -->
+
+    <section class="amenities">
+        <h2>Amenities</h2>
+        <div class="grid-container-2">
+            <!-- Box 1 -->
+            <div class="grid-box" style="background-color: var(--primary-theme-color); border: none;">
                 <div class="icon-title">
-                    <img src="img/icons_1/housekeeping_7187560.png" alt="Security Icon" />
+                    <img src="img/amenities-icons/appliance_1198306.png" alt="Kitchen Essentials Icon" />
+                    <h3>Kitchen Essentials</h3>
+                </div>
+                <ul>
+                    <li>Microwave</li>
+                    <li>Refrigerator</li>
+                </ul>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="grid-box" style="background-color: var(--primary-theme-color); border: none;">
+                <div class="icon-title">
+                    <img src="img/amenities-icons/electric-gear_3520842.png" alt="Utilities Icon" />
+                    <h3>Utilities</h3>
+                </div>
+                <ul>
+                    <li>Wifi</li>
+                    <li>Electricity bill</li>
+                    <li>Water bill</li>
+                </ul>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="grid-box full-width" style="background-color: var(--primary-theme-color); border: none;">
+                <div class="icon-title" style="width: 100%;">
+                    <img src="img/amenities-icons/meditation_6911426.png" alt="Comfort Icon" />
+                    <h3>Comfort</h3>
+                </div>
+                <ul>
+                    <li>Geyser</li>
+                    <li>Wooden Wardrobe</li>
+                    <li>Wooden Cot and Mattress</li>
+                    <li>Linen and Pillow Cover</li>
+                </ul>
+            </div>
+
+            <!-- Box 4 -->
+            
+
+            <div class="grid-box" style="background-color: var(--primary-theme-color); border: none;">
+                <div class="icon-title">
+                    <img src="img/amenities-icons/mop_7842219.png" alt="Security Icon" />
                     <h3>Facilities</h3>
                 </div>
                 <ul>
@@ -989,10 +1073,232 @@
                     <li>Autometic Washing Machine</li>
                 </ul>
             </div>
+
+            <div class="grid-box" style="background-color: var(--primary-theme-color); border: none;">
+                <div class="icon-title">
+                    <img src="img/icons_1/cctv_1367174.png" alt="Security Icon" />
+                    <h3>Security</h3>
+                </div>
+                <ul>
+                    <li>CCTV</li>
+                    <li>RFID Glass Doors</li>
+                </ul>
+            </div>
         </div>
     </section>
 
-    
+    <!-- variation 3 -->
+
+    <section class="amenities">
+        <h2>Amenities</h2>
+        <div class="grid-container-2">
+            <!-- Box 1 -->
+            <div class="grid-box" style="background-color: white;">
+                <div class="icon-title">
+                    <img src="img/amenities-icons/appliance_1198306.png" alt="Kitchen Essentials Icon" />
+                    <h3>Kitchen Essentials</h3>
+                </div>
+                <ul>
+                    <li>Microwave</li>
+                    <li>Refrigerator</li>
+                </ul>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="grid-box" style="background-color: white;">
+                <div class="icon-title">
+                    <img src="img/amenities-icons/electric-gear_3520842.png" alt="Utilities Icon" />
+                    <h3>Utilities</h3>
+                </div>
+                <ul>
+                    <li>Wifi</li>
+                    <li>Electricity bill</li>
+                    <li>Water bill</li>
+                </ul>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="grid-box full-width" style="background-color: white;">
+                <div class="icon-title" style="width: 100%;">
+                    <img src="img/amenities-icons/meditation_6911426.png" alt="Comfort Icon" />
+                    <h3>Comfort</h3>
+                </div>
+                <ul>
+                    <li>Geyser</li>
+                    <li>Wooden Wardrobe</li>
+                    <li>Wooden Cot and Mattress</li>
+                    <li>Linen and Pillow Cover</li>
+                </ul>
+            </div>
+
+            <!-- Box 4 -->
+            
+
+            <div class="grid-box" style="background-color: white;">
+                <div class="icon-title">
+                    <img src="img/amenities-icons/mop_7842219.png" alt="Security Icon" />
+                    <h3>Facilities</h3>
+                </div>
+                <ul>
+                    <li>Housekeeping</li>
+                    <li>Autometic Washing Machine</li>
+                </ul>
+            </div>
+
+            <div class="grid-box" style="background-color: white;">
+                <div class="icon-title">
+                    <img src="img/icons_1/cctv_1367174.png" alt="Security Icon" />
+                    <h3>Security</h3>
+                </div>
+                <ul>
+                    <li>CCTV</li>
+                    <li>RFID Glass Doors</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- variation 4 -->
+
+    <section class="amenities">
+        <h2>Amenities</h2>
+        <div class="grid-container-2">
+            <!-- Box 1 -->
+            <div class="grid-box" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+                <div class="icon-title">
+                    <img src="img/amenities-icons/appliance_1198306.png" alt="Kitchen Essentials Icon" />
+                    <h3>Kitchen Essentials</h3>
+                </div>
+                <ul>
+                    <li>Microwave</li>
+                    <li>Refrigerator</li>
+                </ul>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="grid-box" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+                <div class="icon-title">
+                    <img src="img/amenities-icons/electric-gear_3520842.png" alt="Utilities Icon" />
+                    <h3>Utilities</h3>
+                </div>
+                <ul>
+                    <li>Wifi</li>
+                    <li>Electricity bill</li>
+                    <li>Water bill</li>
+                </ul>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="grid-box full-width" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+                <div class="icon-title" style="width: 100%;">
+                    <img src="img/amenities-icons/meditation_6911426.png" alt="Comfort Icon" />
+                    <h3>Comfort</h3>
+                </div>
+                <ul>
+                    <li>Geyser</li>
+                    <li>Wooden Wardrobe</li>
+                    <li>Wooden Cot and Mattress</li>
+                    <li>Linen and Pillow Cover</li>
+                </ul>
+            </div>
+
+            <!-- Box 4 -->
+            
+
+            <div class="grid-box" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+                <div class="icon-title">
+                    <img src="img/amenities-icons/mop_7842219.png" alt="Security Icon" />
+                    <h3>Facilities</h3>
+                </div>
+                <ul>
+                    <li>Housekeeping</li>
+                    <li>Autometic Washing Machine</li>
+                </ul>
+            </div>
+
+            <div class="grid-box" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+                <div class="icon-title">
+                    <img src="img/icons_1/cctv_1367174.png" alt="Security Icon" />
+                    <h3>Security</h3>
+                </div>
+                <ul>
+                    <li>CCTV</li>
+                    <li>RFID Glass Doors</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- variation 5 -->
+
+    <section class="amenities">
+        <h2>Amenities</h2>
+        <div class="grid-container-2">
+            <!-- Box 1 -->
+            <div class="grid-box" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+                <div class="icon-title">
+                    <img src="img/amenities-icons/appliance_1198306.png" alt="Kitchen Essentials Icon" />
+                    <h3 style="font-size: 26px; margin-bottom: 10px; text-align: center;">Kitchen Essentials</h3>
+                </div>
+                <ul>
+                    <li>Microwave</li>
+                    <li>Refrigerator</li>
+                </ul>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="grid-box" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+                <div class="icon-title">
+                    <img src="img/amenities-icons/electric-gear_3520842.png" alt="Utilities Icon" />
+                    <h3 style="font-size: 26px; margin-bottom: 10px; text-align: center;">Utilities</h3>
+                </div>
+                <ul>
+                    <li>Wifi</li>
+                    <li>Electricity bill</li>
+                    <li>Water bill</li>
+                </ul>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="grid-box full-width" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+                <div class="icon-title" style="width: 100%;">
+                    <img src="img/amenities-icons/meditation_6911426.png" alt="Comfort Icon" />
+                    <h3 style="font-size: 26px; margin-bottom: 10px; text-align: center;">Comfort</h3>
+                </div>
+                <ul>
+                    <li>Geyser</li>
+                    <li>Wooden Wardrobe</li>
+                    <li>Wooden Cot and Mattress</li>
+                    <li>Linen and Pillow Cover</li>
+                </ul>
+            </div>
+
+            <!-- Box 4 -->
+            
+
+            <div class="grid-box" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+                <div class="icon-title">
+                    <img src="img/amenities-icons/mop_7842219.png" alt="Security Icon" />
+                    <h3 style="font-size: 26px; margin-bottom: 10px; text-align: center;">Facilities</h3>
+                </div>
+                <ul>
+                    <li>Housekeeping</li>
+                    <li>Autometic Washing Machine</li>
+                </ul>
+            </div>
+
+            <div class="grid-box" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+                <div class="icon-title">
+                    <img src="img/icons_1/cctv_1367174.png" alt="Security Icon" />
+                    <h3 style="font-size: 26px; margin-bottom: 10px; text-align: center;">Security</h3>
+                </div>
+                <ul>
+                    <li>CCTV</li>
+                    <li>RFID Glass Doors</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
     <section>
         <h2>Nearby Amenities</h2>
