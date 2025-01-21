@@ -439,12 +439,22 @@ h6,
     z-index: 1000; 
     background-color: var(--secondery-theme-color);
     padding: 1rem;
-	padding-top: 2rem;
-	color: var(--white-color);
-    text-align: center;
+	padding-top:2.5rem;
+	color: var(--white-color) !important;
+    text-align: left;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-weight: bold;
-    font-size: 1.2rem;
+	font-size: 17px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.sticky-banner a{
+	border: 1px solid white;
+	border-radius: 15px;
+	padding: 6px 20px;
+	color: white;
+
 }
 
 @media(min-width: 700px){
