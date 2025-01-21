@@ -469,6 +469,99 @@
             outline: none;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
         }
+
+        .property_amenities_list h5 {
+            margin-top: 1.25rem;
+            font-weight: bold;
+            position: relative;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .property_amenities_list h5::before,
+        .property_amenities_list h5::after {
+            content: "";
+            flex-grow: 1;
+            /* Makes the line grow dynamically */
+            height: 1px;
+            background-color: #ccc;
+        }
+
+        .property_amenities_list h5::before {
+            margin-right: 10px;
+            /* Space between the line and text */
+        }
+
+        .property_amenities_list h5::after {
+            margin-left: 10px;
+            /* Space between the line and text */
+        }
+
+        /* General Styling */
+        .amenities {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .amenities h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Grid Container */
+        .grid-container-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .grid-box {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            background-color: var(--primary-theme-color);
+        }
+
+        /* Full-Width Box */
+        .grid-box.full-width {
+            grid-column: span 2;
+            /* Takes up full width */
+        }
+
+        /* Icon + Title Styling */
+        .icon-title {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .icon-title img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .icon-title h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            font-weight: bold;
+            color: var(--secondery-theme-color);
+        }
+
+        /* List Styling */
+        .grid-box ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .grid-box ul li {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
     </style>
 </head>
 
@@ -601,43 +694,45 @@
     <section>
         <h2>Amenities</h2>
         <div role="list" class="property_amenities_list">
-            
+
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/cloud_7876220.png">
                 <p>Wifi</p>
             </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/housekeeping_7187560.png">
+            <div role="listitem" class="list-item"><img alt="" loading="lazy"
+                    src="img/icons_1/housekeeping_7187560.png">
                 <p>Housekeeping</p>
             </div>
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/microwave_1330660.png">
                 <p>Microwave</p>
             </div>
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/freezer_3004029.png">
-                <p>Refrigerator                </p>
+                <p>Refrigerator </p>
             </div>
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/shower_9287433.png">
-                <p>Geyser                </p>
+                <p>Geyser </p>
             </div>
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/lockers_928349.png">
-                <p>Wooden Wardrobe                </p>
+                <p>Wooden Wardrobe </p>
             </div>
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/single-bed_1190621.png">
-                <p>Wooden Cot and mattress                </p>
+                <p>Wooden Cot and mattress </p>
             </div>
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/pillow_7929399.png">
-                <p>Linen and pillow cover                </p>
+                <p>Linen and pillow cover </p>
             </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/washing-machine_3003984.png">
-                <p>Autometic Washing machine                </p>
+            <div role="listitem" class="list-item"><img alt="" loading="lazy"
+                    src="img/icons_1/washing-machine_3003984.png">
+                <p>Autometic Washing machine </p>
             </div>
             <div role="listitem" class="list-item">
                 <img alt="" loading="lazy" src="img/icons_1/cctv_1367174.png">
                 <p>CCTV & RFID glass</p>
             </div>
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/idea_1350710.png">
-                <p>Electricity bill               </p>
+                <p>Electricity bill </p>
             </div>
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/plumbering_389378.png">
-                <p>Water Bill              </p>
+                <p>Water Bill </p>
             </div>
             <!-- <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/food1.png">
                 <span>Food Included</span>
@@ -645,94 +740,182 @@
         </div>
     </section>
 
-  
+
 
     <section>
-        <h2 >Amenities</h2>
+        <h2>Amenities</h2>
         <div role="list" class="property_amenities_list">
-            
+
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/wifi_9722883.png">
                 <span>Wifi</span>
             </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/cleaning-liquid_5836758.png">
+            <div role="listitem" class="list-item"><img alt="" loading="lazy"
+                    src="img/icons_2/cleaning-liquid_5836758.png">
                 <span>Housekeeping</span>
             </div>
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/microwave_7780600.png">
                 <span>Microwave</span>
             </div>
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/fridge_9654542.png">
-                <span>Refrigerator                </span>
+                <span>Refrigerator </span>
             </div>
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/shower_11158936.png">
-                <span>Geyser                </span>
+                <span>Geyser </span>
             </div>
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/wardrobe_6403725.png">
-                <span>Wooden Wardrobe                </span>
+                <span>Wooden Wardrobe </span>
             </div>
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/single-bed_6403922.png">
-                <span>Wooden Cot and mattress                </span>
+                <span>Wooden Cot and mattress </span>
             </div>
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/sleep_6061593.png">
-                <span>Linen and pillow cover                </span>
+                <span>Linen and pillow cover </span>
             </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/washing-machine_2779706.png">
-                <span>Autometic Washing machine                </span>
+            <div role="listitem" class="list-item"><img alt="" loading="lazy"
+                    src="img/icons_2/washing-machine_2779706.png">
+                <span>Autometic Washing machine </span>
             </div>
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/cctv_10087978.png">
-                <span>CCTV & RFID glass                </span>
+                <span>CCTV & RFID glass </span>
             </div>
 
             <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/plug_8789664.png">
-                <p>Electricity bill               </p>
+                <p>Electricity bill </p>
             </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/waste-water_11158996.png">
-                <p>Water Bill              </p>
+            <div role="listitem" class="list-item"><img alt="" loading="lazy"
+                    src="img/icons_2/waste-water_11158996.png">
+                <p>Water Bill </p>
             </div>
-            
+
         </div>
     </section>
 
     <section>
         <h2>Amenities</h2>
         <div role="list" class="property_amenities_list">
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/sofa.svg">
-                <span>Fully Furnished</span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/wifi.svg">
-                <span>Wifi</span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/spray.svg">
-                <span>Housekeeping</span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/spray.svg">
+            <h5>Kitchen Essentials</h5>
+            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/microwave_7780600.png">
                 <span>Microwave</span>
             </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/spray.svg">
-                <span>Refrigerator                </span>
+            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/fridge_9654542.png">
+                <span>Refrigerator </span>
             </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/spray.svg">
-                <span>Geyser                </span>
+
+            <h5>Comfort</h5>
+            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/shower_11158936.png">
+                <span>Geyser </span>
             </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/spray.svg">
-                <span>Wooden Wardrobe                </span>
+            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/wardrobe_6403725.png">
+                <span>Wooden Wardrobe </span>
             </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/spray.svg">
-                <span>Wooden Cot and mattress                </span>
+            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/single-bed_6403922.png">
+                <span>Wooden Cot and mattress </span>
             </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/spray.svg">
-                <span>Linen and pillow cover                </span>
+            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/sleep_6061593.png">
+                <span>Linen and pillow cover </span>
             </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/spray.svg">
-                <span>Autometic Washing machine                </span>
+
+            <h5>Utilities</h5>
+            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/wifi_9722883.png">
+                <span>Wifi</span>
             </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/spray.svg">
-                <span>CCTV & RFID glass                </span>
+            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/plug_8789664.png">
+                <span>Electricity bill </span>
             </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/food1.png">
-                <span>Food Included</span>
+            <div role="listitem" class="list-item"><img alt="" loading="lazy"
+                    src="img/icons_2/waste-water_11158996.png">
+                <span>Water Bill </span>
+            </div>
+
+            <h5>Convenience</h5>
+            <div role="listitem" class="list-item"><img alt="" loading="lazy"
+                    src="img/icons_2/cleaning-liquid_5836758.png">
+                <span>Housekeeping</span>
+            </div>
+            <div role="listitem" class="list-item"><img alt="" loading="lazy"
+                    src="img/icons_2/washing-machine_2779706.png">
+                <span> Washing machine </span>
+            </div>
+
+            <h5>Security</h5>
+            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/cctv_10087978.png">
+                <span>CCTV </span>
+            </div>
+            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/cctv_10087978.png">
+                <span>RFID Glass doors </span>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section class="amenities">
+        <h2>Amenities</h2>
+        <div class="grid-container-2">
+            <!-- Box 1 -->
+            <div class="grid-box">
+                <div class="icon-title">
+                    <img src="img/icons_1/freezer_3004029.png" alt="Kitchen Essentials Icon" />
+                    <h3>Kitchen Essentials</h3>
+                </div>
+                <ul>
+                    <li>Microwave</li>
+                    <li>Refrigerator</li>
+                </ul>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="grid-box">
+                <div class="icon-title">
+                    <img src="img/icons_1/cloud_7876220.png" alt="Utilities Icon" />
+                    <h3>Utilities</h3>
+                </div>
+                <ul>
+                    <li>Wifi</li>
+                    <li>Electricity bill</li>
+                    <li>Water bill</li>
+                </ul>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="grid-box full-width">
+                <div class="icon-title" style="width: 100%;">
+                    <img src="img/icons_1/pillow_7929399.png" alt="Comfort Icon" />
+                    <h3>Comfort</h3>
+                </div>
+                <ul>
+                    <li>Geyser</li>
+                    <li>Wooden Wardrobe</li>
+                    <li>Wooden Cot and Mattress</li>
+                    <li>Linen and Pillow Cover</li>
+                </ul>
+            </div>
+
+            <!-- Box 4 -->
+            <div class="grid-box">
+                <div class="icon-title">
+                    <img src="img/icons_1/cctv_1367174.png" alt="Security Icon" />
+                    <h3>Security</h3>
+                </div>
+                <ul>
+                    <li>CCTV</li>
+                    <li>RFID Glass Doors</li>
+                </ul>
+            </div>
+
+            <div class="grid-box">
+                <div class="icon-title">
+                    <img src="img/icons_1/housekeeping_7187560.png" alt="Security Icon" />
+                    <h3>Facilities</h3>
+                </div>
+                <ul>
+                    <li>Housekeeping</li>
+                    <li>Autometic Washing Machine</li>
+                </ul>
             </div>
         </div>
     </section>
+
 
     <section>
         <h2>Nearby Amenities</h2>
@@ -751,7 +934,7 @@
                 <img src="img/amenities-icons/dumbbell.png" alt="">
                 <span>Gym</span>
             </div>
-            <div role="listitem" class="list-item w-dyn-item">                
+            <div role="listitem" class="list-item w-dyn-item">
                 <img src="img/amenities-icons/online-shopping.png" alt="">
 
                 <span>Shopping</span>
