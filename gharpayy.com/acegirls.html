@@ -8,10 +8,14 @@
     <link rel="shortcut icon" href="img/logo/gharpayy_logo2.html" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/color.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="webfonts/flaticon/flaticon.css">
+    <link rel="stylesheet" href="css/fontawesome-all-5.2.0.min.css">
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
@@ -575,7 +579,7 @@
             position: absolute;
             top: 5px;
             left: -15px;
-            background-image: url(img/amenities-icons/pointing-right1.png);
+            background-image: url(img/pointer.png);
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -606,10 +610,193 @@
             height: 45px;
             width: 45px;
         }
+
+        .faq-section {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--gray-color);
+            border-radius: 10px;
+            padding-bottom: 50px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+        }
+
+        .faq-question {
+            width: 100%;
+            background-color: var(--white-color);
+            color: var(--secondery-theme-color);
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 1px solid rgb(201, 189, 189);
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: var(--secondery-theme-color);
+            color: var(--white-color);
+            outline: 1px solid rgb(201, 189, 189);
+        }
+
+        .faq-icon {
+            font-size: 22px;
+            color: var(--primary-theme-color);
+            transform: rotate(0deg);
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 15px;
+            background-color: var(--white-color);
+            color: var(--body-text-color);
+            font-size: 14px;
+            border-left: 4px solid var(--primary-theme-color);
+            border-radius: 0 0 12px 12px;
+            margin-top: 14px;
+            margin-left: 12px;
+            margin-right: 12px;
+            outline: 1px solid rgb(201, 189, 189);
+            position: relative;
+        }
+
+        .faq-answer::before {
+            position: absolute;
+            content: '';
+            background: #fff;
+            width: 20px;
+            height: 20px;
+            left: 22px;
+            top: -9px;
+            transform: rotate(-45deg);
+            box-shadow: 1px -1px 0px 0px #eae0d9;
+            transition: all 500ms ease;
+        }
+
+        .faq-answer p {
+            margin: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 
 <body>
+
+    <header id="header" class=" header-3 nav-on-banner">
+        <div class="top-header text-white icon-default py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="float-left"><i class="fas fa-map-marker-alt"></i><span class="pl-2">
+                                KORAMANGALA, BANGALORE
+                            </span> </div>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="float-right">
+                            <li><i class="fas fa-envelope"></i><span class="pl-2">HEY@GHARPAYY.COM</span></li>
+                            <li><i class="fas fa-phone"></i><span class="pl-2">+91 7988114576</span></li>
+                            <script>
+                                gtag('config', 'AW-11102447116/QaOoCOXa-vsDEIzMh64p', {
+                                    'phone_conversion_number': '08307396042'
+                                });
+                            </script>
+
+                        </ul>
+                        <form class="language" action="#" method="post">
+                            <select class="selectpicker">
+                                <!-- <option value="en">ENG</option>
+                                <option value="fr">FRA</option>
+                                <option value="bn">BAN</option> -->
+                            </select>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-header">
+            <div class="container">
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg navbar-light w-100"> <a class="navbar-brand"
+                            href="index-2.html"><img class="nav-logo" src="img/logo/gharpayy_logo2.png" alt="logo"
+                                width="110px"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation"> <span
+                                class="navbar-toggler-icon"></span> <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span> </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item dropdown"> <a class="nav-link" href="https://gharpayy.com/"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Home</a>
+                                    <!-- <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="index.html">Home One</a></li>
+                                    <li><a class="dropdown-item" href="index-2.html">Home Two</a></li>
+                                    <li><a class="dropdown-item" href="index-3.html">Home Three</a></li>
+                                    <li><a class="dropdown-item" href="index-4.html">Home Four</a></li>
+                                    <li><a class="dropdown-item" href="index-5.html">Home Five</a></li>
+                                </ul> -->
+                                </li>
+                                <li class="nav-item"> <a class="nav-link" href="https://gharpayy.com/about.html">About
+                                        Us</a> </li>
+
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="https://gharpayy.com/index.html#amenities">Amenities</a> </li>
+                                <!-- <li class="nav-item"> <a class="nav-link dropdown-toggle" href="blog-grid-classic.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> News </a>
+                                
+                            </li> -->
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="https://gharpayy.com/gurugram/index.html#contact">Contact</a> </li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="https://gharpayy.com/gurugram/index.html">GharPayy-GURUGRAM</a> </li>
+                            </ul>
+                            <a class="btn btn-secondery-bg ml-2" style="font-weight: 700;" target="_blank"
+                                href="https://api.whatsapp.com/send?phone=+917988114576&amp;text=Heyy!%20GHARPAYY,%20I%20am%20looking%20for%20a%20GOOD-ACCOMODATION%20in%20the%20AREA%20NEARBY-">Whatsapp
+                                Now</a>
+                            <!-- Event snippet for GharPayy Page View WT conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+                            <script>
+                                function gtag_report_conversion(url) {
+                                    var callback = function () {
+                                        if (typeof (url) != 'undefined') {
+                                            window.location = url;
+                                        }
+                                    };
+                                    gtag('event', 'conversion', {
+                                        'send_to': 'AW-11102447116/N7TNCMqI-5UYEIzMh64p',
+                                        'event_callback': callback
+                                    });
+                                    return false;
+                                }
+                            </script>
+
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
     <div class="image-section">
         <!-- Top Image -->
         <div class="top-image" style="position: relative;">
@@ -990,7 +1177,7 @@
             </div>
 
             <!-- Box 4 -->
-            
+
 
             <div class="grid-box">
                 <div class="icon-title">
@@ -1061,7 +1248,7 @@
             </div>
 
             <!-- Box 4 -->
-            
+
 
             <div class="grid-box" style="background-color: var(--primary-theme-color); border: none;">
                 <div class="icon-title">
@@ -1132,7 +1319,7 @@
             </div>
 
             <!-- Box 4 -->
-            
+
 
             <div class="grid-box" style="background-color: white;">
                 <div class="icon-title">
@@ -1164,7 +1351,8 @@
         <h2>Amenities</h2>
         <div class="grid-container-2">
             <!-- Box 1 -->
-            <div class="grid-box" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+            <div class="grid-box"
+                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
                 <div class="icon-title">
                     <img src="img/amenities-icons/appliance_1198306.png" alt="Kitchen Essentials Icon" />
                     <h3>Kitchen Essentials</h3>
@@ -1176,7 +1364,8 @@
             </div>
 
             <!-- Box 2 -->
-            <div class="grid-box" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+            <div class="grid-box"
+                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
                 <div class="icon-title">
                     <img src="img/amenities-icons/electric-gear_3520842.png" alt="Utilities Icon" />
                     <h3>Utilities</h3>
@@ -1189,7 +1378,8 @@
             </div>
 
             <!-- Box 3 -->
-            <div class="grid-box full-width" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+            <div class="grid-box full-width"
+                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
                 <div class="icon-title" style="width: 100%;">
                     <img src="img/amenities-icons/meditation_6911426.png" alt="Comfort Icon" />
                     <h3>Comfort</h3>
@@ -1203,9 +1393,10 @@
             </div>
 
             <!-- Box 4 -->
-            
 
-            <div class="grid-box" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+
+            <div class="grid-box"
+                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
                 <div class="icon-title">
                     <img src="img/amenities-icons/mop_7842219.png" alt="Security Icon" />
                     <h3>Facilities</h3>
@@ -1216,7 +1407,8 @@
                 </ul>
             </div>
 
-            <div class="grid-box" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+            <div class="grid-box"
+                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
                 <div class="icon-title">
                     <img src="img/icons_1/cctv_1367174.png" alt="Security Icon" />
                     <h3>Security</h3>
@@ -1235,7 +1427,8 @@
         <h2>Amenities</h2>
         <div class="grid-container-2">
             <!-- Box 1 -->
-            <div class="grid-box" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+            <div class="grid-box"
+                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
                 <div class="icon-title">
                     <img src="img/amenities-icons/appliance_1198306.png" alt="Kitchen Essentials Icon" />
                     <h3 style="font-size: 26px; margin-bottom: 10px; text-align: center;">Kitchen Essentials</h3>
@@ -1247,7 +1440,8 @@
             </div>
 
             <!-- Box 2 -->
-            <div class="grid-box" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+            <div class="grid-box"
+                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
                 <div class="icon-title">
                     <img src="img/amenities-icons/electric-gear_3520842.png" alt="Utilities Icon" />
                     <h3 style="font-size: 26px; margin-bottom: 10px; text-align: center;">Utilities</h3>
@@ -1260,7 +1454,8 @@
             </div>
 
             <!-- Box 3 -->
-            <div class="grid-box full-width" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+            <div class="grid-box full-width"
+                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
                 <div class="icon-title" style="width: 100%;">
                     <img src="img/amenities-icons/meditation_6911426.png" alt="Comfort Icon" />
                     <h3 style="font-size: 26px; margin-bottom: 10px; text-align: center;">Comfort</h3>
@@ -1274,9 +1469,10 @@
             </div>
 
             <!-- Box 4 -->
-            
 
-            <div class="grid-box" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+
+            <div class="grid-box"
+                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
                 <div class="icon-title">
                     <img src="img/amenities-icons/mop_7842219.png" alt="Security Icon" />
                     <h3 style="font-size: 26px; margin-bottom: 10px; text-align: center;">Facilities</h3>
@@ -1287,7 +1483,8 @@
                 </ul>
             </div>
 
-            <div class="grid-box" style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
+            <div class="grid-box"
+                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
                 <div class="icon-title">
                     <img src="img/icons_1/cctv_1367174.png" alt="Security Icon" />
                     <h3 style="font-size: 26px; margin-bottom: 10px; text-align: center;">Security</h3>
@@ -1500,6 +1697,204 @@
         </div>
     </section>
 
+    <div class="faq-section">
+        <div class="faq-item active">
+            <button class="faq-question">
+                What is Gharpayy?
+                <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+                <p>Gharpayy is a trusted platform connecting you to premium rental accommodations—PGs, co-living spaces,
+                    and flats—primarily in Bangalore, with verified listings and seamless user support.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                How does Gharpayy simplify the renting process?
+                <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+                <p> <strong>Browse: </strong>Check verified listings on the website or via WhatsApp. <br>
+                    <strong>Book:</strong> Pay a token amount to reserve your spot. <br>
+                    <strong>Move In:</strong> Enjoy a stress-free stay with 24/7 support.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Why choose Gharpayy over other platforms?
+                <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+                <p> We ensure <strong>verified quality</strong> (strict inspections), <strong>transparent
+                        pricing</strong> (no hidden charges), and <strong>dedicated support</strong> (real-time
+                    assistance for any issue).
+                </p>
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Is there a deposit or hidden fee involved?
+                <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+                <p>Yes, a refundable security deposit or token fee may apply, clearly stated at the time of booking to
+                    avoid any surprises.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                What is the cancellation or lock-in policy?
+                <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+                <p>Cancellation terms differ by property; all conditions—refund timelines, lock-in periods—are shared
+                    upfront before you confirm.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Can I inspect the property before booking?
+                <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+                <p>Absolutely. We offer virtual tours or in-person visits to most properties, ensuring you make a
+                    confident choice.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                How do I reach Gharpayy’s support team?
+                <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+                <p>We’re available 24/7 on WhatsApp, email, and phone to handle any queries or concerns.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer Section Start -->
+    <footer class="full-row bg-secondery text-white footer-3 py-80" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <div class="footer-widget get-in-touch ">
+                        <h4 class="widget-title down-line-left text-white">Get In Touch</h4>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt text-white icon-primary"></i>BANGALORE, INDIA</li>
+                            <li><a href="mailto:HEY@GHARPAYY.COM"><i
+                                        class="fas fa-envelope icon-primary"></i>HEY@GHARPAYY.COM</a>
+                            </li>
+                            <li><a href="tel:+91 83073 96042"><i class="fas fa-phone icon-primary"></i>+91
+                                    7988114576</a></li>
+                            <script>
+                                gtag('config', 'AW-11102447116/QaOoCOXa-vsDEIzMh64p', {
+                                    'phone_conversion_number': '08307396042'
+                                });
+                            </script>
+
+                        </ul>
+                        <a class="btn btn-primary-bg" style="font-weight: 700;" target="_blank"
+                            href="https://api.whatsapp.com/send?phone=+917988114576&amp;text=Heyy!%20GHARPAYY,%20I%20am%20looking%20for%20a%20GOOD-ACCOMODATION%20in%20the%20AREA%20NEARBY-">Whatsapp
+                            Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <div class="footer-widget quick-link">
+                        <h4 class="widget-title down-line-left text-white">Quick Links</h4>
+                        <ul>
+                            <li><a href="index-2.html">- Home</a></li>
+                            <li><a href="about.html">- About Us</a></li>
+                            <li><a href="#amenities">- Amenities</a></li>
+                            <li><a href="#contact">- Contact Us</a></li>
+                            <li> <a href="gurugram/index.html">- GharPayy-GURUGRAM</a> </li>
+                            <!-- <li><a href="#">- Photo Gallery</a></li>
+                        <li><a href="#">- Terms and Conditions</a></li>
+                        <li><a href="#">- Privacy Policy</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-3  col-sm-6">
+                <div class="footer-widget instagram">
+                    <h4 class="widget-title down-line-left text-white">Instagram</h4>
+                    <ul>
+                        <li><a href="#"><img src="img/squire/6.jpg" alt="Image not found !"></a></li>
+                        <li><a href="#"><img src="img/squire/7.jpg" alt="Image not found !"></a></li>
+                        <li><a href="#"><img src="img/squire/8.jpg" alt="Image not found !"></a></li>
+                        <li><a href="#"><img src="img/squire/9.jpg" alt="Image not found !"></a></li>
+                        <li><a href="#"><img src="img/squire/10.jpg" alt="Image not found !"></a></li>
+                        <li><a href="#"><img src="img/squire/11.jpg" alt="Image not found !"></a></li>
+                        <li><a href="#"><img src="img/squire/6.jpg" alt="Image not found !"></a></li>
+                        <li><a href="#"><img src="img/squire/7.jpg" alt="Image not found !"></a></li>
+                        <li><a href="#"><img src="img/squire/8.jpg" alt="Image not found !"></a></li>
+                    </ul>
+                </div>
+            </div> -->
+                <!-- <div class="col-lg-3 col-sm-6">
+                <div class="footer-widget newsletter">
+                    <h4 class="widget-title down-line-left text-white">Newslatter</h4>
+                    <p>Feugiat tempus. Non aliquet moles tie vulputate. Elit ipsum sit pharetra. Nascetur vulputate
+                        nam. Neque clas interdum.</p>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="mail" placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <input class="btn btn-primary-bg" type="submit" value="Sign Up Now">
+                        </div>
+                    </form>
+                </div>
+            </div> -->
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="m-auto d-table">
+                        <ul class="social-media mt-5">
+                            <li><a href="https://www.facebook.com/Gharpayy/"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li><a href="https://instagram.com/gharpayy/"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.linkedin.com/company/gharpayy"><i
+                                        class="fab fa-linkedin-in"></i></a></li>
+                            <!-- <li><a href="https://plus.google.com/"><i class="fab fa-google-plus-g"></i></a></li>
+                        <li><a href="https://www.pinterest.com/"><i class="fab fa-pinterest-p"></i></a></li>
+                        <li><a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Copyright Section Start -->
+    <div class="full-row copyright-3 py-4 text-white text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12"> <span>Copyright © 2018-2023 Gharpayy. All rights reserved</span> </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright Section End -->
+
+
+
     <div class="sticky-footer">
         <a target="_blank" class="whatsapp-btn">
             WhatsApp Now
@@ -1592,10 +1987,37 @@
             event.target.classList.add("active");
         }
 
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
 
+                // Close all active items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
 
 
     </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/greensock.js"></script>
+    <script src="js/layerslider.transitions.js"></script>
+    <script src="js/layerslider.kreaturamedia.jquery.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/jquery.countdown.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/carousal.js"></script>
 </body>
 
 </html>
