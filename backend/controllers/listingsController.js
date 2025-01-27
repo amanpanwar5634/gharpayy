@@ -53,17 +53,27 @@ const getAllListings = async (req, res) => {
 };
 
 const editListing = async (req, res) => {
-  console.log("id recieved in backend", req.params.id);
-  const listing = Listing.find((l) => l.id === req.params.id);
-  if (listing) {
-    res.json(listing);
-  } else {
-    res.status(404).json({ message: "Listing not found" });
+  
+  try {
+    
+    const listing = await Listing.findById(req.params.id);
+
+    if (listing) {
+      res.status(200).json(listing);
+    } else {
+      res.status(404).json({ message: "Listing not found" });
+    }
+  } catch (error) {
+    console.error("Error fetching listing:", error);
+    res.status(500).json({
+      message: "Error fetching listing",
+      error: error.message || "Unknown error",
+    });
   }
 };
 
+
 const updateListing = async (req, res) => {
-  console.log("id recieved in backend", req.params.id);
   try {
     const {
       name,
@@ -93,7 +103,7 @@ const updateListing = async (req, res) => {
     const updatedListing = await Listing.findByIdAndUpdate(
       req.params.id,             
       updatedFields,            
-      { new: true, runValidators: true } // Options: return updated document and validate
+      { new: true, runValidators: true } 
     );
 
     if (!updatedListing) {
