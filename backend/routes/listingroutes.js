@@ -2,7 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
-const { addListing, getAllListings } = require('../controllers/listingsController');
+const { addListing, getAllListings, editListing, updateListing } = require('../controllers/listingsController');
 const router = express.Router();
 
 const uploadsDir = path.join(__dirname, '../uploads');
@@ -63,6 +63,8 @@ router.post('/upload-photo', upload.single('photo'), (req, res) => {
 });
 
 router.get('/', getAllListings);
-router.post('/', addListing)
+router.post('/', addListing);
+router.get('/:id', editListing);
+router.put('/:id', updateListing);
 
 module.exports = router;
