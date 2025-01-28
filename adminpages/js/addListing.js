@@ -6,6 +6,32 @@ const saveButton = document.getElementById('saveButton');
 
 let uploadedPhotos = [];
 
+function handleDeleteImage(e, photoPath, div) {
+    e.stopPropagation();
+  
+    fetch(`http://localhost:5000/api/listings/delete-photo`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ photoPath })
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          div.remove();
+  
+          uploadedPhotos = uploadedPhotos.filter(path => path !== photoPath);
+          
+        } else {
+          console.error('Failed to delete the photo from server');
+        }
+      })
+      .catch(error => {
+        console.error('Error deleting the photo:', error);
+      });
+  }
+  
 const updateAmenities = () => {
     amenities = {
         kitchenEssentials: [],
@@ -53,7 +79,6 @@ const updateAmenities = () => {
         amenities.security.push('RFID Glasses');
     }
 
-    console.log('Updated amenities:', amenities);
 };
 
 uploadPhotoBtn.addEventListener('click', async (e) => {
@@ -76,7 +101,6 @@ uploadPhotoBtn.addEventListener('click', async (e) => {
 
         if (response.ok) {
             const data = await response.json();
-            console.log(data);
             uploadedPhotos.push(data.photoPath);
             updatePhotoPreview(data.photoPath); 
             listingPhotoInput.value = ''; 
@@ -89,24 +113,33 @@ uploadPhotoBtn.addEventListener('click', async (e) => {
     }
 });
 
-
-
 function updatePhotoPreview(photoPath) {
+    const div = document.createElement('div');
+    div.classList.add('img-thumbnail');
+  
     const img = document.createElement('img');
     img.src = `http://localhost:5000${photoPath}`;
     img.alt = 'Uploaded Photo';
-    img.className = 'img-thumbnail';
-    img.style.width = '100px';
-    img.style.height = '100px';
-    uploadedPhotosContainer.appendChild(img);
-}
+  
+    div.appendChild(img);
+  
+    const closeButton = document.createElement('span');
+    closeButton.classList.add('close-button');
+    closeButton.textContent = 'x';
+  
+    closeButton.addEventListener('click', (e) => {
+      handleDeleteImage(e, photoPath, div); 
+    });
+  
+    div.appendChild(closeButton);
+    uploadedPhotosContainer.appendChild(div);
+  }
 
 
 saveButton.addEventListener('click', async (e) => {
     e.preventDefault(); 
     
     updateAmenities(); 
-    console.log('Final amenities object:', amenities);
 
     const formData = {
         name: document.getElementById('listingName').value,

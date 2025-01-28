@@ -2,7 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
-const { addListing, getAllListings, editListing, updateListing } = require('../controllers/listingsController');
+const { addListing, getAllListings, editListing, updateListing, disableListing, enableListing } = require('../controllers/listingsController');
 const router = express.Router();
 
 const uploadsDir = path.join(__dirname, '../uploads');
@@ -62,9 +62,30 @@ router.post('/upload-photo', upload.single('photo'), (req, res) => {
   res.status(200).json({ photoPath });
 });
 
+router.delete('/delete-photo', (req, res) => {
+  const { photoPath } = req.body;
+
+  if (!photoPath) {
+      return res.status(400).json({ success: false, message: 'No photo path provided' });
+  }
+
+  const filePath = path.join(__dirname, '..', photoPath); 
+
+  fs.unlink(filePath, (err) => {
+      if (err) {
+         console.log(err);
+          return res.status(500).json({ success: false, message: 'Failed to delete file' });
+      }
+
+      res.json({ success: true, message: 'File deleted successfully' });
+  });
+});
+
 router.get('/', getAllListings);
 router.post('/', addListing);
 router.get('/:id', editListing);
 router.put('/:id', updateListing);
+router.put('/:id/disable', disableListing);
+router.put('/:id/enable', enableListing);
 
 module.exports = router;

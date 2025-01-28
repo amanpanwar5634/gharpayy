@@ -29,6 +29,7 @@ const listingSchema = new mongoose.Schema({
     security: [{ type: String }], 
     additional: [{ type: String }], 
   },
+  disabled: {type: Boolean, default: false},
   createdAt: { type: Date, default: Date.now },
 });
 

@@ -120,10 +120,47 @@ const updateListing = async (req, res) => {
   }
 };
 
+const disableListing = async (req, res) => {
+  try {
+    const listing = await Listing.findById(req.params.id);
+
+    if (!listing) {
+      return res.status(404).json({ message: "Listing not found" });
+    }
+
+    listing.disabled = "true"; 
+    await listing.save();
+
+    res.status(200).json({ message: "Listing has been disabled successfully", listing });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "An error occurred while disabling the listing", error });
+  }
+};
+
+const enableListing = async (req, res) => {
+  try {
+    const listing = await Listing.findById(req.params.id);
+
+    if (!listing) {
+      return res.status(404).json({ message: "Listing not found" });
+    }
+
+    listing.disabled = "false"; 
+    await listing.save();
+
+    res.status(200).json({ message: "Listing has been enabled successfully", listing });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "An error occurred while enabling the listing", error });
+  }
+};
 
 module.exports = {
   addListing,
   getAllListings,
   editListing,
   updateListing,
+  disableListing,
+  enableListing
 };

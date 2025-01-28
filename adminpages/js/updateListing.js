@@ -1,3 +1,89 @@
+const uploadedPhotosContainer = document.getElementById('uploadedPhotos');
+const uploadPhotoBtn = document.getElementById('uploadPhotoBtn');
+const listingPhotoInput = document.getElementById('listingPhoto');
+
+let uploadedPhotos = [];
+
+function handleDeleteImage(e, photoPath, div) {
+  e.stopPropagation();
+
+  fetch(`http://localhost:5000/api/listings/delete-photo`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ photoPath })
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        div.remove();
+
+        uploadedPhotos = uploadedPhotos.filter(path => path !== photoPath);
+        
+      } else {
+        console.error('Failed to delete the photo from server');
+      }
+    })
+    .catch(error => {
+      console.error('Error deleting the photo:', error);
+    });
+}
+
+function updatePhotoPreview(photoPath) {
+  const div = document.createElement('div');
+  div.classList.add('img-thumbnail');
+
+  const img = document.createElement('img');
+  img.src = `http://localhost:5000${photoPath}`;
+  img.alt = 'Uploaded Photo';
+
+  div.appendChild(img);
+
+  const closeButton = document.createElement('span');
+  closeButton.classList.add('close-button');
+  closeButton.textContent = 'x';
+
+  closeButton.addEventListener('click', (e) => {
+    handleDeleteImage(e, photoPath, div); 
+  });
+
+  div.appendChild(closeButton);
+  uploadedPhotosContainer.appendChild(div);
+}
+
+
+uploadPhotoBtn.addEventListener('click', async (e) => {
+  e.preventDefault();
+  const photoFile = listingPhotoInput.files[0];
+
+  if (!photoFile) {
+    alert('Please select a photo to upload');
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append('photo', photoFile);
+
+  try {
+    const response = await fetch('http://localhost:5000/api/listings/upload-photo', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      uploadedPhotos.push(data.photoPath);
+      updatePhotoPreview(data.photoPath);
+      listingPhotoInput.value = '';
+    } else {
+      alert('Failed to upload photo');
+    }
+  } catch (error) {
+    console.error('Error uploading photo:', error);
+  }
+});
+
 document.addEventListener("DOMContentLoaded", async () => {
   const urlParams = new URLSearchParams(window.location.search);
   const listingId = urlParams.get("id");
@@ -16,13 +102,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("listingGender").value = listing.gender;
     document.getElementById("listingType").value = listing.propType;
     document.getElementById("listingStatus").value = listing.status;
-    if(listing.openDate != "NA"){
-      
+    if (listing.openDate != "NA") {
+
       document.getElementById("openingDate").value = listing.openDate;
-    }else{
+    } else {
       document.getElementById("openingDateGroup").style.display = 'none';
     }
-  
+
     document.getElementById("listingDescription").value = listing.description;
 
     const amenities = listing.amenities || {};
@@ -53,6 +139,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       document.getElementById("amenityCCTV").checked = amenities.security.includes("CCTV");
       document.getElementById("amenityRFID").checked = amenities.security.includes("RFID Glasses");
     }
+
+    uploadedPhotos = listing.photos;
+    uploadedPhotos.forEach(photoPath => {
+      updatePhotoPreview(photoPath);
+    });
+
   } catch (error) {
     console.error("Error fetching listing:", error);
   }
@@ -67,7 +159,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       security: [],
     };
 
-    // Collect updated amenities from the form
     if (document.getElementById("amenityMicrowave").checked) {
       updatedAmenities.kitchenEssentials.push("Microwave");
     }
@@ -112,8 +203,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       propType: document.getElementById("listingType").value,
       status: document.getElementById("listingStatus").value,
       openDate: document.getElementById("openingDate").value,
-      description: document.getElementById("listingDescription").value,
       amenities: updatedAmenities,
+      photos: uploadedPhotos,
+      description: document.getElementById("listingDescription").value,
     };
 
     try {
