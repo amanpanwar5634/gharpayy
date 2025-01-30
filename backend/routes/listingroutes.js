@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const authMiddleware = require("../middleware/authMiddleware");
 const { addListing, getAllListings, editListing, updateListing, disableListing, enableListing } = require('../controllers/listingsController');
 const router = express.Router();
 
@@ -35,23 +36,6 @@ const upload = multer({
   },
 });
 
-// Routes
-// router.post('/', upload.array('photos', 12), async (req, res, next) => {
-//   try {
-//     // Access uploaded files via req.files
-//     console.log('Uploaded files:', req.files);
-
-//     // Pass files to controller
-//     await addListing(req, res);
-//   } catch (err) {
-//     if (err instanceof multer.MulterError) {
-//       // Handle Multer-specific errors
-//       return res.status(400).json({ error: err.message });
-//     }
-//     // Handle other errors
-//     next(err);
-//   }
-// });
 
 router.post('/upload-photo', upload.single('photo'), (req, res) => {
   if (!req.file) {
@@ -82,8 +66,8 @@ router.delete('/delete-photo', (req, res) => {
 });
 
 router.get('/', getAllListings);
-router.post('/', addListing);
-router.get('/:id', editListing);
+router.post('/', authMiddleware, addListing);
+router.get('/:id', authMiddleware, editListing);
 router.put('/:id', updateListing);
 router.put('/:id/disable', disableListing);
 router.put('/:id/enable', enableListing);

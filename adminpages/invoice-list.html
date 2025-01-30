@@ -32,27 +32,30 @@
                 </div>
 
                 <ul class="sidebar-menu">
+                    <button class="btn" onclick="loadProtectedPage('dashboard')">
+                        <i class="ti ti-home me-2"></i>Dashboard
+                    </button>
+                
                     <li>
-                        <a href="admin-index.html"><i class="ti ti-home me-2"></i>Dashboard</a>
+                        <button class="btn" onclick="loadProtectedPage('allListings')">
+                            <i class="ti ti-file-invoice me-2"></i>Listings
+                        </button>
                     </li>
-
+                
                     <li>
-                        <a href="invoice-list.html"><i class="ti ti-file-invoice me-2"></i>Listings</a>
+                        <button class="btn" onclick="loadProtectedPage('addListing')">
+                            <i class="ti ti-file-invoice me-2"></i>Add Listing
+                        </button>
                     </li>
-
+                
                     <li>
-                        <a href="addListing.html"><i class="ti ti-file-invoice me-2"></i>Add Listing</a>
+                        <button class="btn" onclick="loadProtectedPage('profileSetting')">
+                            <i class="ti ti-user me-2"></i>User Profile
+                        </button>
                     </li>
-
-                    <li>
-                        <a href="profile-setting.html"><i class="ti ti-user me-2"></i>User Profile</a>
-
+                    <li class="logout-btn" id="logoutBtn">
+                        <a href="#" onclick="logout()">Logout</a>
                     </li>
-
-                    <li class="logout-btn">
-                        <a href="#" onclick="logout()" ></i>Logout</a>
-                    </li>
-
                 </ul>
                 <!-- sidebar-menu  -->
             </div>

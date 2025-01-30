@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const path = require('path');
+const authMiddleware = require("./middleware/authMiddleware");
 
 dotenv.config();
 
@@ -13,7 +14,10 @@ app.use(express.json());
 app.use(cors());
 app.use('/uploads', express.static(path.join(__dirname, './uploads'))); 
 app.use(express.static(path.join(__dirname, '../gharpayy.com')));
-app.use(express.static(path.join(__dirname, '../adminpages')));
+app.use("/fonts", express.static(path.join(__dirname, '../adminpages/fonts')));
+app.use("/css", express.static(path.join(__dirname, '../adminpages/css')));
+app.use("/js", express.static(path.join(__dirname, '../adminpages/js')));
+app.use("/libs", express.static(path.join(__dirname, '../adminpages/libs')));
 
 
 mongoose
@@ -25,14 +29,38 @@ mongoose
   .catch((err) => console.error('MongoDB connection error:', err));
 
 const listingRoutes = require('./routes/listingroutes');
+const userRoutes = require('./routes/userroutes');
 app.use('/api/listings', listingRoutes);
+app.use("/api/users", userRoutes);
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'gharpayy.com', 'index.html'));
 });
 
-app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, '../adminpages', 'admin-index.html'));
+
+
+app.get("/admin", (req, res) => {
+  res.sendFile(path.join(__dirname, "../adminpages", "login.html"));
+});
+
+app.get("/dashboard", authMiddleware, (req, res) => {
+  res.sendFile(path.join(__dirname, "../adminpages", "admin-index.html")); 
+});
+
+app.get("/addListing", authMiddleware, (req, res) => {
+  res.sendFile(path.join(__dirname, "../adminpages/addListing.html"));
+});
+
+app.get("/allListings", authMiddleware, (req, res) => {
+  res.sendFile(path.join(__dirname, "../adminpages/invoice-list.html"));
+});
+
+app.get("/viewListing", (req, res) => {
+  res.sendFile(path.join(__dirname, "../adminpages/invoice.html"));
+});
+
+app.get("/profileSetting", (req, res) => {
+  res.sendFile(path.join(__dirname, "../adminpages/profile-setting.html"));
 });
 
 app.listen(PORT, () => {

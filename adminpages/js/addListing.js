@@ -8,30 +8,30 @@ let uploadedPhotos = [];
 
 function handleDeleteImage(e, photoPath, div) {
     e.stopPropagation();
-  
+
     fetch(`http://localhost:5000/api/listings/delete-photo`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ photoPath })
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ photoPath })
     })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          div.remove();
-  
-          uploadedPhotos = uploadedPhotos.filter(path => path !== photoPath);
-          
-        } else {
-          console.error('Failed to delete the photo from server');
-        }
-      })
-      .catch(error => {
-        console.error('Error deleting the photo:', error);
-      });
-  }
-  
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                div.remove();
+
+                uploadedPhotos = uploadedPhotos.filter(path => path !== photoPath);
+
+            } else {
+                console.error('Failed to delete the photo from server');
+            }
+        })
+        .catch(error => {
+            console.error('Error deleting the photo:', error);
+        });
+}
+
 const updateAmenities = () => {
     amenities = {
         kitchenEssentials: [],
@@ -82,8 +82,8 @@ const updateAmenities = () => {
 };
 
 uploadPhotoBtn.addEventListener('click', async (e) => {
-    e.preventDefault(); 
-    const photoFile = listingPhotoInput.files[0]; 
+    e.preventDefault();
+    const photoFile = listingPhotoInput.files[0];
 
     if (!photoFile) {
         alert('Please select a photo to upload');
@@ -102,8 +102,8 @@ uploadPhotoBtn.addEventListener('click', async (e) => {
         if (response.ok) {
             const data = await response.json();
             uploadedPhotos.push(data.photoPath);
-            updatePhotoPreview(data.photoPath); 
-            listingPhotoInput.value = ''; 
+            updatePhotoPreview(data.photoPath);
+            listingPhotoInput.value = '';
             return false;
         } else {
             alert('Failed to upload photo');
@@ -116,30 +116,30 @@ uploadPhotoBtn.addEventListener('click', async (e) => {
 function updatePhotoPreview(photoPath) {
     const div = document.createElement('div');
     div.classList.add('img-thumbnail');
-  
+
     const img = document.createElement('img');
     img.src = `http://localhost:5000${photoPath}`;
     img.alt = 'Uploaded Photo';
-  
+
     div.appendChild(img);
-  
+
     const closeButton = document.createElement('span');
     closeButton.classList.add('close-button');
     closeButton.textContent = 'x';
-  
+
     closeButton.addEventListener('click', (e) => {
-      handleDeleteImage(e, photoPath, div); 
+        handleDeleteImage(e, photoPath, div);
     });
-  
+
     div.appendChild(closeButton);
     uploadedPhotosContainer.appendChild(div);
-  }
+}
 
 
 saveButton.addEventListener('click', async (e) => {
-    e.preventDefault(); 
-    
-    updateAmenities(); 
+    e.preventDefault();
+
+    updateAmenities();
 
     const formData = {
         name: document.getElementById('listingName').value,
@@ -149,7 +149,7 @@ saveButton.addEventListener('click', async (e) => {
         status: document.getElementById('listingStatus').value,
         openDate: document.getElementById('openingDate').value,
         amenities: amenities,
-        photos: uploadedPhotos, 
+        photos: uploadedPhotos,
         description: document.getElementById('listingDescription').value,
     };
 
@@ -160,16 +160,26 @@ saveButton.addEventListener('click', async (e) => {
     }
 
     try {
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+            window.location.href = '/admin';
+            return;
+        }
+
         const response = await fetch('http://localhost:5000/api/listings', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify(formData),
         });
 
         if (response.ok) {
             alert('Listing created successfully');
-            addListingForm.reset(); 
-            uploadedPhotosContainer.innerHTML = ''; 
+            addListingForm.reset();
+            uploadedPhotosContainer.innerHTML = '';
             uploadedPhotos = [];
         } else {
             alert('Failed to save listing');

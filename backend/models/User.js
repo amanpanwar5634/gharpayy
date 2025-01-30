@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// Define the User Schema
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -18,8 +17,12 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    adminType: {
+      type: String,
+      enum: ['super', 'regular'],
+      required: true,
+    },
   }
 );
 
-// Create and export the User model
 module.exports = mongoose.model('User', userSchema);
