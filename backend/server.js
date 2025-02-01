@@ -37,8 +37,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'gharpayy.com', 'index.html'));
 });
 
-
-
 app.get("/admin", (req, res) => {
   res.sendFile(path.join(__dirname, "../adminpages", "login.html"));
 });
@@ -55,12 +53,16 @@ app.get("/allListings", authMiddleware, (req, res) => {
   res.sendFile(path.join(__dirname, "../adminpages/invoice-list.html"));
 });
 
-app.get("/viewListing", (req, res) => {
-  res.sendFile(path.join(__dirname, "../adminpages/invoice.html"));
-});
+// app.get("/viewListing", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../adminpages/invoice.html"));
+// });
 
 app.get("/profileSetting", (req, res) => {
   res.sendFile(path.join(__dirname, "../adminpages/profile-setting.html"));
+});
+
+app.get("/invoice.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "../adminpages/invoice.html"));
 });
 
 app.listen(PORT, () => {

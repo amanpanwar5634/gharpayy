@@ -222,6 +222,11 @@ p {
     align-items: center
 }
 
+.breadcrumb li button{
+    color: black;
+    font-size: 14px;
+}
+
 @media (max-width:1024px) {
     .page-wrapper .sidebar-wrapper .sidebar-menu li a {
         padding: 8px 24px 8px 24px

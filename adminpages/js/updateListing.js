@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     const response = await fetch(`http://localhost:5000/api/listings/${listingId}`);
-    const listing = await response.json();
+    const listing = await response.json(); 
 
     document.getElementById("listingName").value = listing.name;
     document.getElementById("listingLocation").value = listing.location;
@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (response.ok) {
         alert("Listing updated successfully!");
         console.log(await response.json());
-        window.location.href = "http://localhost:5000/invoice-list.html";
+        LoadAllListings();
       } else {
         console.error("Error updating listing:", response.statusText);
         alert("Failed to update listing.");
@@ -230,3 +230,31 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 });
+
+
+function LoadAllListings(){
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    window.location.href = "/admin"; 
+    return;
+  }
+
+  fetch("/allListings", {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}` },
+  })
+    .then((response) => {
+      if (!response.ok) throw new Error("Unauthorized");
+      return response.text();
+    })
+    .then((html) => {
+      document.open();
+      document.write(html);
+      document.close();
+    })
+    .catch(() => {
+      localStorage.removeItem("token"); 
+      window.location.href = "/admin"; 
+    });
+};

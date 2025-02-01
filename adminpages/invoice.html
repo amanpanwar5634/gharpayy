@@ -19,49 +19,47 @@
 </head>
 
 <body>
-
-
     <div class="page-wrapper toggled">
         <!-- sidebar-wrapper -->
         <nav id="sidebar" class="sidebar-wrapper sidebar-dark">
             <div class="sidebar-content" data-simplebar style="height: calc(100% - 60px);">
-                <div class="sidebar-brand">
-                    <a href="admin-index.html">
+                <div class="sidebar-brand btn">
+                    <button onclick="loadDashboard()">
                         <img src="../gharpayy.com/img/logo/gharpayy_logo2.png" height="30" class="logo-light-mode"
                             alt="">
-                    </a>
+                    </button>
                 </div>
 
                 <ul class="sidebar-menu">
+                    <button class="btn" onclick="loadProtectedPage('dashboard')">
+                        <i class="ti ti-home me-2"></i>Dashboard
+                    </button>
+                
                     <li>
-                        <a href="admin-index.html"><i class="ti ti-home me-2"></i>Dashboard</a>
+                        <button class="btn" onclick="loadProtectedPage('allListings')">
+                            <i class="ti ti-file-invoice me-2"></i>Listings
+                        </button>
                     </li>
-
+                
                     <li>
-                        <a href="profile-setting.html"><i class="ti ti-user me-2"></i>User Profile</a>
-
+                        <button class="btn" onclick="loadProtectedPage('addListing')">
+                            <i class="ti ti-file-invoice me-2"></i>Add Listing
+                        </button>
                     </li>
-
+                
                     <li>
-                        <a href="invoice-list.html"><i class="ti ti-file-invoice me-2"></i>Listings</a>
+                        <button class="btn" onclick="loadProtectedPage('profileSetting')">
+                            <i class="ti ti-user me-2"></i>User Profile
+                        </button>
                     </li>
-
-                    <li>
-                        <a href="addListing.html"><i class="ti ti-file-invoice me-2"></i>Add Listing</a>
+                    <li class="logout-btn" id="logoutBtn">
+                        <a href="#" onclick="logout()">Logout</a>
                     </li>
-
-                    <li class="logout-btn " id="logoutBtn">
-                        <a href="#" onclick="logout()" ></i>Logout</a>
-                    </li>
-
                 </ul>
                 <!-- sidebar-menu  -->
             </div>
 
         </nav>
-
-               
-        <!-- sidebar-wrapper  -->
 
         <!-- Start Page Content -->
         <main class="page-content bg-light">
@@ -96,9 +94,9 @@
 
                         <nav aria-label="breadcrumb" class="d-inline-block mt-2 mt-sm-0">
                             <ul class="breadcrumb bg-transparent rounded mb-0 p-0">
-                                <li class="breadcrumb-item text-capitalize"><a href="./index.html">Dashboard</a></li>
-                                <li class="breadcrumb-item text-capitalize"><a href="./invoice-list.html">All
-                                        Listings</a></li>
+                                <li class="breadcrumb-item text-capitalize"><button onclick="loadDashboard()" class="btn">Dashboard</button></li>
+                                <li class="breadcrumb-item text-capitalize"><button onclick="loadProtectedPage('allListings')" class="btn">All
+                                        Listings</button></li>
                                 <li class="breadcrumb-item text-capitalize active" aria-current="page">Edit Listing</li>
                             </ul>
                         </nav>
@@ -329,11 +327,13 @@
     <script src="./libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="./libs/feather-icons/feather.min.js"></script>
     <script src="./libs/simplebar/simplebar.min.js"></script>
-    <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+   
     <!-- Main Js -->
     <script src="./js/plugins.init.js"></script>
-    <script src="./js/updateListing.js"> </script>
+    <script src="./js/updateListing.js" type="module"> </script>
     <script src="./js/app.js"></script>
+    <script src="./js/protected.js"></script>
+    <script src="./js/logout.js"></script>
 
 </body>
 

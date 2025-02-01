@@ -67,7 +67,7 @@ router.delete('/delete-photo', (req, res) => {
 
 router.get('/', getAllListings);
 router.post('/', authMiddleware, addListing);
-router.get('/:id', authMiddleware, editListing);
+router.get('/:id', editListing);
 router.put('/:id', updateListing);
 router.put('/:id/disable', disableListing);
 router.put('/:id/enable', enableListing);
