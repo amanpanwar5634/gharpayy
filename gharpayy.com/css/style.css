@@ -526,8 +526,19 @@ h6,
 	transform: rotate(90deg);
 }
 
+@media (max-width: 700px){
+	.carousel-item img{
+		height: 380px  !important;
+		width: 100%;
+		object-fit: cover;
+	}
+}
 
-
+.carousel-item img{
+	height: 600px;
+	width: 100%;
+	object-fit: cover;
+}
 
 /*===== btn Color CSS =====*/
 .btn-primary-bg,
