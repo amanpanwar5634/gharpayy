@@ -284,7 +284,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
 
 
-            <section class="full-row d-flex"
+            <!-- <section class="full-row d-flex"
                 style="flex-direction: row; flex-wrap: wrap; padding-left: 1rem; padding-right: 1rem; max-width: 100vw;">
                 <div class="col-sm-12 mb-5">
                     <h2 class="title text-center">Application Process</h2>
@@ -365,7 +365,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                     </div>
                 </div>
 
-            </section>
+            </section> -->
 
             <section class="how-it-works full-row d-flex" style="justify-content: center; ">
 
@@ -2097,8 +2097,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <div class="row">
                     <div class="col-md-7">
                         <div class="contact-form-3">
-                            <form class="form-style-1" method="post"
-                                action="https://gharpayy.com/php/enquirydb/getDetails.php">
+                            <form class="form-style-1" id="enquiryForm">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group">
@@ -2340,6 +2339,39 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             document.getElementById("mySidenav").style.width = "0";
             document.getElementById("main").style.marginRight = "0";
         }
+
+        // for enquiry 
+
+
+        document.getElementById("enquiryForm").addEventListener("submit", async function (event) {
+            event.preventDefault(); 
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch("http://localhost:5000/api/enquiry", {  
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert("Message sent successfully!");
+                    this.reset();  
+                } else {
+                    alert("Error: " + result.message);
+                }
+            } catch (error) {
+                console.error("Error submitting form:", error);
+                alert("Failed to send message");
+            }
+        });
+
+
     </script>
 
     <!--Start of Tawk.to Script-->

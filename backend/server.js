@@ -30,8 +30,10 @@ mongoose
 
 const listingRoutes = require('./routes/listingroutes');
 const userRoutes = require('./routes/userroutes');
+const enquiry = require('./routes/enquiry');
 app.use('/api/listings', listingRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/enquiry", enquiry);
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'gharpayy.com', 'index.html'));
@@ -53,9 +55,10 @@ app.get("/allListings", authMiddleware, (req, res) => {
   res.sendFile(path.join(__dirname, "../adminpages/invoice-list.html"));
 });
 
-// app.get("/viewListing", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../adminpages/invoice.html"));
-// });
+app.get("/enquirypage", authMiddleware, (req, res) => {
+  
+  res.sendFile(path.join(__dirname, "../adminpages/enquiry.html")); 
+});
 
 app.get("/profileSetting", (req, res) => {
   res.sendFile(path.join(__dirname, "../adminpages/profile-setting.html"));
