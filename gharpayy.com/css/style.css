@@ -62,8 +62,8 @@ h6,
 	color: var(--secondery-theme-color) !important;
 }
 
-.row{
-	max-width: 100vw   !important;
+.row {
+	max-width: 100vw !important;
 }
 
 .photo-track-container {
@@ -360,7 +360,8 @@ h6,
 	-ms-overflow-style: none;
 	scroll-behavior: smooth;
 }
-.listing-images h3{
+
+.listing-images h3 {
 	font-family: var(--theme-body-font);
 	font-weight: 900;
 	font-size: 1.35rem;
@@ -379,21 +380,21 @@ h6,
 	object-fit: cover;
 }
 
-.text-bottom{
+.text-bottom {
 	margin-bottom: 50px;
 	margin-top: 10px;
 }
 
-.text-up{
+.text-up {
 	margin-top: 50px;
 	margin-bottom: 10px;
 }
 
-.listing-images-wrapper p{
+.listing-images-wrapper p {
 	position: relative;
 }
 
-.listing-images-wrapper p::before{
+.listing-images-wrapper p::before {
 	content: "";
 	position: absolute;
 	top: -5px;
@@ -434,22 +435,22 @@ h6,
 }
 
 .sticky-banner {
-    position: sticky;
-    top: 0; 
-    z-index: 1000; 
-    background-color: var(--secondery-theme-color);
-    padding: 1rem;
-	padding-top:2.5rem;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	background-color: var(--secondery-theme-color);
+	padding: 1rem;
+	padding-top: 2.5rem;
 	color: var(--white-color) !important;
-    text-align: left;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	text-align: left;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	font-size: 17px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
 
-.sticky-banner a{
+.sticky-banner a {
 	border: 1px solid white;
 	border-radius: 15px;
 	padding: 6px 20px;
@@ -457,11 +458,76 @@ h6,
 
 }
 
-@media(min-width: 700px){
-	.sticky-banner{
+@media(min-width: 700px) {
+	.sticky-banner {
 		display: none;
 	}
 }
+
+.how-it-works {
+	padding: 18px;
+	border-radius: 12px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	font-family: "IBM Plex Sans Condensed", serif;;
+}
+
+
+.how-it-works .card {
+	background: #fff;
+	padding: 20px;
+	border: 1px solid #000;
+	border-radius: 12px;
+	box-shadow: 6px 6px 0 -2px #000;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	text-align: left;
+	gap: 15px;
+	max-width: 700px;
+	margin-bottom: 20px;
+}
+
+.how-it-works .card-text {
+	font-size: 18px;
+	font-weight: 500;
+	color: black;
+}
+
+.icon-block {
+	background: var(--primary-theme-color);
+	padding: 8px 20px;
+	border-radius: 24px;
+	border: 1px solid black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 38px;
+	width: auto;
+}
+
+.how-it-works .whatsapp-btn {
+	background-color: var(--primary-theme-color);
+	border-color: #000;
+	border: 1px solid;
+	text-align: center;
+	max-width: 10rem;
+	box-shadow: 6px 6px 0 -2px #fff;
+	font-size: 13px;
+	font-weight: 600;
+	color: black;
+}
+
+.arrow svg {
+	display: block;
+	margin: 20px auto;
+	width: 24px;
+	height: auto;
+	fill: #333;
+	transform: rotate(90deg);
+}
+
+
+
 
 /*===== btn Color CSS =====*/
 .btn-primary-bg,
