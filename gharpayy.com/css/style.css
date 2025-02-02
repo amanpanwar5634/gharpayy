@@ -347,7 +347,7 @@ h6,
 .listing-images-wrapper {
 	position: relative;
 	/* background-color: #e1f6f2; */
-	background-color: var(--bg-dark);
+	background-color: black;
 	display: flex;
 	align-items: center;
 	padding: 20px 0 40px 30px;
