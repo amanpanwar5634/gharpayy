@@ -418,7 +418,7 @@ h6,
 	position: absolute;
 	top: -5px;
 	left: 0;
-	background-color: var(--body-text-color);
+	background-color: #626262;
 	height: 1px;
 	width: 60px;
 }
