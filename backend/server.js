@@ -64,6 +64,10 @@ app.get("/profileSetting", (req, res) => {
   res.sendFile(path.join(__dirname, "../adminpages/profile-setting.html"));
 });
 
+app.get("/resetpass", (req, res) => {
+  res.sendFile(path.join(__dirname, "../adminpages/reset-password.html"));
+});
+
 app.get("/invoice.html", (req, res) => {
   res.sendFile(path.join(__dirname, "../adminpages/invoice.html"));
 });
