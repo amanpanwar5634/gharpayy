@@ -346,11 +346,16 @@ h6,
 
 .listing-images-wrapper {
 	position: relative;
-	background-color: #e1f6f2;
+	/* background-color: #e1f6f2; */
+	background-color: var(--bg-dark);
 	display: flex;
 	align-items: center;
 	padding: 20px 0 40px 30px;
 	overflow: hidden;
+}
+
+.listing-images-wrapper h3{
+	color: var(--primary-theme-color)  !important;
 }
 
 .listing-images {
@@ -365,6 +370,7 @@ h6,
 	font-family: var(--theme-body-font);
 	font-weight: 900;
 	font-size: 1.35rem;
+	color: var(--primary-theme-color)  !important;
 }
 
 .prop-type{
@@ -404,6 +410,7 @@ h6,
 
 .listing-images-wrapper p {
 	position: relative;
+	color: white !important;
 }
 
 .listing-images-wrapper p::before {
@@ -545,6 +552,7 @@ h6,
 		object-fit: cover;
 	}
 }
+
 
 .carousel-item img{
 	height: 600px;
