@@ -24,6 +24,23 @@ const loginUser = async (req, res) => {
   }
 };
 
+const verifyPass =  async (req, res) => {
+  const { userId, password } = req.body;
+
+  try {
+      const user = await User.findById(userId);
+      if (!user) return res.status(404).json({ message: "User not found" });
+
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) return res.status(400).json({ message: "Incorrect password" });
+
+      res.json({ message: "Password verified successfully" });
+  } catch (err) {
+      res.status(500).json({ message: "Server error" });
+  }
+};
+
+
 const createAdmin = async (req, res) => {
   try {
     const { name, email, password, adminType } = req.body;
@@ -68,13 +85,13 @@ const logout = (req, res) => {
 
 const resetPassword = async (req, res) => {
   try {
-    const { email, newPassword } = req.body;
+    const { userId, newPassword } = req.body;
 
-    if (!email || !newPassword) {
-      return res.status(400).json({ message: "Email and new password are required" });
+    if (!userId || !newPassword) {
+      return res.status(400).json({ message: "missing credentials" });
     }
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ userId });
     if (!user) return res.status(404).json({ message: "User not found" });
 
     const hashedPassword = await bcrypt.hash(newPassword, 10);
@@ -87,4 +104,4 @@ const resetPassword = async (req, res) => {
   }
 };
 
-module.exports = { loginUser, createAdmin, getProfile, logout, resetPassword };
+module.exports = { loginUser, createAdmin, getProfile, logout, resetPassword, verifyPass };

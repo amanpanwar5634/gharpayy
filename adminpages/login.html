@@ -88,7 +88,7 @@
 
       if (response.ok) {
         localStorage.setItem('token', result.token);
-        console.log("Token stored:", result.token);
+        localStorage.setItem('userId',result.user.id );
 
         if (result.user.adminType === "super") {
           loadDashboard();

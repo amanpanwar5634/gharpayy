@@ -9,8 +9,9 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
       });
   
       if (response.ok) {
-        localStorage.removeItem("jwt_token"); 
-      sessionStorage.removeItem("jwt_token");
+        localStorage.removeItem("userId");
+        localStorage.removeItem("token"); 
+        sessionStorage.removeItem("token");
         window.location.href = "http://localhost:5000/admin"; 
       } else {
         const error = await response.json();

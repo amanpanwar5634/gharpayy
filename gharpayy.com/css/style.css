@@ -68,7 +68,7 @@ h6,
 
 .photo-track-container {
 	position: relative;
-	background-color: var(--bg-dark);
+	background-color: var(--secondery-theme-color);
 	display: flex;
 	align-items: center;
 	padding: 40px 0px 40px 0px;
@@ -191,11 +191,13 @@ h6,
 	}
 
 	.freedom-find {
-		padding-left: 7%;
-		padding-right: 17%;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
 		margin-bottom: 30px;
 		text-align: left;
 		padding-top: 40px;
+		overflow: hidden;
 	}
 
 }
@@ -647,6 +649,27 @@ h6,
 .faq-item.active .faq-icon {
 	transform: rotate(180deg);
 }
+
+/* responsive css */
+
+.comf-accomodation{
+	margin-top: -5%;
+}
+
+@media( max-width: 700px){
+	.comf-accomodation{
+		margin-top: -12%  !important;
+	}
+
+	.video-section video{
+		margin-top: -25%; 
+	}
+}
+
+@media (min-width: 1000px) {
+	
+}
+
 
 /*===== btn Color CSS =====*/
 .btn-primary-bg,

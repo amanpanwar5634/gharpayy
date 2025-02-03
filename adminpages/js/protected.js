@@ -22,6 +22,7 @@ function loadDashboard() {
     })
     .catch(() => {
       localStorage.removeItem("token");
+      localStorage.removeItem("userId");
       window.location.href = "/admin";
     });
 }
@@ -58,6 +59,7 @@ function loadProtectedPage(page) {
     .catch((error) => {
       console.error("Error during fetch:", error);
       localStorage.removeItem("token");
+      localStorage.removeItem("userId");
       console.log("Token removed, redirecting to login.");
       window.location.href = "/admin";
     });

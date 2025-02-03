@@ -237,19 +237,22 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <div id="slider" class="overflow_hidden" style="width:1200px;height:100vh;margin:0 auto;margin-bottom: 0px;">  -->
             <section class="full-row bg-primary">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5">
+                    <div class="row align-items-center" >
+                        <div class="col-lg-7">
                             <div class="freedom-find" style="padding-bottom: 30px;">
                                 <div class="main-title-area text-center">
-                                    <span class="subtext text-center mb-5 box-width"
+                                    <span class=" text-center mb-5 box-width"
                                         style="font-size: 35px;color: #0943a0; font-weight: 900; margin-top: 3%;"><mark
-                                            style="background-color: white; color: #0943a0;">Hotel Wala PG
+                                            style="background-color: white; color: #0943a0;
+                                            font-size: 34px;
+                                            letter-spacing: 6px;
+                                            text-transform: uppercase;">Hotel Wala PG
                                             Coliving</mark></span>
 
                                     <h2 class="title text-secondery mb-3" style="margin-top: 15%; font-size: 55px;">
-                                        <span class="subtext text-center mb-5 box-width"
-                                            style="font-size: 55px;color: #0943a0; font-weight: 700;">GHARTYPE</span>
-                                        <span style="margin-top: -12%;">Comfortable Accomodation</span>
+                                        <span class=" text-center mb-5 box-width"
+                                            style="font-size: 55px;color: #0943a0; font-weight: 700; font-family: var(--theme-body-font)">GHARTYPE</span>
+                                        <span class="comf-accomodation" >Comfortable Accomodation</span>
 
                                     </h2>
                                 </div>
@@ -257,12 +260,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
                             </div>
                         </div>
-                        <div class="col-lg-2">
-
-                        </div>
+                        
                         <div class="col-lg-5 mt-4">
-                            <div>
-                                <img src="img/newcover.jpg">
+                            <div >
+                                <img class="img-fluid" src="img/newcover.jpg">
                             </div>
                         </div>
                     </div>
@@ -1338,27 +1339,29 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
 
             <!-- Video Pop Up Section Start -->
-            <section class="full-row bg-white" style="padding-top: 20px; padding-bottom: 0px;">
+            <section class="full-row bg-white video-section" style="padding-top: 20px; padding-bottom: 0px;">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <div class="main-title-area mb-4 text-center">
-                                <h2 class="title mb-3">A picture is worth a thousand words, but a video is priceless.
-                                </h2>
+                                <h2 class="title mb-3">A picture is worth a thousand words, but a video is priceless.</h2>
                             </div>
-                            <iframe src="https://player.vimeo.com/video/658158612" frameborder="0"
-                                allow=" fullscreen" allowfullscreen
-                                style="width: 100%; display: block; height: 475px; margin-top: -20%; margin-bottom: -15%;">
+                            <!-- Vimeo Video -->
+                            <iframe src="https://player.vimeo.com/video/658158612?autoplay=0" frameborder="0" 
+                                allow="fullscreen" allowfullscreen
+                                style="width: 100%; display: block; height: 475px; margin-top: -20%;">
                             </iframe>
-
-                            <iframe src="video/bangalore%20_%20hotel%20wala%20PG.mp4" frameborder="0" allow="fullscreen"
-                                allowfullscreen
-                                style="width: 100%; display: block; height: 475px; margin-top: -10%; margin-bottom: -15%;">
-                            </iframe>
+            
+                            
+                            <video controls style="width: 100%; display: block; height: 475px; ">
+                                <source src="video/bangalore%20_%20hotel%20wala%20PG.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
                 </div>
             </section>
+            
 
 
 
@@ -2120,7 +2123,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <div class="row">
                 <!-- <div class="col-md-2"></div> -->
                 <div class="col-md-12">
-                    <img src="img/extrapics/smart-home-concept-illustration_114360-6366.jpg">
+                    <img src="img/lowerimage.jpg">
                 </div>
                 <!-- <div class="col-md-2"></div> -->
             </div>
