@@ -249,7 +249,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                     <h2 class="title text-secondery mb-3" style="margin-top: 15%; font-size: 55px;">
                                         <span class="subtext text-center mb-5 box-width"
                                             style="font-size: 55px;color: #0943a0; font-weight: 700;">GHARTYPE</span>
-                                        <span style="margin-top: -7%;">Comfortable Accomodation</span>
+                                        <span style="margin-top: -12%;">Comfortable Accomodation</span>
 
                                     </h2>
                                 </div>
@@ -363,7 +363,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             </div>
 
             <div class="bg-primary mt-5" style="padding: 60px 30px;">
-                <h2 class="wow fadeInDown mt-3" data-wow-delay="0s" style="visibility: visible; animation-delay: 0s; font-weight: 600; font-family: var(--theme-body-font); font-size: 24px;">GIRLS ONLY PG <BR> BOYS / COED PG</BR></h2>
+                <h2 class="wow fadeInDown mt-5" data-wow-delay="0s" style="visibility: visible; animation-delay: 0s; font-weight: 600; font-family: var(--theme-body-font); font-size: 24px;">GIRLS ONLY PG <BR> BOYS / COED PG</BR></h2>
                 <h5 class=" mt-4 wow fadeInUp" data-wow-delay=".3s" style="font-weight: 500; font-size: 18px; line-height: 22px; color: rgb(40, 37, 37) !important;"> Fully
                     Furnished rooms for Healthy, Hygenic and
                     Happy Living</h5>
@@ -2034,9 +2034,6 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         <!-- Blog Section End -->
 
 
-
-
-
         <!-- Contact Section Start -->
         <section class="full-row bg-white" id="contact" style="padding-top: 50px; padding-bottom: 20px;">
             <div class="container">
@@ -2128,6 +2125,103 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <!-- <div class="col-md-2"></div> -->
             </div>
         </section>
+
+
+        <!-- FAQ SECTIOn -->
+
+        <div class="faq-section">
+            <div class="faq-item active">
+                <button class="faq-question">
+                    What is Gharpayy?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Gharpayy is a trusted platform connecting you to premium rental accommodations—PGs, co-living spaces,
+                        and flats—primarily in Bangalore, with verified listings and seamless user support.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">
+                    How does Gharpayy simplify the renting process?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p> <strong>Browse: </strong>Check verified listings on the website or via WhatsApp. <br>
+                        <strong>Book:</strong> Pay a token amount to reserve your spot. <br>
+                        <strong>Move In:</strong> Enjoy a stress-free stay with 24/7 support.
+                    </p>
+                </div>
+    
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">
+                    Why choose Gharpayy over other platforms?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p> We ensure <strong>verified quality</strong> (strict inspections), <strong>transparent
+                            pricing</strong> (no hidden charges), and <strong>dedicated support</strong> (real-time
+                        assistance for any issue).
+                    </p>
+                </div>
+    
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">
+                    Is there a deposit or hidden fee involved?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, a refundable security deposit or token fee may apply, clearly stated at the time of booking to
+                        avoid any surprises.
+                    </p>
+                </div>
+    
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">
+                    What is the cancellation or lock-in policy?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Cancellation terms differ by property; all conditions—refund timelines, lock-in periods—are shared
+                        upfront before you confirm.
+                    </p>
+                </div>
+    
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">
+                    Can I inspect the property before booking?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely. We offer virtual tours or in-person visits to most properties, ensuring you make a
+                        confident choice.
+                    </p>
+                </div>
+    
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">
+                    How do I reach Gharpayy’s support team?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We’re available 24/7 on WhatsApp, email, and phone to handle any queries or concerns.
+                    </p>
+                </div>
+    
+            </div>
+        </div>
+    
 
         <!-- Image gallery Section Start -->
         <!-- <div class="container-fluid bg-white">
@@ -2325,6 +2419,25 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 console.error("Error submitting form:", error);
                 alert("Failed to send message");
             }
+        });
+
+        // for faq section
+
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all active items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
         });
 
 
