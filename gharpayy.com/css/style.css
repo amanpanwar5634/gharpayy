@@ -361,6 +361,9 @@ h6,
 	color: var(--primary-theme-color)  !important;
 }
 
+.listing-images-wrapper h2{
+	color: var(--primary-theme-color)  !important;
+}
 .listing-images {
 	display: flex;
 	overflow-x: scroll !important;
@@ -375,7 +378,7 @@ h6,
 	font-size: 1.35rem;
 	color: var(--primary-theme-color)  !important;
 }
-
+/* 
 .prop-type{
 	width: max-content;
 	padding: 8px 15px;
@@ -387,19 +390,19 @@ h6,
 	margin-top: 7px;
 	margin-bottom: 7px;
 	background-color: #f98979;
-}
+} */
 .listing-images::-webkit-scrollbar {
 	display: none;
 }
 
-.listing-images img {
+/* .listing-images img {
 	flex-shrink: 0;
 	width: 280px;
 	height: 200px;
 	margin-right: 20px;
 	border-radius: 8px;
 	object-fit: cover;
-}
+} */
 
 .text-bottom {
 	margin-bottom: 50px;
@@ -445,15 +448,6 @@ h6,
 
 .listing::-webkit-scrollbar {
 	display: none;
-}
-
-.listing img {
-	flex-shrink: 0;
-	width: 280px;
-	height: 200px;
-	margin-right: 20px;
-	border-radius: 8px;
-	object-fit: cover;
 }
 
 .sticky-banner {
@@ -624,6 +618,7 @@ h6,
 	margin-right: 12px;
 	outline: 1px solid rgb(201, 189, 189);
 	position: relative;
+	transition: all 0.4s;
 }
 
 .faq-answer::before {
@@ -669,10 +664,35 @@ h6,
 	.section-2 img{
 		height: 420px; width: 100%;
 	}
+
+	.listing-images img {
+		flex-shrink: 0;
+		width: 280px;
+		height: 200px;
+		margin-right: 20px;
+		border-radius: 8px;
+		object-fit: cover;
+	}
 }
 
 @media (min-width: 1000px) {
-	
+	.listing-images-wrapper{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+
+	.listing-images{
+		width: 60%;
+
+	}
+
+	.listing-wrapper-text{
+		width: 40%;
+		padding-right: 20px;
+	}
 }
 
 @media (min-width: 700px){
@@ -696,10 +716,31 @@ h6,
 		flex-direction: row;
 		padding: 0;
 		margin: 0;
-		width: 100%;
-
-		
+		width: 100%;	
 	}	
+	.listing-images-wrapper h2{
+		font-size: 45px;
+		margin: 2rem 0;
+	}
+
+	.listing-images img {
+		flex-shrink: 0;
+		width: 20rem ;
+		height: 20rem;
+		margin-right: 38px;
+		border-radius: 20px;
+		object-fit: cover;
+	}
+
+	
+}
+
+@media(min-width: 800px){
+	.faq-wrapper{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
 }
 
 
