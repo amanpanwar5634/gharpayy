@@ -69,7 +69,9 @@ const createAdmin = async (req, res) => {
 
 const getProfile = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select("-password");
+    const userId = req.params.id;
+
+    const user = await User.findOne({ _id: userId }).select("-password");
     if (!user) return res.status(404).json({ message: "User not found" });
 
     res.json(user);
@@ -91,7 +93,7 @@ const resetPassword = async (req, res) => {
       return res.status(400).json({ message: "missing credentials" });
     }
 
-    const user = await User.findOne({ userId });
+    const user = await User.findOne({ _id: userId }).select("-password");
     if (!user) return res.status(404).json({ message: "User not found" });
 
     const hashedPassword = await bcrypt.hash(newPassword, 10);

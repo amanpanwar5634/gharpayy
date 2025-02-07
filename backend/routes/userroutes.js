@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post("/login", loginUser);
 router.post("/create-admin", authMiddleware, isSuperAdmin, createAdmin); 
-router.get("/profile", authMiddleware, getProfile); 
+router.get("/profile/:id", authMiddleware, getProfile); 
 router.post("/reset-password", authMiddleware, resetPassword);
 router.post("/logout", logout);
 router.post("/verify-password", verifyPass);
