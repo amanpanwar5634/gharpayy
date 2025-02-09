@@ -614,14 +614,15 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 </div>
 
 
-                <div class="row" style="align-items: center; justify-content: center; margin-left: 0; margin-right: 0;">
+                <div class="row" id="propertyList"
+                    style="align-items: center; justify-content: center; margin-left: 0; margin-right: 0; width: 100vw  !important;">
                     <a href="listing-details.html" class="individual-prop col-lg-3 col-sm-12 col-md-5">
                         <img src="https://cdn.prod.website-files.com/6593ed11d5ad65d107dfe790/674d48345ee921924ad2aaa4_67265e138dd089e6dd715dce_66f0fdbea24ca810ec73e6a7_66a38b88df4ee89b19ad7574_66a0c281ca5e088c0dc4d395_DSC04699-HDR.avif"
                             alt="">
                         <h4>Property Name, Location</h4>
                         <div class="prop-details d-flex">
                             <div class="prop-info">
-                                <div class="d-flex" style="align-items: center; justify-content: center; gap: 5px;">
+                                <div class="d-flex align-items-center" style=" justify-content: center; gap: 5px;">
                                     <div style="height: 24px; width: 24px;">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
@@ -840,7 +841,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                             </div>
                         </div>
 
-                    </div>
+                    </div> 
                 </div>
             </section>
 
@@ -1427,14 +1428,14 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                 href="https://api.whatsapp.com/send?phone=+918307396042&amp;text=Heyy!%20GHARPAYY,%20I%20am%20looking%20for%20a%20GOOD-ACCOMODATION%20in%20the%20AREA%20NEARBY-">EMBASSY
                                 GOLF LINK</a>
                         </li>
-                        
+
                         <li>
                             <a target="_blank"
                                 href="https://api.whatsapp.com/send?phone=+918307396042&amp;text=Heyy!%20GHARPAYY,%20I%20am%20looking%20for%20a%20GOOD-ACCOMODATION%20in%20the%20AREA%20NEARBY-">UB
                                 CITY</a>
                         </li>
-                        
-                        
+
+
                         <li>
                             <a target="_blank"
                                 href="https://api.whatsapp.com/send?phone=+918307396042&amp;text=Heyy!%20GHARPAYY,%20I%20am%20looking%20for%20a%20GOOD-ACCOMODATION%20in%20the%20AREA%20NEARBY-"
@@ -2343,36 +2344,72 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             document.getElementById("main").style.marginRight = "0";
         }
 
-        // for enquiry 
+        // for fetching listings 
 
-
-        document.getElementById("enquiryForm").addEventListener("submit", async function (event) {
-            event.preventDefault(); 
-
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-
+        async function fetchListings() {
             try {
-                const response = await fetch("http://localhost:5000/api/enquiry", {  
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(data)
+                const response = await fetch("http://localhost:5000/api/listings/enabled");
+                if (!response.ok) {
+                    throw new Error("Failed to fetch listings");
+                }
+                const properties = await response.json();
+
+                const propertyList = document.getElementById("propertyList");
+                propertyList.innerHTML = "";
+
+                properties.forEach(property => {
+                    const propertyCard = document.createElement("a");
+                    propertyCard.href = "#";
+                    propertyCard.className = "individual-prop";
+                    propertyCard.classList.add("col-lg-3", "col-sm-12", "col-md-5");
+
+                    const statusText = property.status === "not_open" && property.openDate
+                        ? `Opening in ${property.openDate}`
+                        : property.status;
+                    
+                    const genderText = property.gender === "F" ? "Girls Only" :
+                    property.gender === "M" ? "Boys Only" :
+                    property.gender;    
+
+                    const priceMap = {
+                       "ADVANTAGE": "₹7K-11K",
+                       "BASIC PLUS": "₹12K-17K",
+                       "CLASSICS": "₹17K-26K",
+                       "LUXE MAX": "₹25K-45K"};
+
+                    const priceText = priceMap[property.propType.toUpperCase()] || "Price not available";
+
+                    propertyCard.innerHTML = `
+                    
+                    <img src="${property.photos?.[0]}" alt="${property.name}">
+                    <h4>${property.name}, ${property.location}</h4>
+                    <div class="prop-details d-flex">
+
+                       <div class="prop-info">
+                           <div >${genderText}</div>
+                           <div style="color: green; font-weight: bold; text-transform: capitalize;">${statusText}</div>
+                       </div>
+
+                      <div class="prop-pricing">
+                           
+                           <div style="font-weight: 600; font-size: 20px;"> ${property.propType.toUpperCase()}</div>
+                           <div> ${priceText}</div>
+                      </div>
+                    </div>
+                `;
+                    propertyList.appendChild(propertyCard);
                 });
 
-                const result = await response.json();
-                if (response.ok) {
-                    alert("Message sent successfully!");
-                    this.reset();  
-                } else {
-                    alert("Error: " + result.message);
-                }
+
             } catch (error) {
-                console.error("Error submitting form:", error);
-                alert("Failed to send message");
+                console.error("Error fetching listings:", error);
+                document.getElementById("propertyList").innerHTML = "<p>Failed to load listings. Please try again later.</p>";
             }
-        });
+        }
+
+        fetchListings();
+
+
 
 
     </script>
@@ -2403,6 +2440,6 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
 
 
-<!-- Mirrored from gharpayy.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 01 Jan 2025 14:36:26 GMT -->
+
 
 </html>

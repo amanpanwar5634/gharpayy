@@ -67,7 +67,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/layerslider.css">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=2.0">
     <link rel="stylesheet" href="css/color.css" id="color-change">
     <link rel="stylesheet" href="css/fontawesome-all-5.2.0.min.css">
     <link rel="stylesheet" href="webfonts/flaticon/flaticon.css">
@@ -2072,29 +2072,25 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <div class="row">
                     <div class="col-md-7">
                         <div class="contact-form-3">
-                            <form class="form-style-1" id="enquiryForm">
+                            <form class="form-style-1" action="http://localhost/php/enquirydb/getDetails.php" method="POST">
+
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="name" placeholder="Name"
-                                                required>
+                                            <input type="text" class="form-control" name="name" placeholder="Name" required>
                                         </div>
-                                        <!-- Region -->
-                                        <input type="text" style="display:none;" value="home" class="form-control"
-                                            name="region" placeholder="home" required>
-                                        <!-- Region -->
-
+                                        <!-- Hidden Region Field -->
+                                        <input type="hidden" name="region" value="home">
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="email"
-                                                placeholder="Email Address" required>
+                                            <input type="email" class="form-control" name="email" placeholder="Email Address" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <input type="text" maxlength="10" pattern="\d{10}" class="form-control"
-                                                name="phone" placeholder="Phone" required>
+                                            <input type="tel" maxlength="10" pattern="\d{10}" class="form-control" name="phone" 
+                                                   placeholder="Phone" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
@@ -2105,13 +2101,13 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
-                                        <button type="submit" class="btn btn-primary-bg mt-3" name="submit">Send
-                                            Message</button>
+                                        <button type="submit" class="btn btn-primary-bg mt-3" name="submit">Send Message</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
+                    
                     <div class="col-md-4 offset-md-1 mt-xs-50 ">
                         <div class="icon-block-1 mb-5"> <i class="fas fa-map-marker-alt"></i>
                             <h6>Office Address</h6>
@@ -2374,7 +2370,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         <div class="full-row copyright-3 py-4 text-white text-center">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12"> <span>Copyright © 2018-2023 Gharpayy. All rights
+                    <div class="col-md-12"> <span>Copyright © 2025 Gharpayy. All rights
                             reserved</span> </div>
                 </div>
             </div>
@@ -2419,33 +2415,33 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         // for enquiry 
 
 
-        document.getElementById("enquiryForm").addEventListener("submit", async function (event) {
-            event.preventDefault();
+        // document.getElementById("enquiryForm").addEventListener("submit", async function (event) {
+        //     event.preventDefault();
 
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
+        //     const formData = new FormData(this);
+        //     const data = Object.fromEntries(formData.entries());
 
-            try {
-                const response = await fetch("http://localhost:5000/api/enquiry", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(data)
-                });
+        //     try {
+        //         const response = await fetch("http://localhost:5000/api/enquiry", {
+        //             method: "POST",
+        //             headers: {
+        //                 "Content-Type": "application/json"
+        //             },
+        //             body: JSON.stringify(data)
+        //         });
 
-                const result = await response.json();
-                if (response.ok) {
-                    alert("Message sent successfully!");
-                    this.reset();
-                } else {
-                    alert("Error: " + result.message);
-                }
-            } catch (error) {
-                console.error("Error submitting form:", error);
-                alert("Failed to send message");
-            }
-        });
+        //         const result = await response.json();
+        //         if (response.ok) {
+        //             alert("Message sent successfully!");
+        //             this.reset();
+        //         } else {
+        //             alert("Error: " + result.message);
+        //         }
+        //     } catch (error) {
+        //         console.error("Error submitting form:", error);
+        //         alert("Failed to send message");
+        //     }
+        // });
 
         // for faq section
 

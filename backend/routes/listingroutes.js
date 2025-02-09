@@ -3,7 +3,7 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 const authMiddleware = require("../middleware/authMiddleware");
-const { addListing, getAllListings, editListing, updateListing, disableListing, enableListing } = require('../controllers/listingsController');
+const { addListing, getAllListings, editListing, updateListing, disableListing, enableListing , getEnabledListings} = require('../controllers/listingsController');
 const router = express.Router();
 
 const uploadsDir = path.join(__dirname, '../uploads');
@@ -66,6 +66,7 @@ router.delete('/delete-photo', (req, res) => {
 });
 
 router.get('/', getAllListings);
+router.get('/enabled', getEnabledListings);
 router.post('/', authMiddleware, addListing);
 router.get('/:id', editListing);
 router.put('/:id', updateListing);

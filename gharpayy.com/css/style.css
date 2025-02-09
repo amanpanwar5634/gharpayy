@@ -210,6 +210,7 @@ h6,
 	margin: 20px 10px;
 	overflow: hidden;
 	padding: 0;
+	height: max-content;
 }
 
 @media (max-width: 600px) {
@@ -235,11 +236,23 @@ h6,
 	padding: 12px 16px;
 	color: black;
 	justify-content: space-between;
+	font-weight: 500; 
+	font-size: 16px;
 }
 
 .individual-prop .prop-pricing {
 	text-align: right;
 }
+/* .propertyList{
+	margin-left: 0;
+	margin-right: 0;
+}
+@media (min-width: 500px) and (max-width: 650px){
+	.propertyList{
+		margin-left: 25px   !important;
+		margin-right: 25px   !important;
+	}
+} */
 
 
 .new-section .background-image {

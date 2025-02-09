@@ -18,7 +18,7 @@ const listingSchema = new mongoose.Schema({
   },
   propType: {
     type: String,
-    enum: ['Luxe', 'Classic', 'Basic'],
+    enum: ['ADVANTAGE' , 'BASIC PLUS', 'CLASSICS', 'LUXE MAX'],
     required: true,
   },
   amenities: {

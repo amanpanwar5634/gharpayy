@@ -156,11 +156,26 @@ const enableListing = async (req, res) => {
   }
 };
 
+const getEnabledListings = async (req, res) => {
+  try {
+    
+    const listings = await Listing.find({ disabled: false });
+    res.status(200).json(listings);
+  } catch (error) {
+    console.error('Error fetching listings:', error);
+    res.status(500).json({
+      message: 'Error fetching listings',
+      error: error.message || 'Unknown error',
+    });
+  }
+};
+
 module.exports = {
   addListing,
   getAllListings,
   editListing,
   updateListing,
   disableListing,
-  enableListing
+  enableListing,
+  getEnabledListings
 };

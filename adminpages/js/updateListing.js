@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("listingName").value = listing.name;
     document.getElementById("listingLocation").value = listing.location;
     document.getElementById("listingGender").value = listing.gender;
-    document.getElementById("listingType").value = listing.propType;
+    document.getElementById("listingType").value = listing.propType.toUpperCase();
     document.getElementById("listingStatus").value = listing.status;
     if (listing.openDate != "NA") {
 
