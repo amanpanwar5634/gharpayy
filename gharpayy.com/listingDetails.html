@@ -44,7 +44,7 @@
 
         .top-image img {
             width: 100%;
-            height: 412px;
+            height: 500px;
             object-fit: cover;
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
@@ -58,7 +58,7 @@
 
         .grid-container img {
             width: 100%;
-            height: 200px;
+            height: 240px;
             object-fit: cover;
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
@@ -67,7 +67,7 @@
         .more-images {
             position: relative;
             width: 100%;
-            height: 200px;
+            height: 240px;
             overflow: hidden;
             border-radius: 10px;
         }
@@ -98,6 +98,13 @@
 
         .more-images:hover .overlay {
             background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        @media (min-width: 780px) {
+            .image-section {
+                margin-top: 30px;
+            }
+            
         }
 
         @media (max-width: 768px) {
@@ -240,6 +247,31 @@
         .room_amenities {
             margin-bottom: 2rem;
         }
+
+        @media(min-width: 700px) {
+            .room_details {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                max-width: 85%;
+                flex-direction: row;
+                gap: 3rem;
+                height: 500px;
+                margin: 0 auto;
+            }
+
+            .room_details img {
+                max-width: 100%;
+                min-height: 400px;
+                flex: 1;
+                object-fit: cover;
+            }
+
+            .room_details>div {
+                flex: 1;
+            }
+        }
+
 
         .room_details h4 {
             font-size: 18px;
@@ -428,14 +460,19 @@
         .browse-tier {
             text-align: center;
             margin: 30px 0;
+            justify-content: center;
+            display: flex;
+            align-items: center;
         }
 
         .browse-tier p {
             font-size: 17px;
             color: var(--secondery-theme-color);
-            margin-bottom: 10px;
+            margin: 0 !important;
             text-align: left;
             font-weight: 500;
+            display: flex;
+            align-items: center;
         }
 
         .tier-buttons {
@@ -491,22 +528,19 @@
         .property_amenities_list h5::after {
             content: "";
             flex-grow: 1;
-            /* Makes the line grow dynamically */
             height: 1px;
             background-color: #ccc;
         }
 
         .property_amenities_list h5::before {
             margin-right: 10px;
-            /* Space between the line and text */
+
         }
 
         .property_amenities_list h5::after {
             margin-left: 10px;
-            /* Space between the line and text */
         }
 
-        /* General Styling */
         .amenities {
             padding: 20px;
             text-align: center;
@@ -517,9 +551,29 @@
             margin-bottom: 20px;
         }
 
+        @media (max-width: 750px) {
+
+            .grid-container-2 {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 15px;
+            }
+
+            .grid-box.full-width {
+                grid-column: span 2;
+            }
+
+            .icon-title img {
+                width: 70px;
+                height: 70px;
+                margin-bottom: 2rem;
+            }
+
+        }
+
         .grid-container-2 {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
         }
 
@@ -530,12 +584,9 @@
             padding: 20px;
             padding-right: 5px;
             text-align: left;
-            background-color: #e1f6f2;
+            background-color: #fff;
         }
 
-        .grid-box.full-width {
-            grid-column: span 2;
-        }
 
         .icon-title {
             margin-bottom: 15px;
@@ -543,8 +594,8 @@
         }
 
         .icon-title img {
-            width: 70px;
-            height: 70px;
+            width: 90px;
+            height: 90px;
             margin-bottom: 2rem;
         }
 
@@ -613,7 +664,7 @@
 
         .faq-section {
             width: 100%;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             padding: 20px;
             background-color: var(--gray-color);
@@ -702,10 +753,10 @@
 
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVMFLLG" height="0" width="0"
-        style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-<header id="header" class=" header-3 nav-on-banner">
+    <header id="header" class=" header-3 nav-on-banner">
         <div class="top-header text-white icon-default py-3">
             <div class="container">
                 <div class="row">
@@ -725,13 +776,7 @@
                             </script>
 
                         </ul>
-                        <form class="language" action="#" method="post">
-                            <select class="selectpicker">
-                                <!-- <option value="en">ENG</option>
-                                <option value="fr">FRA</option>
-                                <option value="bn">BAN</option> -->
-                            </select>
-                        </form>
+
                     </div>
                 </div>
             </div>
@@ -748,11 +793,12 @@
                             <span class="navbar-toggler-icon"></span> </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto">
-                               
+
                                 <li class="nav-item"> <a class="nav-link" href="index.html">Home</a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="about.html">About Us</a> </li>
 
-                                <li class="nav-item"> <a class="nav-link" href="index.html#amenities">Amenities</a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="index.html#amenities">Amenities</a>
+                                </li>
 
                                 <li class="nav-item"> <a class="nav-link" href="index-2.html#contact">Contact</a> </li>
                                 <li class="nav-item"> <a class="nav-link"
@@ -791,9 +837,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         <!-- Top Image -->
         <div class="top-image" style="position: relative;">
             <div
-                style="position: absolute; background-color: #f4c024; top: 10px; left: 10px; border-radius: 15px; padding: 5px 10px; color: black; font-weight: 500;">
+                style="position: absolute; background-color: #f4c024; top: 10px; left: 10px; border-radius: 15px; padding: 5px 10px; color: black; font-weight: 500;" id="opening-info">
                 Opening in January</div>
-            <img src="img/ace-img-1.png" alt="Property Image" onclick="openPopup(0)">
+            <img src="img/ace-img-1.png" alt="Property Image" id="main-image" onclick="openPopup(0)">
         </div>
 
         <!-- Grid of 4 Images -->
@@ -836,25 +882,21 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     </section> -->
 
     <section>
-        <h4>ACE Girls, Koramangala</h4>
-        <h2>Standard Room</h2>
+        <h4 id="listing-title">ACE Girls, Koramangala</h4>
+        <h2 id="room-type">Standard Room</h2>
 
         <div class="browse-tier">
-            <p>browse by tier</p>
+            
             <div class="tier-buttons">
+                <p>browse by tier</p>
                 <button class="tier-button luxe">gharpayy luxe</button>
                 <button class="tier-button classics">gharpayy classics</button>
                 <button class="tier-button basics">gharpayy basics</button>
             </div>
         </div>
 
-        <div class="col-sm-12 mb-5">
-            <h2 class="title text-center">Listings</h2>
-        </div>
-
-        <div class="travel-info">
+        <!-- <div class="travel-info">
             <div class="subway-line">
-                <!-- <span class="line"></span> -->
                 <p>Railway Station</p>
             </div>
             <div class="time-info">
@@ -872,9 +914,11 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                     </path>
                 </svg>
             </div>
-        </div>
+        </div> -->
 
-        <div class="tabs">
+        <!-- tabs section -->
+
+        <!-- <div class="tabs">
             <button class="tab active" onclick="showTab('personal')">personal</button>
             <button class="tab" onclick="showTab('common')">common area</button>
             <button class="tab" onclick="showTab('facilit')">facilities</button>
@@ -909,233 +953,20 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <li>dining area</li>
                 <li>laundry</li>
             </ul>
-        </div>
+        </div> -->
     </section>
-
-    <section>
-        <h2>Amenities</h2>
-        <div role="list" class="list">
-
-            <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy" src="img/icons_1/cloud_7876220.png">
-                <p>Wifi</p>
-            </div>
-            <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy"
-                    src="img/icons_1/housekeeping_7187560.png">
-                <p>Housekeeping</p>
-            </div>
-            <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy"
-                    src="img/icons_1/microwave_1330660.png">
-                <p>Microwave</p>
-            </div>
-            <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy" src="img/icons_1/freezer_3004029.png">
-                <p>Refrigerator </p>
-            </div>
-            <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy" src="img/icons_1/shower_9287433.png">
-                <p>Geyser </p>
-            </div>
-            <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy" src="img/icons_1/lockers_928349.png">
-                <p>Wooden Wardrobe </p>
-            </div>
-            <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy"
-                    src="img/icons_1/single-bed_1190621.png">
-                <p>Wooden Cot and mattress </p>
-            </div>
-            <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy" src="img/icons_1/pillow_7929399.png">
-                <p>Linen and pillow cover </p>
-            </div>
-            <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy"
-                    src="img/icons_1/washing-machine_3003984.png">
-                <p>Autometic Washing machine </p>
-            </div>
-            <div role="listitem-2" class="listitem-2">
-                <img alt="" loading="lazy" src="img/icons_1/cctv_1367174.png">
-                <p>CCTV & RFID glass</p>
-            </div>
-            <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy" src="img/icons_1/idea_1350710.png">
-                <p>Electricity bill </p>
-            </div>
-            <div role="listitem-2" class="listitem-2"><img alt="" loading="lazy"
-                    src="img/icons_1/plumbering_389378.png">
-                <p>Water Bill </p>
-            </div>
-            <!-- <div role="listitem" class="listitem-2"><img alt="" loading="lazy" src="img/amenities-icons/food1.png">
-                <span>Food Included</span>
-            </div> -->
-        </div>
-    </section>
-
-    <section>
-        <h2>Amenities</h2>
-        <div role="list" class="property_amenities_list">
-
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/cloud_7876220.png">
-                <p>Wifi</p>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy"
-                    src="img/icons_1/housekeeping_7187560.png">
-                <p>Housekeeping</p>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/microwave_1330660.png">
-                <p>Microwave</p>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/freezer_3004029.png">
-                <p>Refrigerator </p>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/shower_9287433.png">
-                <p>Geyser </p>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/lockers_928349.png">
-                <p>Wooden Wardrobe </p>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/single-bed_1190621.png">
-                <p>Wooden Cot and mattress </p>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/pillow_7929399.png">
-                <p>Linen and pillow cover </p>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy"
-                    src="img/icons_1/washing-machine_3003984.png">
-                <p>Autometic Washing machine </p>
-            </div>
-            <div role="listitem" class="list-item">
-                <img alt="" loading="lazy" src="img/icons_1/cctv_1367174.png">
-                <p>CCTV & RFID glass</p>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/idea_1350710.png">
-                <p>Electricity bill </p>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_1/plumbering_389378.png">
-                <p>Water Bill </p>
-            </div>
-            <!-- <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/amenities-icons/food1.png">
-                <span>Food Included</span>
-            </div> -->
-        </div>
-    </section>
-
-
-
-    <section>
-        <h2>Amenities</h2>
-        <div role="list" class="property_amenities_list">
-
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/wifi_9722883.png">
-                <span>Wifi</span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy"
-                    src="img/icons_2/cleaning-liquid_5836758.png">
-                <span>Housekeeping</span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/microwave_7780600.png">
-                <span>Microwave</span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/fridge_9654542.png">
-                <span>Refrigerator </span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/shower_11158936.png">
-                <span>Geyser </span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/wardrobe_6403725.png">
-                <span>Wooden Wardrobe </span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/single-bed_6403922.png">
-                <span>Wooden Cot and mattress </span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/sleep_6061593.png">
-                <span>Linen and pillow cover </span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy"
-                    src="img/icons_2/washing-machine_2779706.png">
-                <span>Autometic Washing machine </span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/cctv_10087978.png">
-                <span>CCTV & RFID glass </span>
-            </div>
-
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/plug_8789664.png">
-                <p>Electricity bill </p>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy"
-                    src="img/icons_2/waste-water_11158996.png">
-                <p>Water Bill </p>
-            </div>
-
-        </div>
-    </section>
-
-    <section>
-        <h2>Amenities</h2>
-        <div role="list" class="property_amenities_list">
-            <h5>Kitchen Essentials</h5>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/microwave_7780600.png">
-                <span>Microwave</span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/fridge_9654542.png">
-                <span>Refrigerator </span>
-            </div>
-
-            <h5>Comfort</h5>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/shower_11158936.png">
-                <span>Geyser </span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/wardrobe_6403725.png">
-                <span>Wooden Wardrobe </span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/single-bed_6403922.png">
-                <span>Wooden Cot and mattress </span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/sleep_6061593.png">
-                <span>Linen and pillow cover </span>
-            </div>
-
-            <h5>Utilities</h5>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/wifi_9722883.png">
-                <span>Wifi</span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/plug_8789664.png">
-                <span>Electricity bill </span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy"
-                    src="img/icons_2/waste-water_11158996.png">
-                <span>Water Bill </span>
-            </div>
-
-            <h5>Convenience</h5>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy"
-                    src="img/icons_2/cleaning-liquid_5836758.png">
-                <span>Housekeeping</span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy"
-                    src="img/icons_2/washing-machine_2779706.png">
-                <span> Washing machine </span>
-            </div>
-
-            <h5>Security</h5>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/cctv_10087978.png">
-                <span>CCTV </span>
-            </div>
-            <div role="listitem" class="list-item"><img alt="" loading="lazy" src="img/icons_2/cctv_10087978.png">
-                <span>RFID Glass doors </span>
-            </div>
-
-
-        </div>
-    </section>
-
-    <!-- variation 1 -->
 
     <section class="amenities">
         <h2>Amenities</h2>
-        <div class="grid-container-2">
+        <div class="grid-container-2" id="grid-container-2">
             <!-- Box 1 -->
             <div class="grid-box">
                 <div class="icon-title">
                     <img src="img/amenities-icons/appliance_1198306.png" alt="Kitchen Essentials Icon" />
                     <h3>Kitchen Essentials</h3>
                 </div>
-                <ul>
-                    <li>Microwave</li>
-                    <li>Refrigerator</li>
+                <ul id="kitchen-list">
+                   
                 </ul>
             </div>
 
@@ -1145,10 +976,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                     <img src="img/amenities-icons/electric-gear_3520842.png" alt="Utilities Icon" />
                     <h3>Utilities</h3>
                 </div>
-                <ul>
-                    <li>Wifi</li>
-                    <li>Electricity bill</li>
-                    <li>Water bill</li>
+                <ul id="utilities-list">
+                   
                 </ul>
             </div>
 
@@ -1158,11 +987,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                     <img src="img/amenities-icons/meditation_6911426.png" alt="Comfort Icon" />
                     <h3>Comfort</h3>
                 </div>
-                <ul>
-                    <li>Geyser</li>
-                    <li>Wooden Wardrobe</li>
-                    <li>Wooden Cot and Mattress</li>
-                    <li>Linen and Pillow Cover</li>
+                <ul id="comfort-list">
+                    
                 </ul>
             </div>
 
@@ -1174,9 +1000,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                     <img src="img/amenities-icons/mop_7842219.png" alt="Security Icon" />
                     <h3>Facilities</h3>
                 </div>
-                <ul>
-                    <li>Housekeeping</li>
-                    <li>Autometic Washing Machine</li>
+                <ul id="facilities-list">
+                   
                 </ul>
             </div>
 
@@ -1185,309 +1010,14 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                     <img src="img/icons_1/cctv_1367174.png" alt="Security Icon" />
                     <h3>Security</h3>
                 </div>
-                <ul>
-                    <li>CCTV</li>
-                    <li>RFID Glass Doors</li>
+                <ul id="security-list">
+                    
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- variation 2 -->
-
-    <section class="amenities">
-        <h2>Amenities</h2>
-        <div class="grid-container-2">
-            <!-- Box 1 -->
-            <div class="grid-box" style="background-color: var(--primary-theme-color); border: none;">
-                <div class="icon-title">
-                    <img src="img/amenities-icons/appliance_1198306.png" alt="Kitchen Essentials Icon" />
-                    <h3>Kitchen Essentials</h3>
-                </div>
-                <ul>
-                    <li>Microwave</li>
-                    <li>Refrigerator</li>
-                </ul>
-            </div>
-
-            <!-- Box 2 -->
-            <div class="grid-box" style="background-color: var(--primary-theme-color); border: none;">
-                <div class="icon-title">
-                    <img src="img/amenities-icons/electric-gear_3520842.png" alt="Utilities Icon" />
-                    <h3>Utilities</h3>
-                </div>
-                <ul>
-                    <li>Wifi</li>
-                    <li>Electricity bill</li>
-                    <li>Water bill</li>
-                </ul>
-            </div>
-
-            <!-- Box 3 -->
-            <div class="grid-box full-width" style="background-color: var(--primary-theme-color); border: none;">
-                <div class="icon-title" style="width: 100%;">
-                    <img src="img/amenities-icons/meditation_6911426.png" alt="Comfort Icon" />
-                    <h3>Comfort</h3>
-                </div>
-                <ul>
-                    <li>Geyser</li>
-                    <li>Wooden Wardrobe</li>
-                    <li>Wooden Cot and Mattress</li>
-                    <li>Linen and Pillow Cover</li>
-                </ul>
-            </div>
-
-            <!-- Box 4 -->
-
-
-            <div class="grid-box" style="background-color: var(--primary-theme-color); border: none;">
-                <div class="icon-title">
-                    <img src="img/amenities-icons/mop_7842219.png" alt="Security Icon" />
-                    <h3>Facilities</h3>
-                </div>
-                <ul>
-                    <li>Housekeeping</li>
-                    <li>Autometic Washing Machine</li>
-                </ul>
-            </div>
-
-            <div class="grid-box" style="background-color: var(--primary-theme-color); border: none;">
-                <div class="icon-title">
-                    <img src="img/icons_1/cctv_1367174.png" alt="Security Icon" />
-                    <h3>Security</h3>
-                </div>
-                <ul>
-                    <li>CCTV</li>
-                    <li>RFID Glass Doors</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- variation 3 -->
-
-    <section class="amenities">
-        <h2>Amenities</h2>
-        <div class="grid-container-2">
-            <!-- Box 1 -->
-            <div class="grid-box" style="background-color: white;">
-                <div class="icon-title">
-                    <img src="img/amenities-icons/appliance_1198306.png" alt="Kitchen Essentials Icon" />
-                    <h3>Kitchen Essentials</h3>
-                </div>
-                <ul>
-                    <li>Microwave</li>
-                    <li>Refrigerator</li>
-                </ul>
-            </div>
-
-            <!-- Box 2 -->
-            <div class="grid-box" style="background-color: white;">
-                <div class="icon-title">
-                    <img src="img/amenities-icons/electric-gear_3520842.png" alt="Utilities Icon" />
-                    <h3>Utilities</h3>
-                </div>
-                <ul>
-                    <li>Wifi</li>
-                    <li>Electricity bill</li>
-                    <li>Water bill</li>
-                </ul>
-            </div>
-
-            <!-- Box 3 -->
-            <div class="grid-box full-width" style="background-color: white;">
-                <div class="icon-title" style="width: 100%;">
-                    <img src="img/amenities-icons/meditation_6911426.png" alt="Comfort Icon" />
-                    <h3>Comfort</h3>
-                </div>
-                <ul>
-                    <li>Geyser</li>
-                    <li>Wooden Wardrobe</li>
-                    <li>Wooden Cot and Mattress</li>
-                    <li>Linen and Pillow Cover</li>
-                </ul>
-            </div>
-
-            <!-- Box 4 -->
-
-
-            <div class="grid-box" style="background-color: white;">
-                <div class="icon-title">
-                    <img src="img/amenities-icons/mop_7842219.png" alt="Security Icon" />
-                    <h3>Facilities</h3>
-                </div>
-                <ul>
-                    <li>Housekeeping</li>
-                    <li>Autometic Washing Machine</li>
-                </ul>
-            </div>
-
-            <div class="grid-box" style="background-color: white;">
-                <div class="icon-title">
-                    <img src="img/icons_1/cctv_1367174.png" alt="Security Icon" />
-                    <h3>Security</h3>
-                </div>
-                <ul>
-                    <li>CCTV</li>
-                    <li>RFID Glass Doors</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- variation 4 -->
-
-    <section class="amenities">
-        <h2>Amenities</h2>
-        <div class="grid-container-2">
-            <!-- Box 1 -->
-            <div class="grid-box"
-                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
-                <div class="icon-title">
-                    <img src="img/amenities-icons/appliance_1198306.png" alt="Kitchen Essentials Icon" />
-                    <h3>Kitchen Essentials</h3>
-                </div>
-                <ul>
-                    <li>Microwave</li>
-                    <li>Refrigerator</li>
-                </ul>
-            </div>
-
-            <!-- Box 2 -->
-            <div class="grid-box"
-                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
-                <div class="icon-title">
-                    <img src="img/amenities-icons/electric-gear_3520842.png" alt="Utilities Icon" />
-                    <h3>Utilities</h3>
-                </div>
-                <ul>
-                    <li>Wifi</li>
-                    <li>Electricity bill</li>
-                    <li>Water bill</li>
-                </ul>
-            </div>
-
-            <!-- Box 3 -->
-            <div class="grid-box full-width"
-                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
-                <div class="icon-title" style="width: 100%;">
-                    <img src="img/amenities-icons/meditation_6911426.png" alt="Comfort Icon" />
-                    <h3>Comfort</h3>
-                </div>
-                <ul>
-                    <li>Geyser</li>
-                    <li>Wooden Wardrobe</li>
-                    <li>Wooden Cot and Mattress</li>
-                    <li>Linen and Pillow Cover</li>
-                </ul>
-            </div>
-
-            <!-- Box 4 -->
-
-
-            <div class="grid-box"
-                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
-                <div class="icon-title">
-                    <img src="img/amenities-icons/mop_7842219.png" alt="Security Icon" />
-                    <h3>Facilities</h3>
-                </div>
-                <ul>
-                    <li>Housekeeping</li>
-                    <li>Autometic Washing Machine</li>
-                </ul>
-            </div>
-
-            <div class="grid-box"
-                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
-                <div class="icon-title">
-                    <img src="img/icons_1/cctv_1367174.png" alt="Security Icon" />
-                    <h3>Security</h3>
-                </div>
-                <ul>
-                    <li>CCTV</li>
-                    <li>RFID Glass Doors</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- variation 5 -->
-
-    <section class="amenities">
-        <h2>Amenities</h2>
-        <div class="grid-container-2">
-            <!-- Box 1 -->
-            <div class="grid-box"
-                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
-                <div class="icon-title">
-                    <img src="img/amenities-icons/appliance_1198306.png" alt="Kitchen Essentials Icon" />
-                    <h3 style="font-size: 26px; margin-bottom: 10px; text-align: center;">Kitchen Essentials</h3>
-                </div>
-                <ul>
-                    <li>Microwave</li>
-                    <li>Refrigerator</li>
-                </ul>
-            </div>
-
-            <!-- Box 2 -->
-            <div class="grid-box"
-                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
-                <div class="icon-title">
-                    <img src="img/amenities-icons/electric-gear_3520842.png" alt="Utilities Icon" />
-                    <h3 style="font-size: 26px; margin-bottom: 10px; text-align: center;">Utilities</h3>
-                </div>
-                <ul>
-                    <li>Wifi</li>
-                    <li>Electricity bill</li>
-                    <li>Water bill</li>
-                </ul>
-            </div>
-
-            <!-- Box 3 -->
-            <div class="grid-box full-width"
-                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
-                <div class="icon-title" style="width: 100%;">
-                    <img src="img/amenities-icons/meditation_6911426.png" alt="Comfort Icon" />
-                    <h3 style="font-size: 26px; margin-bottom: 10px; text-align: center;">Comfort</h3>
-                </div>
-                <ul>
-                    <li>Geyser</li>
-                    <li>Wooden Wardrobe</li>
-                    <li>Wooden Cot and Mattress</li>
-                    <li>Linen and Pillow Cover</li>
-                </ul>
-            </div>
-
-            <!-- Box 4 -->
-
-
-            <div class="grid-box"
-                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
-                <div class="icon-title">
-                    <img src="img/amenities-icons/mop_7842219.png" alt="Security Icon" />
-                    <h3 style="font-size: 26px; margin-bottom: 10px; text-align: center;">Facilities</h3>
-                </div>
-                <ul>
-                    <li>Housekeeping</li>
-                    <li>Autometic Washing Machine</li>
-                </ul>
-            </div>
-
-            <div class="grid-box"
-                style="background-color: var(--primary-theme-color); border-top-left-radius: 8px; border: none;">
-                <div class="icon-title">
-                    <img src="img/icons_1/cctv_1367174.png" alt="Security Icon" />
-                    <h3 style="font-size: 26px; margin-bottom: 10px; text-align: center;">Security</h3>
-                </div>
-                <ul>
-                    <li>CCTV</li>
-                    <li>RFID Glass Doors</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section>
+    <!-- <section>
         <h2>Nearby Amenities</h2>
         <div role="list" class="properties_hotspots_list">
             <div role="listitem" class="list-item w-dyn-item">
@@ -1510,7 +1040,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <span>Shopping</span>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section>
         <h2>Property Rooms</h2>
@@ -1821,37 +1351,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         </ul>
                     </div>
                 </div>
-                <!-- <div class="col-lg-3  col-sm-6">
-                <div class="footer-widget instagram">
-                    <h4 class="widget-title down-line-left text-white">Instagram</h4>
-                    <ul>
-                        <li><a href="#"><img src="img/squire/6.jpg" alt="Image not found !"></a></li>
-                        <li><a href="#"><img src="img/squire/7.jpg" alt="Image not found !"></a></li>
-                        <li><a href="#"><img src="img/squire/8.jpg" alt="Image not found !"></a></li>
-                        <li><a href="#"><img src="img/squire/9.jpg" alt="Image not found !"></a></li>
-                        <li><a href="#"><img src="img/squire/10.jpg" alt="Image not found !"></a></li>
-                        <li><a href="#"><img src="img/squire/11.jpg" alt="Image not found !"></a></li>
-                        <li><a href="#"><img src="img/squire/6.jpg" alt="Image not found !"></a></li>
-                        <li><a href="#"><img src="img/squire/7.jpg" alt="Image not found !"></a></li>
-                        <li><a href="#"><img src="img/squire/8.jpg" alt="Image not found !"></a></li>
-                    </ul>
-                </div>
-            </div> -->
-                <!-- <div class="col-lg-3 col-sm-6">
-                <div class="footer-widget newsletter">
-                    <h4 class="widget-title down-line-left text-white">Newslatter</h4>
-                    <p>Feugiat tempus. Non aliquet moles tie vulputate. Elit ipsum sit pharetra. Nascetur vulputate
-                        nam. Neque clas interdum.</p>
-                    <form action="#" method="post">
-                        <div class="form-group">
-                            <input class="form-control" type="text" name="mail" placeholder="Your Email">
-                        </div>
-                        <div class="form-group">
-                            <input class="btn btn-primary-bg" type="submit" value="Sign Up Now">
-                        </div>
-                    </form>
-                </div>
-            </div> -->
+                
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -1997,6 +1497,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
     </script>
 
+    <script src="./js/listingDetails.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/greensock.js"></script>
     <script src="js/layerslider.transitions.js"></script>
@@ -2007,7 +1508,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <script src="js/jquery.countdown.js"></script>
     <script src="js/jquery.cookie.js"></script>
     <script src="js/custom.js"></script>
-   
+
 </body>
 
 </html>

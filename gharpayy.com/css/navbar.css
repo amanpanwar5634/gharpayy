@@ -748,6 +748,7 @@ Home Page 1 Css Start
 
 .copyright-3 {
     background-color: var(--bg-dark) !important;
+    padding-bottom: 4rem   !important;
 }
 
 
@@ -812,7 +813,7 @@ footer h4{
     list-style: none;
     display: flex;
     justify-content: center;
-    
+    gap: 0.5rem;
 }
 
 .m-auto{

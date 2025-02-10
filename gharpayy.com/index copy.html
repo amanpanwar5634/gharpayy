@@ -2359,7 +2359,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
                 properties.forEach(property => {
                     const propertyCard = document.createElement("a");
-                    propertyCard.href = "#";
+                    propertyCard.href = `http://localhost:5000/listingDetails.html?id=${property._id}`;
                     propertyCard.className = "individual-prop";
                     propertyCard.classList.add("col-lg-3", "col-sm-12", "col-md-5");
 
