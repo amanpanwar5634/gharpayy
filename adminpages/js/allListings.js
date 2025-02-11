@@ -1,4 +1,33 @@
+async function fetchListingStats() {
+  try {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      window.location.href = '/admin';
+      return;
+    }
+    const response = await fetch('/api/listings/stats',
+      {
+        method: "GET",
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+      }
+    );
+    const data = await response.json();
+
+    document.getElementById('totalListings').textContent = data.totalListings;
+    document.getElementById('totalEnabledListings').textContent = data.totalEnabledListings;
+    document.getElementById('totalAvailableNow').textContent = data.totalAvailableNow;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+
+
+
 document.addEventListener("DOMContentLoaded", async () => {
+  fetchListingStats()
   const apiEndpoint = "http://localhost:5000/api/listings";
   const tableBody = document.getElementById("table-body");
 
@@ -83,16 +112,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.querySelectorAll(".enable-btn").forEach((btn) => {
     btn.addEventListener("click", async (event) => {
       const listingId = event.target.getAttribute("data-id");
-  
+
       try {
-  
+
         const response = await fetch(`http://localhost:5000/api/listings/${listingId}/enable`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
         });
-  
+
         if (response.ok) {
           const result = await response.json();
 
@@ -100,7 +129,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           btn.classList.add("btn-danger");
           btn.textContent = "Disable";
           btn.disabled = false;
-  
+
           console.log(result.message || "Listing enabled successfully!");
         } else {
           const error = await response.json();
@@ -112,9 +141,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
   });
-  
+
 
 });
-
-
 

@@ -170,6 +170,25 @@ const getEnabledListings = async (req, res) => {
   }
 };
 
+
+
+const getStats = async (req, res) => {
+    try {
+        const totalListings = await Listing.countDocuments();
+        const totalEnabledListings = await Listing.countDocuments({ disabled: false });
+        const totalAvailableNow = await Listing.countDocuments({ status: 'open' });
+
+        res.json({
+            totalListings,
+            totalEnabledListings,
+            totalAvailableNow
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Server error' });
+    }
+};
+
 module.exports = {
   addListing,
   getAllListings,
@@ -177,5 +196,6 @@ module.exports = {
   updateListing,
   disableListing,
   enableListing,
-  getEnabledListings
+  getEnabledListings,
+  getStats,
 };
