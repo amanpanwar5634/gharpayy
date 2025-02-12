@@ -1,6 +1,11 @@
-let currentPage = 1;
+let curr = 1;
 let totalPages = 1;
 let searchQuery = "";
+
+function applyFilters() {
+  fetchListings(1); 
+  console.log("i was clickedd");
+}
 
 document.addEventListener("DOMContentLoaded", async () => {
   const searchInput = document.getElementById("searchInput");
@@ -10,9 +15,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function fetchListings(page = 1) {
   const apiEndpoint = "http://localhost:5000/api/listings";
-  currentPage = page;
+  curr = page;
+  const gender = document.getElementById("genderFilter").value;
+  const status = document.getElementById("statusFilter").value;
+  const propType = document.getElementById("propTypeFilter").value;
 
-  const url = `${apiEndpoint}?page=${page}&limit=10&search=${searchQuery}`;
+  // const url = `${apiEndpoint}?page=${page}&limit=10&search=${searchQuery}`;
+  const url = `${apiEndpoint}?page=${page}&limit=10&search=${searchQuery}&gender=${gender}&status=${status}&propType=${propType}`;
 
   try {
     const response = await fetch(url);
@@ -88,19 +97,19 @@ function renderPagination(totalListings) {
 
   for (let i = 1; i <= totalPages; i++) {
     paginationElement.innerHTML += `
-      <li class="page-item ${i === currentPage ? 'active' : ''}">
+      <li class="page-item ${i === curr ? 'active' : ''}">
         <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
       </li>
     `;
   }
 
   document.getElementById("pagination-info").innerText =
-    `Showing ${(currentPage - 1) * 10 + 1} - ${Math.min(currentPage * 10, totalListings)} out of ${totalListings || 1}`;
+    `Showing ${(curr - 1) * 10 + 1} - ${Math.min(curr * 10, totalListings)} out of ${totalListings || 1}`;
 }
 
 async function changePage(page) {
-  currentPage = page;
-  await fetchListings(currentPage);
+  curr = page;
+  await fetchListings(curr);
 }
 
 function handleSearch() {
@@ -116,7 +125,7 @@ async function updateListingStatus(listingId, action) {
     });
 
     if (response.ok) {
-      fetchListings(currentPage);
+      fetchListings(curr);
     } else {
       const error = await response.json();
       alert(error.message || `Failed to ${action} the listing.`);

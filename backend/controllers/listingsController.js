@@ -54,18 +54,25 @@ const addListing = async (req, res) => {
 
 const getAllListings = async (req, res) => {
   try {
-    let { page = 1, limit = 10, search = "" } = req.query;
+    let { page = 1, limit = 10, search = "", gender, status, propType, location } = req.query;
     page = parseInt(page);
     limit = parseInt(limit);
 
     const query = {};
 
+    // Search by name or location (case insensitive)
     if (search) {
       query.$or = [
         { name: { $regex: search, $options: "i" } }, 
         { location: { $regex: search, $options: "i" } }
       ];
     }
+
+    // Apply filters if provided
+    if (gender) query.gender = gender;
+    if (status) query.status = status;
+    if (propType) query.propType = propType;
+    if (location) query.location = location;
 
     const totalListings = await Listing.countDocuments(query);
     const listings = await Listing.find(query)
@@ -87,8 +94,8 @@ const getAllListings = async (req, res) => {
   }
 };
 
-const editListing = async (req, res) => {
-  
+
+const editListing = async (req, res) => {  
   try {
     
     const listing = await Listing.findById(req.params.id);
