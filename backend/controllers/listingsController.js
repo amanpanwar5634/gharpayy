@@ -38,16 +38,51 @@ const addListing = async (req, res) => {
 };
 
 // Controller for fetching all listings
+// const getAllListings = async (req, res) => {
+//   try {
+    
+//     const listings = await Listing.find();
+//     res.status(200).json(listings);
+//   } catch (error) {
+//     console.error('Error fetching listings:', error);
+//     res.status(500).json({
+//       message: 'Error fetching listings',
+//       error: error.message || 'Unknown error',
+//     });
+//   }
+// };
+
 const getAllListings = async (req, res) => {
   try {
-    
-    const listings = await Listing.find();
-    res.status(200).json(listings);
+    let { page = 1, limit = 10, search = "" } = req.query;
+    page = parseInt(page);
+    limit = parseInt(limit);
+
+    const query = {};
+
+    if (search) {
+      query.$or = [
+        { name: { $regex: search, $options: "i" } }, 
+        { location: { $regex: search, $options: "i" } }
+      ];
+    }
+
+    const totalListings = await Listing.countDocuments(query);
+    const listings = await Listing.find(query)
+      .skip((page - 1) * limit)
+      .limit(limit);
+
+    res.status(200).json({
+      totalPages: Math.ceil(totalListings / limit),
+      currentPage: page,
+      totalListings,
+      listings
+    });
   } catch (error) {
-    console.error('Error fetching listings:', error);
+    console.error("Error fetching listings:", error);
     res.status(500).json({
-      message: 'Error fetching listings',
-      error: error.message || 'Unknown error',
+      message: "Error fetching listings",
+      error: error.message || "Unknown error",
     });
   }
 };
@@ -157,7 +192,7 @@ const enableListing = async (req, res) => {
 };
 
 const getEnabledListings = async (req, res) => {
-  try {
+  try { 
     
     const listings = await Listing.find({ disabled: false });
     res.status(200).json(listings);

@@ -28,7 +28,7 @@ async function fetchListingStats() {
 
 document.addEventListener("DOMContentLoaded", async () => {
   fetchListingStats()
-  const apiEndpoint = "http://localhost:5000/api/listings";
+  const apiEndpoint = "http://localhost:5000/api/listings/enabled";
   const tableBody = document.getElementById("table-body");
 
   try {

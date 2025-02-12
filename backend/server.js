@@ -52,7 +52,7 @@ app.get("/addListing", authMiddleware, (req, res) => {
 });
 
 app.get("/allListings", authMiddleware, (req, res) => {
-  res.sendFile(path.join(__dirname, "../adminpages/invoice-list.html"));
+  res.sendFile(path.join(__dirname, "../adminpages/allListings.html"));
 });
 
 app.get("/enquirypage", authMiddleware, (req, res) => {
