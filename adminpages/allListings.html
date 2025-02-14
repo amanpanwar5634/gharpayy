@@ -28,26 +28,26 @@
                     <button onclick="loadDashboard()">
                         <img src="../gharpayy.com/img/logo/gharpayy_logo2.png" height="30" class="logo-light-mode"
                             alt="">
-                    </button> 
+                    </button>
                 </div>
 
                 <ul class="sidebar-menu">
                     <button class="btn" onclick="loadProtectedPage('dashboard')">
                         <i class="ti ti-home me-2"></i>Dashboard
                     </button>
-                
+
                     <li>
                         <button class="btn" onclick="loadProtectedPage('allListings')">
                             <i class="ti ti-file-invoice me-2"></i>Listings
                         </button>
                     </li>
-                
+
                     <li>
                         <button class="btn" onclick="loadProtectedPage('addListing')">
                             <i class="ti ti-file-invoice me-2"></i>Add Listing
                         </button>
                     </li>
-                
+
                     <li>
                         <button class="btn" onclick="loadProtectedPage('profileSetting')">
                             <i class="ti ti-user me-2"></i>User Profile
@@ -79,7 +79,7 @@
                         <a id="close-sidebar" class="btn btn-icon btn-soft-light" href="javascript:void(0)">
                             <i class="ti ti-menu-2"></i>
                         </a>
-
+            
                         <div class="search-bar p-0 d-none d-md-block ms-2 me-2">
                             <div id="search" class="menu-search mb-0">
                                 <form role="search" method="get" id="searchform" class="searchform">
@@ -91,38 +91,46 @@
                                 </form>
                             </div>
                         </div>
-
-                        <select id="genderFilter" class="form-select w-auto me-2">
-                            <option value="">All Genders</option>
-                            <option value="M">Male</option>
-                            <option value="F">Female</option>
-                            <option value="Coed">Coed</option>
-                          </select>
-                        
-                          <select id="statusFilter" class="form-select w-auto me-2">
-                            <option value="">All Status</option>
-                            <option value="open">Open</option>
-                            <option value="not_open">Not Open</option>
-                          </select>
-                        
-                          <select id="propTypeFilter" class="form-select w-auto me-2">
-                            <option value="">Type</option>
-                            <option value="CLASSICS">Classics</option>
-                            <option value="BASIC PLUS">Basic Plus</option>
-                            <option value="ADVANTAGE">Advantage</option>
-                            <option value="LUXE MAX">Luxe Max</option>
-                          </select>
-                        
-                          <button class="btn btn-primary px-4 fw-bold" onclick="applyFilters()">Apply Filters</button>
-
-                        <!-- <div class="filters d-flex flex-wrap align-items-center gap-3 mb-4 mt-3 p-3 ">
-                            
-                          </div> -->
+            
+                        <div class="dropdown">
+                            <button class="btn btn-outline-primary dropdown-toggle d-flex align-items-center " 
+                                type="button" style="margin-left: 10px; font-size: 22px;" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="ti ti-filter"></i>
+                            </button>
+            
+                            <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+                                <div class="p-3 bg-light rounded shadow-sm d-flex flex-column gap-3">
+                                    <select id="genderFilter" class="form-select">
+                                        <option value="">All Genders</option>
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                        <option value="Coed">Coed</option>
+                                    </select>
+            
+                                    <select id="statusFilter" class="form-select">
+                                        <option value="">All Status</option>
+                                        <option value="open">Open</option>
+                                        <option value="not_open">Not Open</option>
+                                    </select>
+            
+                                    <select id="propTypeFilter" class="form-select">
+                                        <option value="">Type</option>
+                                        <option value="CLASSICS">Classics</option>
+                                        <option value="BASIC PLUS">Basic Plus</option>
+                                        <option value="ADVANTAGE">Advantage</option>
+                                        <option value="LUXE MAX">Luxe Max</option>
+                                    </select>
+            
+                                    <button class="btn btn-primary fw-bold" onclick="applyFilters()">Apply</button>
+                                </div>
                           
-                          
-                        
+            
+                               
+            
+                                
+                            </ul>
+                        </div>
                     </div>
-
                 </div>
             </div>
             <!-- Top Header -->
@@ -134,7 +142,8 @@
 
                         <nav aria-label="breadcrumb" class="d-inline-block mt-5">
                             <ul class="breadcrumb bg-transparent rounded mb-0 p-0">
-                                <li class="breadcrumb-item text-capitalize"><button class="btn" onclick="loadDashboard()">Dashboard</button></li>
+                                <li class="breadcrumb-item text-capitalize"><button class="btn"
+                                        onclick="loadDashboard()">Dashboard</button></li>
                                 <li class="breadcrumb-item text-capitalize active" aria-current="page">Listings</li>
                             </ul>
                         </nav>
@@ -160,7 +169,7 @@
                                         </tr>
                                     </thead>
                                     <tbody id="table-body">
-                                        
+
                                     </tbody>
                                 </table>
                             </div>
@@ -186,14 +195,18 @@
     <!-- page-wrapper -->
 
 
+    <script>
+        document.getElementById("filterToggle").addEventListener("click", function () {
+            const filters = document.getElementById("filtersSection");
+            filters.classList.toggle("show");
+        });
 
-
-    <!-- javascript -->
+    </script>
 
     <script src="./libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="./libs/feather-icons/feather.min.js"></script>
     <script src="./libs/simplebar/simplebar.min.js"></script>
-  
+
     <!-- Main Js -->
     <script src="./js/plugins.init.js"></script>
     <script src="./js/fetchListings.js"></script>

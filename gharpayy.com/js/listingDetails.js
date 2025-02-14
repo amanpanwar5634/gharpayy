@@ -1,83 +1,141 @@
 const urlParams = new URLSearchParams(window.location.search);
-
 const listingId = urlParams.get('id');
-console.log(listingId);
+
+let images = [];  
+const visibleImagesCount = 4; 
+let currentIndex = 0; 
+function openPopup(index) {
+    currentIndex = index;
+    const popup = document.getElementById("popup");
+    const popupImage = document.getElementById("popupImage");
+
+    popupImage.src = images[currentIndex];
+    popup.style.display = "flex";
+}
+
+function navigateImage(direction) {
+    currentIndex = (currentIndex + direction + images.length) % images.length;
+    updatePopup();
+}
+
+function updatePopup() {
+    const popupImage = document.getElementById("popupImage");
+    popupImage.src = images[currentIndex];
+}
+
+function closePopup(event) {
+    if (event.target.id === "popup") {
+        document.getElementById("popup").style.display = "none";
+    }
+}
+
+function showAllImages() {
+    openPopup(visibleImagesCount);
+}
 
 fetch(`http://localhost:5000/api/listings/${listingId}`)
     .then(response => response.json())
     .then(data => {
-
-        document.getElementById('listing-title').textContent = data.name;
+        document.getElementById('listing-title').textContent = data.name + ", " + data.location;
         document.getElementById('room-type').textContent = data.propType;
 
         const openingInfo = document.getElementById('opening-info');
-        if (data.status === "open") {
-            openingInfo.textContent = "Available immediately";
-        } else {
-            openingInfo.textContent = `Opening in ${data.openDate}`;
-        }
+        openingInfo.textContent = data.status === "open"
+            ? "Available immediately"
+            : `Opening in ${data.openDate}`;
 
+        // Update Main Image
         document.getElementById('main-image').src = data.photos[0];
+        images = data.photos;
 
+        const gridContainer = document.querySelector(".grid-container");
+        gridContainer.innerHTML = "";
+
+        images.slice(1, visibleImagesCount).forEach((imgSrc, index) => {
+            const img = document.createElement("img");
+            img.src = imgSrc;
+            img.alt = "Property Image";
+            img.onclick = () => openPopup(index + 1);
+            gridContainer.appendChild(img);
+        });
+
+        const extraImagesCount = images.length - visibleImagesCount;
+        if (extraImagesCount > 0) {
+            const moreImagesDiv = document.createElement("div");
+            moreImagesDiv.classList.add("more-images");
+            moreImagesDiv.onclick = () => showAllImages(); // FIXED
+
+            const moreImg = document.createElement("img");
+            moreImg.src = images[visibleImagesCount];
+            moreImg.alt = "More Images";
+
+            const overlay = document.createElement("div");
+            overlay.classList.add("overlay");
+
+            const overlayText = document.createElement("span");
+            overlayText.textContent = `+${extraImagesCount}`;
+
+            overlay.appendChild(overlayText);
+            moreImagesDiv.appendChild(moreImg);
+            moreImagesDiv.appendChild(overlay);
+
+            gridContainer.appendChild(moreImagesDiv);
+        }
 
 
         const amenities = data.amenities;
-        console.log("amenities", amenities);
-
-        // kitchen
-
-        const kitchenEssentials = amenities.kitchenEssentials;
-        const kitchenList = document.getElementById('kitchen-list');
-        kitchenEssentials.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = item;
-            kitchenList.appendChild(li);
-        });
-
-        // utilities
-
-        const utilities = amenities.utilities;
-        const utilitiesList = document.getElementById('utilities-list');
-        utilities.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = item;
-            utilitiesList.appendChild(li);
-        });
-
-        // Comfort
-        const comfort = amenities.comfort;
-        const comfortList = document.getElementById('comfort-list');
-        comfort.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = item;
-            comfortList.appendChild(li);
-        });
-
-        // Facilities
-        const facilities = amenities.facilities;
-        const facilitiesList = document.getElementById('facilities-list');
-        facilities.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = item;
-            facilitiesList.appendChild(li);
-        });
-
-        // Security
-        const security = amenities.security;
-        const securityList = document.getElementById('security-list');
-        security.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = item;
-            securityList.appendChild(li);
-        });
+        updateAmenities(amenities);
     })
     .catch(error => {
         console.error('Error fetching data:', error);
     });
 
-function formatCategoryName(category) {
-    return category
-        .split(/(?=[A-Z])/)
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-        .join(' ');
+
+function updateAmenities(amenities) {
+    // kitchen
+
+    const kitchenEssentials = amenities.kitchenEssentials;
+    const kitchenList = document.getElementById('kitchen-list');
+    kitchenEssentials.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        kitchenList.appendChild(li);
+    });
+
+    // utilities
+
+    const utilities = amenities.utilities;
+    const utilitiesList = document.getElementById('utilities-list');
+    utilities.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        utilitiesList.appendChild(li);
+    });
+
+    // Comfort
+    const comfort = amenities.comfort;
+    const comfortList = document.getElementById('comfort-list');
+    comfort.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        comfortList.appendChild(li);
+    });
+
+    // Facilities
+    const facilities = amenities.facilities;
+    const facilitiesList = document.getElementById('facilities-list');
+    facilities.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        facilitiesList.appendChild(li);
+    });
+
+    // Security
+    const security = amenities.security;
+    const securityList = document.getElementById('security-list');
+    security.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        securityList.appendChild(li);
+    });
 }

@@ -1404,65 +1404,6 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
 
     <script>
-        const images = [
-            "img/ace-img-1.png",
-            "img/ace-img-2.png",
-            "img/ace-img-3.png",
-            "img/ace-img-4.png",
-            "img/ace-img-5.png",
-            "img/ace-img-1.png",
-            "img/ace-img-2.png",
-            "img/ace-img-3.png",
-            "img/ace-img-4.png",
-            "img/ace-img-5.png",
-            "img/ace-img-1.png",
-            "img/ace-img-2.png",
-            "img/ace-img-3.png",
-        ];
-
-        const visibleImagesCount = 4;
-        let currentIndex = 0;
-
-        document.addEventListener("DOMContentLoaded", () => {
-
-            const extraImagesCount = images.length - visibleImagesCount;
-            const overlayText = document.querySelector(".more-images .overlay span");
-            if (extraImagesCount > 0) {
-                overlayText.textContent = `+${extraImagesCount}`;
-            } else {
-                document.querySelector(".more-images").style.display = "none";
-            }
-        });
-
-        function openPopup(index) {
-            currentIndex = index;
-            const popup = document.getElementById("popup");
-            const popupImage = document.getElementById("popupImage");
-
-            popupImage.src = images[currentIndex];
-            popup.style.display = "flex";
-        }
-
-        function navigateImage(direction) {
-            currentIndex = (currentIndex + direction + images.length) % images.length;
-            updatePopup();
-        }
-
-        function updatePopup() {
-            const popupImage = document.getElementById("popupImage");
-            popupImage.src = images[currentIndex];
-        }
-
-        function closePopup(event) {
-            if (event.target.id === "popup") {
-                const popup = document.getElementById("popup");
-                popup.style.display = "none";
-            }
-        }
-
-        function showAllImages() {
-            openPopup(visibleImagesCount);
-        }
 
         function showTab(tabId) {
             const tabs = document.querySelectorAll(".tab-content");
