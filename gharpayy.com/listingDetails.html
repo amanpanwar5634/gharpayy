@@ -104,6 +104,9 @@
             .image-section {
                 margin-top: 30px;
             }
+            .button-container{
+                display: none  ;
+            }
             
         }
 
@@ -189,11 +192,7 @@
             background-color: rgba(255, 255, 255, 1);
         }
 
-        .button-container {
-            position: absolute;
-            bottom: -5%;
-        }
-
+        
         @keyframes zoomIn {
             from {
                 transform: scale(0.8);
@@ -206,17 +205,22 @@
             }
         }
 
+        #listing-title{
+            font-family: var(--theme-highlight-font) !important;
+            font-size: 2.8rem;
+            color: var(--secondery-theme-color);
+        }
+
+        #room-type{
+           font-size: 28px;
+           margin-top: 12px;
+        }
 
         .list-item {
             width: 47%;
             display: inline-block;
             box-sizing: border-box;
             margin-bottom: 1rem;
-            /* display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 5px; */
         }
 
 
@@ -543,7 +547,8 @@
 
         .amenities {
             padding: 20px;
-            text-align: center;
+            padding-top: 0;
+            /* text-align: center; */
         }
 
         .amenities h2 {
@@ -882,17 +887,17 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     </section> -->
 
     <section>
-        <h4 id="listing-title">ACE Girls, Koramangala</h4>
-        <h2 id="room-type">Standard Room</h2>
+        <h1 id="listing-title">ACE Girls, Koramangala</h1>
+        <h4 id="room-type">Standard Room</h4>
 
         <div class="browse-tier">
             
-            <div class="tier-buttons">
+            <!-- <div class="tier-buttons">
                 <p>browse by tier</p>
                 <button class="tier-button luxe">gharpayy luxe</button>
                 <button class="tier-button classics">gharpayy classics</button>
                 <button class="tier-button basics">gharpayy basics</button>
-            </div>
+            </div> -->
         </div>
 
         <!-- <div class="travel-info">

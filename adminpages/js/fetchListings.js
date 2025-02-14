@@ -19,8 +19,6 @@ async function fetchListings(page = 1) {
   const gender = document.getElementById("genderFilter").value;
   const status = document.getElementById("statusFilter").value;
   const propType = document.getElementById("propTypeFilter").value;
-
-  // const url = `${apiEndpoint}?page=${page}&limit=10&search=${searchQuery}`;
   const url = `${apiEndpoint}?page=${page}&limit=10&search=${searchQuery}&gender=${gender}&status=${status}&propType=${propType}`;
 
   try {

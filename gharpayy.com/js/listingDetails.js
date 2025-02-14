@@ -29,6 +29,31 @@ function closePopup(event) {
     }
 }
 
+document.addEventListener("keydown", function (event) {
+    if (event.key === "ArrowLeft") {
+        navigateImage(-1);
+    } else if (event.key === "ArrowRight") {
+        navigateImage(1);
+    }
+});
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.getElementById("popup").addEventListener("touchstart", function (event) {
+    touchStartX = event.changedTouches[0].screenX;
+});
+
+document.getElementById("popup").addEventListener("touchend", function (event) {
+    touchEndX = event.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 50) {
+        navigateImage(1);
+    } else if (touchEndX - touchStartX > 50) {
+        navigateImage(-1);
+    }
+});
+
+
 function showAllImages() {
     openPopup(visibleImagesCount);
 }
@@ -37,7 +62,7 @@ fetch(`http://localhost:5000/api/listings/${listingId}`)
     .then(response => response.json())
     .then(data => {
         document.getElementById('listing-title').textContent = data.name + ", " + data.location;
-        document.getElementById('room-type').textContent = data.propType;
+        document.getElementById('room-type').textContent = "Gharpayy "+data.propType;
 
         const openingInfo = document.getElementById('opening-info');
         openingInfo.textContent = data.status === "open"

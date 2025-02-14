@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (response.ok) {
         alert("Listing updated successfully!");
         console.log(await response.json());
-        LoadAllListings();
+        loadProtectedPage('allListings');
       } else {
         console.error("Error updating listing:", response.statusText);
         alert("Failed to update listing.");
@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 
-function LoadAllListings(){
+function loadProtectedPage('allListings'){
   const token = localStorage.getItem("token");
 
   if (!token) {

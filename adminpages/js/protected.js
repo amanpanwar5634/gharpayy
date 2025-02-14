@@ -70,7 +70,7 @@ function loadEnquiries() {
   const token = localStorage.getItem("token");
 
   if (!token) {
-    console.log("issue1");
+  
     window.location.href = "/admin";
     return;
   }
