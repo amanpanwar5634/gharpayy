@@ -1,11 +1,11 @@
+require('dotenv').config({ path: './backend/.env' });
 const express = require('express');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+
 const cors = require('cors');
 const path = require('path');
 const authMiddleware = require("./middleware/authMiddleware");
 
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -19,9 +19,8 @@ app.use("/css", express.static(path.join(__dirname, '../adminpages/css')));
 app.use("/js", express.static(path.join(__dirname, '../adminpages/js')));
 app.use("/libs", express.static(path.join(__dirname, '../adminpages/libs')));
 
-
 mongoose
-  .connect("mongodb+srv://gharpayywebsite:Azad1234@cluster0.ij5yv.mongodb.net/gharpayy?retryWrites=true&w=majority&appName=Cluster0", {
+  .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

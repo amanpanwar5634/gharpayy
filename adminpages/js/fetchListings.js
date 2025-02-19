@@ -1,10 +1,9 @@
 let curr = 1;
 let totalPages = 1;
 let searchQuery = "";
-
+  
 function applyFilters() {
   fetchListings(1); 
-  console.log("i was clickedd");
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
