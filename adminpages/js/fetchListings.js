@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function fetchListings(page = 1) {
-  const apiEndpoint = "http://localhost:5000/api/listings";
+  const apiEndpoint = "https://gharpayy-backend.vercel.app/api/listings";
   curr = page;
   const gender = document.getElementById("genderFilter").value;
   const status = document.getElementById("statusFilter").value;
@@ -69,7 +69,7 @@ function renderTable(listings) {
   document.querySelectorAll(".view-btn").forEach((btn) => {
     btn.addEventListener("click", (event) => {
       const listingId = event.target.getAttribute("data-id");
-      window.location.href = `http://localhost:5000/invoice.html?id=${listingId}`;
+      window.location.href = `https://gharpayy-backend.vercel.app/invoice.html?id=${listingId}`;
     });
   });
 
@@ -116,7 +116,7 @@ function handleSearch() {
 
 async function updateListingStatus(listingId, action) {
   try {
-    const response = await fetch(`http://localhost:5000/api/listings/${listingId}/${action}`, {
+    const response = await fetch(`https://gharpayy-backend.vercel.app/api/listings/${listingId}/${action}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
     });

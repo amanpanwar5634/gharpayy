@@ -58,7 +58,7 @@ function showAllImages() {
     openPopup(visibleImagesCount);
 }
 
-fetch(`http://localhost:5000/api/listings/${listingId}`)
+fetch(`https://gharpayy-backend.vercel.app/api/listings/${listingId}`)
     .then(response => response.json())
     .then(data => {
         document.getElementById('listing-title').textContent = data.name + ", " + data.location;

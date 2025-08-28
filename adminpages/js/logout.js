@@ -1,6 +1,6 @@
 document.getElementById("logoutBtn").addEventListener("click", async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/users/logout", {
+      const response = await fetch("https://gharpayy-backend.vercel.app/api/users/logout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -12,7 +12,7 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
         localStorage.removeItem("userId");
         localStorage.removeItem("token"); 
         sessionStorage.removeItem("token");
-        window.location.href = "http://localhost:5000/admin"; 
+        window.location.href = "https://gharpayy-backend.vercel.app/admin"; 
       } else {
         const error = await response.json();
         alert(error.message || "Failed to log out.");

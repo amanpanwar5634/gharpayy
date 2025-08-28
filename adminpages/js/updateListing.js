@@ -7,7 +7,7 @@ let uploadedPhotos = [];
 function handleDeleteImage(e, photoPath, div) {
   e.stopPropagation();
 
-  fetch(`http://localhost:5000/api/listings/delete-photo`, {
+  fetch(`https://gharpayy-backend.vercel.app/api/listings/delete-photo`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ function updatePhotoPreview(photoPath) {
   div.classList.add('img-thumbnail');
 
   const img = document.createElement('img');
-  img.src = `http://localhost:5000${photoPath}`;
+  img.src = `https://gharpayy-backend.vercel.app${photoPath}`;
   img.alt = 'Uploaded Photo';
 
   div.appendChild(img);
@@ -66,7 +66,7 @@ uploadPhotoBtn.addEventListener('click', async (e) => {
   formData.append('photo', photoFile);
 
   try {
-    const response = await fetch('http://localhost:5000/api/listings/upload-photo', {
+    const response = await fetch('https://gharpayy-backend.vercel.app/api/listings/upload-photo', {
       method: 'POST',
       body: formData,
     });
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    const response = await fetch(`http://localhost:5000/api/listings/${listingId}`);
+    const response = await fetch(`https://gharpayy-backend.vercel.app/api/listings/${listingId}`);
     const listing = await response.json(); 
 
     document.getElementById("listingName").value = listing.name;
@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     try {
-      const response = await fetch(`http://localhost:5000/api/listings/${listingId}`, {
+      const response = await fetch(`https://gharpayy-backend.vercel.app/api/listings/${listingId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

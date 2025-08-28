@@ -38,7 +38,7 @@ function loadProtectedPage(page) {
     return;
   }
 
-  fetch(`http://localhost:5000/${page}`, {
+  fetch(`https://gharpayy-backend.vercel.app/${page}`, {
     method: "GET",
     headers: { Authorization: `Bearer ${token}` },
   })

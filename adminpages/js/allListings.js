@@ -28,7 +28,7 @@ async function fetchListingStats() {
 
 document.addEventListener("DOMContentLoaded", async () => {
   fetchListingStats()
-  const apiEndpoint = "http://localhost:5000/api/listings/enabled";
+  const apiEndpoint = "https://gharpayy-backend.vercel.app/api/listings/enabled";
   const tableBody = document.getElementById("table-body");
 
   try {
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.querySelectorAll(".view-btn").forEach((btn) => {
     btn.addEventListener("click", (event) => {
       const listingId = event.target.getAttribute("data-id");
-      window.location.href = `http://localhost:5000/invoice.html?id=${listingId}`;
+      window.location.href = `https://gharpayy-backend.vercel.app/invoice.html?id=${listingId}`;
     });
   });
 
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const listingId = event.target.getAttribute("data-id");
 
       try {
-        const response = await fetch(`http://localhost:5000/api/listings/${listingId}/disable`, {
+        const response = await fetch(`https://gharpayy-backend.vercel.app/api/listings/${listingId}/disable`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       try {
 
-        const response = await fetch(`http://localhost:5000/api/listings/${listingId}/enable`, {
+        const response = await fetch(`https://gharpayy-backend.vercel.app/api/listings/${listingId}/enable`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
